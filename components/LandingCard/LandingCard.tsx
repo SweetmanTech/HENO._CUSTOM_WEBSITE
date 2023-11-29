@@ -1,13 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import Image from "next/image"
 import Link from "next/link"
 
 const LandingCard = ({ title, img = "/images/landing/web3.jpg", href }) => (
   <Link href={href}>
     <a className="relative w-[500px] h-[333px] p-4 flex flex-col items-center justify-center">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${img})` }}
-      />
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={img}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          placeholder="blur"
+          blurDataURL={img}
+        />
+      </div>
       <div className="absolute inset-0 bg-black opacity-75" />
       <div className="absolute top-2 left-2 z-20">
         <p className="text-white text-xs">CCTV</p>

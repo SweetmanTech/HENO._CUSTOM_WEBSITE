@@ -16,8 +16,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        arcade: ["ArcadeCabinet", "sans-serif"],
-        sans: ["ArcadeCabinet", ...defaultTheme.fontFamily.sans],
+        dresden: ["DresdenElektronik", "sans-serif"],
+        sans: ["DresdenElektronik", ...defaultTheme.fontFamily.sans],
       },
       screens: {
         ios: "320px",

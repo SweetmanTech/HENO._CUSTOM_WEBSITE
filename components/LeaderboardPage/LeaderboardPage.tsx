@@ -19,7 +19,7 @@ const LeaderboardPage = () => {
   }, [])
 
   return (
-    <div className="w-full  mx-auto font-[ArcadeCabinet] ">
+    <div className="w-full  mx-auto font-dresden ">
       <SeoHead title="Leaderboard" />
       <div
         className="

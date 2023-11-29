@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'ArcadeCabinet';
-  src: url('/fonts/ArcadeCabinet/Arcade_Cabinet.ttf') format('truetype');
+  font-family: 'DresdenElektronik';
+  src: url('/fonts/DresdenElektronik/Dresden_Elektronik.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -20,7 +20,7 @@
 }
 html,
 body {
-  background-color: #010e17;
+  background-color: black;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,

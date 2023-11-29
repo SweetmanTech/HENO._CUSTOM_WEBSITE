@@ -1,12 +1,7 @@
-import GamePage from "../components/Pages/GamePage"
-import SeoHead from "../components/SeoHead"
-import SpotifyProvider from "../providers/SpotifyProvider"
-
-const Game = () => (
-  <SpotifyProvider>
-    <GamePage />
-    <SeoHead />
-  </SpotifyProvider>
+const Landing = () => (
+  <div className="flex flex-col justify-center items-center h-[100vh] text-white font-dresden text-7xl">
+    HENO.
+  </div>
 )
 
-export default Game
+export default Landing

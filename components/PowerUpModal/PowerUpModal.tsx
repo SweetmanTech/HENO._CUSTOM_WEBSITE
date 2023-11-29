@@ -13,7 +13,7 @@ const PowerUpModal = ({ handleClick }) => (
     modalClassName="!z-[110]"
   >
     <div
-      className="px-4 py-8 samsungS8:p-6 xs:p-8 xl:p-6 rounded-lg font-arcade
+      className="px-4 py-8 samsungS8:p-6 xs:p-8 xl:p-6 rounded-lg font-dresden
             flex-col flex justify-between items-center
             min-h-[300px]
             md:w-[692px] md:h-[528px]

@@ -7,7 +7,7 @@ const LandingPage = () => (
       <LandingCard title="MUSIC" img="/images/landing/music.jpg" href="/music" />
     </div>
     <div className="flex flex-wrap gap-3 justify-center items-center w-full">
-      <LandingCard title="WEB 3" img="/images/landing/web3.jpg" href="/web3" />
+      <LandingCard title="WEB 3" img="/images/landing/webThree.jpg" href="/web3" />
       <LandingCard title="PRESS" img="/images/landing/press.jpg" href="/press" />
     </div>
   </div>

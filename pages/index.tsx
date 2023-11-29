@@ -1,7 +1,5 @@
-const Landing = () => (
-  <div className="flex flex-col justify-center items-center h-[100vh] text-white font-dresden text-7xl">
-    HENO.
-  </div>
-)
+import LandingPage from "../components/Pages/LandingPage"
+
+const Landing = () => <LandingPage />
 
 export default Landing

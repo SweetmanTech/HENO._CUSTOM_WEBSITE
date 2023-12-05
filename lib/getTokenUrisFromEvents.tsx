@@ -7,5 +7,4 @@ const getTokenIdsFromEvents = (events, address) => {
   })
   return ownedTokenIds
 }
-
 export default getTokenIdsFromEvents

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const LandingCard = ({ title, img = "/images/landing/web3.jpg", href }) => (
+const LandingCard = ({ title, img = "/images/Landing/web3.jpg", href }) => (
   <Link href={href}>
     <div className="p-2 border-[2px] border-[#d2d2d2] cursor-pointer font-dresden">
       <div className="relative p-4 flex flex-col items-center justify-center border border-[#8c8c8c] h-full">

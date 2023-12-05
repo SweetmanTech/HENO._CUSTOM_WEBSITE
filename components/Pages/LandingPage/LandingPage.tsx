@@ -1,8 +1,10 @@
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
+import SeoHead from "../../SeoHead"
 
 const LandingPage = () => (
   <Layout type="base">
+    <SeoHead title="Landing" />
     <div className="grid grid-cols-2 gap-[20px] h-full">
       <LandingCard title="ABOUT" img="/images/landing/about.jpg" href="/about" />
       <LandingCard title="MUSIC" img="/images/landing/music.jpg" href="/music" />

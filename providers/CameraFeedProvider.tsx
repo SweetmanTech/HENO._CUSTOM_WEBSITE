@@ -4,20 +4,20 @@ import feedsData from './feeds.json'
 const CameraFeedContext = createContext(null)
 
 const CameraFeedProvider = ({ children }) => {
-    const  wrapTreeViewItems = (items) => {
-        return items.map((item) => {
-            return { ...item, items: item.items && wrapTreeViewItems(item.items) }
-        });
-    }
+  const  wrapTreeViewItems = (items) => {
+    return items.map((item) => {
+        return { ...item, items: item.items && wrapTreeViewItems(item.items) }
+    });
+  }
 
-   const feeds = useMemo(() => {
+  const feeds = useMemo(() => {
     return wrapTreeViewItems(feedsData)
-}, [feedsData])
+  }, [feedsData])
 
 
-    const onExpandChange = (event) => {
-        event.item.expanded = !event.item.expanded;
-    }
+  const onExpandChange = (event) => {
+      event.item.expanded = !event.item.expanded;
+  }
 
   const value = useMemo(
     () => ({

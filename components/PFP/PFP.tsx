@@ -24,15 +24,7 @@ const PFP = ({ address, width = 100, height = 100 }: any) => {
     init()
   }, [address])
 
-  return (
-    <Image
-      src={avatar}
-      alt="pfp"
-      width={width}
-      height={height}
-      className="rounded"
-    />
-  )
+  return <Image src={avatar} alt="pfp" width={width} height={height} className="rounded" />
 }
 
 export default PFP

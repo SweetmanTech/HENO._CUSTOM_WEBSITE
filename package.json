@@ -1,5 +1,5 @@
 {
-  "name": "cre8ors",
+  "name": "HENO-WEBSITE",
   "private": true,
   "version": "0.1.0",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint --max-warnings 0",
     "lint:fix": "next lint --fix",
-    "prettier:fix": "npx prettier --write components lib pages utils",
+    "prettier:fix": "npx prettier --write components lib pages",
     "format": "yarn run prettier:fix && yarn run lint:fix"
   },
   "dependencies": {

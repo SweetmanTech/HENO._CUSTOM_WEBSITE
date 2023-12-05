@@ -2,6 +2,7 @@ import "../styles/globals.css"
 import "@rainbow-me/rainbowkit/styles.css"
 import "react-toastify/dist/ReactToastify.css"
 import "@progress/kendo-theme-default/dist/all.css"
+import "@amir04lm26/react-modern-calendar-date-picker/lib/DatePicker.css"
 
 import type { AppProps } from "next/app"
 import { RainbowKitProvider, darkTheme, getDefaultWallets } from "@rainbow-me/rainbowkit"

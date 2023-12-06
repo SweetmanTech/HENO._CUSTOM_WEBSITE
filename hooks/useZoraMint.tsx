@@ -17,7 +17,7 @@ const useZoraMint = () => {
   const { openConnectModal } = useConnectModal()
   const mintWithRewards = async () => {
     try {
-      const modal = toast.info("Minting....")
+      const toastId = toast.info("Confirming...")
       if (!isConnected) {
         openConnectModal()
         return false
@@ -36,8 +36,11 @@ const useZoraMint = () => {
         gasLimit: 300293,
       })
       const receipt = await tx.wait()
-      toast.dismiss()
-      toast.success("collected!")
+      toast.update(toastId, {
+				render: 'Purchased',
+				type: toast.TYPE.SUCCESS,
+				autoClose: 3000,
+			});
       return receipt
     } catch (err) {
       toast.dismiss()

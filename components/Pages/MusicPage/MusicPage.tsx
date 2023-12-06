@@ -4,7 +4,7 @@ import MusicSlider from "./MusicSlider"
 
 const MusicPage = () => (
   <Layout type="base">
-    <SeoHead title="Music" />
+    <SeoHead title="HENO.MUSIC" image="/images/Landing/music.jpg" />
     <div className="p-[10px] border-[2px] border-[#d2d2d2] h-full">
       <div
         className="border-[2px] border-[#8c8c8c] text-[#d2d2d2] font-dresden py-[35px] text-center

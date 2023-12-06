@@ -3,7 +3,7 @@ import SeoHead from "../../SeoHead"
 
 const AboutPage = () => (
   <Layout type="base">
-    <SeoHead title="About" />
+    <SeoHead title="HENO.ABOUT" image="/images/Landing/about.jpg" />
     <div className="p-[10px] border-[2px] border-[#d2d2d2] h-full">
       <div
         className="border-[2px] border-[#8c8c8c] text-[#d2d2d2] font-dresden py-[35px] text-center

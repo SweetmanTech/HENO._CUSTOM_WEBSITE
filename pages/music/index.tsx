@@ -1,5 +1,5 @@
-import LandingPage from "../../components/Pages/LandingPage/LandingPage"
+import MusicPage from "../../components/Pages/MusicPage"
 
-const Music = () => <LandingPage />
+const Music = () => <MusicPage />
 
 export default Music

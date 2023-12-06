@@ -16,8 +16,10 @@ const useZoraMint = () => {
   const { isConnected, address } = useAccount()
   const { openConnectModal } = useConnectModal()
   const mintWithRewards = async () => {
+    const toastId = toast.info("Collecting...", {
+      autoClose: false
+    })
     try {
-      const toastId = toast.info("Confirming...")
       if (!isConnected) {
         openConnectModal()
         return false

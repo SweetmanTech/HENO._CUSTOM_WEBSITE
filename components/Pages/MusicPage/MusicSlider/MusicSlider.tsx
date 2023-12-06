@@ -9,7 +9,18 @@ const MusicSlider = () => (
       centeredSlides: true,
       loop: true,
       grabCursor: true,
-      slidesPerView: 4,
+      slidesPerView: 1,
+      breakpoints: {
+        1560: {
+          slidesPerView: 4,
+        },
+        1340: {
+          slidesPerView: 3,
+        },
+        1060: {
+          slidesPerView: 2,
+        },
+      },
     }}
   >
     {musics.map((music, index) => (

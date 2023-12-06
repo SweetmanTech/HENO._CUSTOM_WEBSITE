@@ -13,14 +13,20 @@ const MusicSlider = () => (
     }}
   >
     {musics.map((music, index) => (
-      <Media
-        type="image"
+      <a
+        href={music.link}
         // eslint-disable-next-line react/no-array-index-key
         key={index}
-        blurLink={music}
-        link={music}
-        containerClasses="w-[200px] aspect-[1/1] skew-y-[-5deg] rounded-[10px] overflow-hidden"
-      />
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Media
+          type="image"
+          blurLink={music.assets}
+          link={music.assets}
+          containerClasses="w-[200px] aspect-[1/1] skew-y-[-5deg] rounded-[10px] overflow-hidden"
+        />
+      </a>
     ))}
   </Slider>
 )

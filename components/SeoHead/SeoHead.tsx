@@ -14,8 +14,8 @@ const SeoHead = ({
     <meta property="og:image" content={image} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:site" content="@dacirkus" />
-    <meta name="twitter:url" content="https://dacirkus.vercel.app/" />
+    <meta name="twitter:site" content="@HENO" />
+    <meta name="twitter:url" content="https://heno-website.vercel.app/" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:image" content={image} />
     <link rel="icon" href={image} />

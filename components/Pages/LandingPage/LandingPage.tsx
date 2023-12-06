@@ -1,8 +1,10 @@
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
+import SeoHead from "../../SeoHead"
 
 const LandingPage = () => (
   <Layout type="base">
+    <SeoHead title="HENO. HOME" image="/images/Landing/press.jpg" />
     <div className="grid grid-cols-2 gap-[20px] h-full">
       <LandingCard title="ABOUT" img="/images/Landing/about.jpg" href="/about" />
       <LandingCard title="MUSIC" img="/images/Landing/music.jpg" href="/music" />

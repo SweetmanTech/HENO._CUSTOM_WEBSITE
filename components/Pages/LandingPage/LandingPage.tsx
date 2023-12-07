@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
 import SeoHead from "../../SeoHead"
+import LoadingPage from "../../LoadingPage"
 
 const LandingPage = () => {
   const [entered, setEntered] = useState(false)
@@ -31,17 +31,7 @@ const LandingPage = () => {
         <LandingCard title="PRESS" img="/images/Landing/press.jpg" href="/press" />
       </div>
 
-      {!entered && (
-        <div className="fixed top-0 left-0 w-full h-full z-50">
-          <Image
-            blurDataURL="/images/Loading/loading.png"
-            alt="SYSTEM"
-            layout="fill"
-            objectFit="cover"
-            src="/images/Loading/loading.png"
-          />
-        </div>
-      )}
+      {!entered && <LoadingPage />}
     </Layout>
   )
 }

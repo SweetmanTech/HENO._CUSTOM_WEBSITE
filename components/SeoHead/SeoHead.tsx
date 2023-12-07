@@ -1,9 +1,9 @@
 import Head from "next/head"
-import { ARTIST, TITLE } from "../../lib/consts"
+import { TITLE } from "../../lib/consts"
 
 const SeoHead = ({
-  description = `${TITLE} by ${ARTIST}`,
-  image = "https://nftstorage.link/ipfs/bafkreid7lev7j5crckmjzuavzoo2csv2hvfycewn6htoozr5c2m7mgbmjy",
+  description = `WELCOME`,
+  image = "/images/Landing/about.jpg",
   title = TITLE,
 }: any) => (
   <Head>

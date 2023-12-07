@@ -1,5 +1,5 @@
-import LandingPage from "../../components/Pages/LandingPage"
+import AboutPage from "../../components/Pages/AboutPage"
 
-const About = () => <LandingPage />
+const About = () => <AboutPage />
 
 export default About

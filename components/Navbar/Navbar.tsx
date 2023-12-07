@@ -43,6 +43,11 @@ const Navbar = () => {
           Mint
         </div>
       </Link>
+      <a href="https://play.mynameisheno.com" target="_blank" rel="noreferrer">
+        <div className="min-w-[80px] px-[10px] h-[40px] flex items-center justify-center bg-[#8c8c8c] text-[#d2d2d2] font-dresden cursor-pointer">
+          Play
+        </div>
+      </a>
     </div>
   )
 }

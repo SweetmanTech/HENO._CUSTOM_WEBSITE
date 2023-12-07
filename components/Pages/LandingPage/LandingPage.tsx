@@ -22,7 +22,7 @@ const LandingPage = () => {
 
   return (
     <Layout type="base" entered={entered}>
-      <SeoHead title="HENO. HOME" image="/images/Landing/press.jpg" />
+      <SeoHead title="HENO. HOME" />
 
       <div className={`grid grid-cols-2 gap-[20px] h-full ${!entered ? "hidden" : ""}`}>
         <LandingCard title="ABOUT" img="/images/Landing/about.jpg" href="/about" />

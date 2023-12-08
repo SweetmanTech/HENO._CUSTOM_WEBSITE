@@ -21,6 +21,9 @@ const MusicSlider = () => (
           slidesPerView: 2,
         },
       },
+      mousewheel: {
+        sensitivity: 1,
+      },
     }}
   >
     {musics.map((music, index) => (

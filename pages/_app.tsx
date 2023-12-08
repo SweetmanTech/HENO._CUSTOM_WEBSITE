@@ -14,8 +14,11 @@ import { ToastContainer } from "react-toastify"
 import { SessionProvider } from "next-auth/react"
 import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
+import Swiper, { Mousewheel } from "swiper"
 import { ThemeProvider } from "../providers/ThemeProvider"
 import { TITLE } from "../lib/consts"
+
+Swiper.use([Mousewheel])
 
 const isMainnet = !process.env.NEXT_PUBLIC_TESTNET
 const myChains = [isMainnet ? base : baseGoerli]

@@ -14,6 +14,7 @@ const LandingCard = ({ title, img = "/images/Landing/web3.jpg", href }) => (
             objectPosition="center"
             placeholder="blur"
             blurDataURL={img}
+            unoptimized
           />
         </div>
         <div className="absolute inset-0 bg-black opacity-75" />

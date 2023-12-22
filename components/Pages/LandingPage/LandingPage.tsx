@@ -3,9 +3,11 @@ import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
 import SeoHead from "../../SeoHead"
 import LoadingPage from "../../LoadingPage"
+import useIsMobile from "../../../hooks/useIsMobile"
 
 const LandingPage = () => {
   const [entered, setEntered] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     // Add event listener for the entire page
@@ -21,10 +23,13 @@ const LandingPage = () => {
   }, [entered])
 
   return (
-    <Layout type="base" entered={entered}>
+    <Layout type={isMobile ? "mobile" : "base"} entered={entered}>
       <SeoHead title="HENO. HOME" />
 
-      <div className={`grid grid-cols-2 gap-[20px] h-full ${!entered ? "hidden" : ""}`}>
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 gap-y-[10px] md:gap-[20px] 
+      h-full ${!entered ? "hidden" : ""}`}
+      >
         <LandingCard title="ABOUT" img="/images/Landing/about.jpg" href="/about" />
         <LandingCard title="MUSIC" img="/images/Landing/music.jpg" href="/music" />
         <LandingCard title="WEB 3" img="/images/Landing/webThree.jpg" href="/web3" />

@@ -1,8 +1,10 @@
 import BaseLayout from "./BaseLayout"
+import MobileLayout from "./MobileLayout"
 import { ILayout } from "./types"
 
 const layoutContainers = {
   base: BaseLayout,
+  mobile: MobileLayout,
 }
 
 interface ILayoutFactory extends ILayout {

@@ -77,7 +77,7 @@ const AboutPage = () => {
               >
                 <Icon name="youtube" color="white" raw size={16} />
               </a>
-              <a href="https://www.facebook.com/mynameisheno/">
+              <a href="https://www.facebook.com/mynameisheno/" target="_blank">
                 <Icon name="facebook" color="white" raw size={16} />
               </a>
               <a

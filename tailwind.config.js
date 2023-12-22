@@ -11,6 +11,11 @@ module.exports = {
     "./shared/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    colors: {
+      darkgray: '#5b5959',
+      gray: '#8c8c8c',
+      red: '#c52b2b'
+    },
     container: {
       center: true,
     },

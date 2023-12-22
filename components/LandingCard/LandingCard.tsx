@@ -4,7 +4,7 @@ import Link from "next/link"
 const LandingCard = ({ title, img = "/images/Landing/web3.jpg", href }) => (
   <Link href={href}>
     <div className="p-2 border-[2px] border-[#d2d2d2] cursor-pointer font-dresden">
-      <div className="relative p-4 flex flex-col items-center justify-center border border-[#8c8c8c] h-full">
+      <div className="relative p-2 md:p-4 flex flex-col items-center justify-center border border-[#8c8c8c] h-full">
         <div className="absolute inset-0 z-0">
           <Image
             src={img}
@@ -32,8 +32,8 @@ const LandingCard = ({ title, img = "/images/Landing/web3.jpg", href }) => (
         <div className="absolute bottom-2 right-2 z-20">
           <p className="text-white text-xs">12/12/2023</p>
         </div>
-        <div className="relative z-10 p-6">
-          <h2 className="text-white text-5xl font-bold mb-2">{title}</h2>
+        <div className="relative z-10 p-2 md:p-6">
+          <h2 className="text-white text-[24px] md:text-5xl font-bold mb-2">{title}</h2>
         </div>
       </div>
     </div>

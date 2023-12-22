@@ -5,8 +5,8 @@ const Navbar = () => {
   const { pathname } = useRouter()
 
   const navClasses = `md:min-w-[80px] md:px-[10px] md:h-[40px] 
-  text-[12px] samsungS8:text-[14px] md:text-[16px] py-[5px] h-full
-  md:border-none bg-[#8c8c8c]
+  text-[12px] md:text-[16px] md:py-[5px] py-[2px] h-full uppercase md:capitalize
+  md:border-none bg-darkgray
   flex items-center justify-center text-[#d2d2d2] font-dresden cursor-pointer`
 
   const isHomePage = pathname === "/"
@@ -45,7 +45,7 @@ const Navbar = () => {
           className={`${navClasses}
         ${isMintPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
         >
-          Mint
+          Web3
         </div>
       </Link>
       <a href="https://play.mynameisheno.com" target="_blank" rel="noreferrer">

@@ -5,7 +5,7 @@ const Navbar = () => {
   const { pathname } = useRouter()
 
   const navClasses = `md:min-w-[80px] md:px-[10px] md:h-[40px] 
-  text-[12px] md:text-[16px] md:py-[5px] py-[2px] h-full uppercase md:capitalize
+  text-[12px] md:text-[16px] md:py-[5px] py-[2px] h-fit uppercase md:capitalize
   md:border-none bg-darkgray
   flex items-center justify-center text-[#d2d2d2] font-dresden cursor-pointer`
 

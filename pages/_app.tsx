@@ -17,6 +17,7 @@ import { Analytics } from "@vercel/analytics/react"
 import Swiper, { Mousewheel } from "swiper"
 import { ThemeProvider } from "../providers/ThemeProvider"
 import { TITLE } from "../lib/consts"
+import PageLoadProvider from "../providers/PageLoadProvider"
 
 Swiper.use([Mousewheel])
 
@@ -54,13 +55,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           overlayBlur: "small",
         })}
       >
-        <ThemeProvider>
-          <SessionProvider>
-            <Component {...pageProps} />
-            <ToastContainer />
-            <Analytics />
-          </SessionProvider>
-        </ThemeProvider>
+        <PageLoadProvider>
+          <ThemeProvider>
+            <SessionProvider>
+              <Component {...pageProps} />
+              <ToastContainer />
+              <Analytics />
+            </SessionProvider>
+          </ThemeProvider>
+        </PageLoadProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   )

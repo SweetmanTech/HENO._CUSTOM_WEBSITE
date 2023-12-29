@@ -11,10 +11,10 @@ interface ILayoutFactory extends ILayout {
   type: keyof typeof layoutContainers
 }
 
-function Layout({ children, type, entered = false }: ILayoutFactory) {
+function Layout({ children, type }: ILayoutFactory) {
   const Container = layoutContainers[type]
 
-  return <Container entered={entered}>{children}</Container>
+  return <Container>{children}</Container>
 }
 
 export default Layout

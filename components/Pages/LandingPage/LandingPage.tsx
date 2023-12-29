@@ -1,29 +1,30 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
 import SeoHead from "../../SeoHead"
 import LoadingPage from "../../LoadingPage"
 import useIsMobile from "../../../hooks/useIsMobile"
+import { usePageLoad } from "../../../providers/PageLoadProvider"
 
 const LandingPage = () => {
-  const [entered, setEntered] = useState(false)
+  const { entered, setEntered } = usePageLoad()
+
   const isMobile = useIsMobile()
 
   useEffect(() => {
-    // Add event listener for the entire page
     const handlePageClick = () => setEntered(true)
     if (!entered) {
       window.addEventListener("click", handlePageClick)
     }
 
-    // Cleanup the event listener
     return () => {
       window.removeEventListener("click", handlePageClick)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entered])
 
   return (
-    <Layout type={isMobile ? "mobile" : "base"} entered={entered}>
+    <Layout type={isMobile ? "mobile" : "base"}>
       <SeoHead title="HENO. HOME" />
 
       <div

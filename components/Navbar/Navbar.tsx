@@ -12,6 +12,7 @@ const Navbar = () => {
   const isAboutPage = pathname.includes("/about")
   const isMusicPage = pathname.includes("/music")
   const isMintPage = pathname.includes("/mint")
+  const isPressPage = pathname.includes("/press")
 
   return (
     <div className="w-full grid grid-cols-6 md:flex gap-x-[5px] md:gap-x-[10px]">
@@ -50,7 +51,7 @@ const Navbar = () => {
       <Link href="/press">
         <div
           className={`${navClasses}
-        ${isMusicPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
+        ${isPressPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
         >
           Press
         </div>

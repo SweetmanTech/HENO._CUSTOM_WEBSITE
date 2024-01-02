@@ -1,5 +1,5 @@
-import LandingPage from "../../components/Pages/LandingPage/LandingPage"
+import PressPage from "../../components/Pages/PressPage"
 
-const Press = () => <LandingPage />
+const Press = () => <PressPage />
 
 export default Press

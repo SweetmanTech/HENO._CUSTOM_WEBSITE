@@ -14,7 +14,8 @@ module.exports = {
     colors: {
       darkgray: '#5b5959',
       gray: '#8c8c8c',
-      red: '#c52b2b'
+      red: '#c52b2b',
+      yellow: "#FFEE02"
     },
     container: {
       center: true,

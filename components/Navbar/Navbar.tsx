@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+import Link from "next/link"
 import { usePopupWidget } from "../../providers/PopupWidgetProvider"
 import PopUpWindows from "../PopUpWindows/PopUpWindows"
 
@@ -19,13 +20,14 @@ const Navbar = () => {
   return (
     <>
       <div className="w-full grid grid-cols-6 md:flex gap-x-[5px] md:gap-x-[10px]">
-        <button
-          className={`${navClasses}
-        ${isHomePage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
-          type="button"
-        >
-          Home
-        </button>
+        <Link href="/">
+          <div
+            className={`${navClasses}
+          ${isHomePage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
+          >
+            Home
+          </div>
+        </Link>
         <button
           className={`${navClasses}
         ${isAboutPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}

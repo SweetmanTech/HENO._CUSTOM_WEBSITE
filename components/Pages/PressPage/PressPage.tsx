@@ -10,9 +10,9 @@ const PressPage = () => {
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
       <SeoHead title="HENO. PRESS" image="/images/Landing/about.jpg" />
-      <div className="p-[5px] md:p-[10px] border-[2px] border-[#d2d2d2] h-full">
+      <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
         <div
-          className="border-[1px] border-darkgray text-[#d2d2d2] font-dresden 
+          className="border-[1px] border-darkgray text-gray_1 font-dresden 
           py-[35px] text-center
           flex items-center justify-center text-[16px] relative h-full
           text-[12px] md:text-[16px]"

@@ -18,6 +18,7 @@ import Swiper, { Mousewheel } from "swiper"
 import { ThemeProvider } from "../providers/ThemeProvider"
 import { TITLE } from "../lib/consts"
 import PageLoadProvider from "../providers/PageLoadProvider"
+import PopupWidgetProvider from "../providers/PopupWidgetProvider"
 
 Swiper.use([Mousewheel])
 
@@ -56,13 +57,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         })}
       >
         <PageLoadProvider>
-          <ThemeProvider>
-            <SessionProvider>
-              <Component {...pageProps} />
-              <ToastContainer />
-              <Analytics />
-            </SessionProvider>
-          </ThemeProvider>
+          <PopupWidgetProvider>
+            <ThemeProvider>
+              <SessionProvider>
+                <Component {...pageProps} />
+                <ToastContainer />
+                <Analytics />
+              </SessionProvider>
+            </ThemeProvider>
+          </PopupWidgetProvider>
         </PageLoadProvider>
       </RainbowKitProvider>
     </WagmiConfig>

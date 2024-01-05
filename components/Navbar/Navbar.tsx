@@ -1,12 +1,10 @@
-import Link from "next/link"
 import { useRouter } from "next/router"
 import { usePopupWidget } from "../../providers/PopupWidgetProvider"
-import DraggableModal from "../Core/DraggableModal"
-import AboutContent from "../Pages/AboutPage/AboutContent"
+import PopUpWindows from "../PopUpWindows/PopUpWindows"
 
 const Navbar = () => {
   const { pathname } = useRouter()
-  const { setIsOpenAbout, isOpenAbout } = usePopupWidget()
+  const { setIsOpenAbout, setIsOpenMusic, setIsOpenWeb3, setIsOpenPress } = usePopupWidget()
 
   const navClasses = `md:min-w-[80px] px-0 md:px-[10px] md:h-[40px] 
   text-[11px] md:text-[16px] md:py-[5px] py-[2px] h-fit uppercase md:capitalize
@@ -36,43 +34,35 @@ const Navbar = () => {
         >
           About
         </button>
-        <Link href="/music">
-          <div
-            className={`${navClasses}
-          ${isMusicPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
-          >
-            Music
-          </div>
-        </Link>
-        <Link href="/mint">
-          <div
-            className={`${navClasses}
-          ${isMintPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
-          >
-            Web3
-          </div>
-        </Link>
-        <Link href="/press">
-          <div
-            className={`${navClasses}
-          ${isPressPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
-          >
-            Press
-          </div>
-        </Link>
+        <button
+          onClick={() => setIsOpenMusic(true)}
+          type="button"
+          className={`${navClasses}
+        ${isMusicPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
+        >
+          Music
+        </button>
+        <button
+          type="button"
+          className={`${navClasses}
+        ${isMintPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
+          onClick={() => setIsOpenWeb3(true)}
+        >
+          Web3
+        </button>
+        <button
+          type="button"
+          onClick={() => setIsOpenPress(true)}
+          className={`${navClasses}
+        ${isPressPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
+        >
+          Press
+        </button>
         <a href="https://play.mynameisheno.com" target="_blank" rel="noreferrer">
           <div className={navClasses}>Play</div>
         </a>
       </div>
-      {isOpenAbout && (
-        <DraggableModal
-          href="/about"
-          handleClose={() => setIsOpenAbout(false)}
-          isVisible={isOpenAbout}
-        >
-          <AboutContent />
-        </DraggableModal>
-      )}
+      <PopUpWindows />
     </>
   )
 }

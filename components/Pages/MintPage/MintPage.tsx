@@ -1,20 +1,12 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit"
-import MintButton from "../../MintButton"
 import Layout from "../../Layout"
 import SeoHead from "../../SeoHead"
-import { useEthersSigner } from "../../../hooks/useEthersSigner"
+import MintContent from "./MintContent"
 
-const MintPage = () => {
-  const signer = useEthersSigner()
-
-  return (
-    <Layout type="base">
-      <SeoHead title="HENO. MINT" image="/images/Landing/webThree.jpg" />
-      <div className="p-[10px] border-[2px] border-gray_1 h-full flex items-center justify-center flex-col gap-y-[20px]">
-        {signer ? <MintButton /> : <ConnectButton />}
-      </div>
-    </Layout>
-  )
-}
+const MintPage = () => (
+  <Layout type="base">
+    <SeoHead title="HENO. MINT" image="/images/Landing/webThree.jpg" />
+    <MintContent />
+  </Layout>
+)
 
 export default MintPage

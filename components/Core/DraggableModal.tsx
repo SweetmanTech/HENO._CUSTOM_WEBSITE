@@ -23,7 +23,7 @@ const DraggableModal = ({ children, href, handleClose, isVisible }) => {
         onClick={handleClose}
       />
       <Draggable scale={1} bounds="parent">
-        <div className="w-[50%] h-[50%] relative z-[2]">
+        <div className="w-[90%] md:w-[50%] h-[50%] relative z-[2]">
           <motion.div
             className="flex flex-col bg-black
             h-full w-full 

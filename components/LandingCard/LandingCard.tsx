@@ -4,7 +4,7 @@ import Icon from "../Core/Icon"
 
 const LandingCard = ({ title, img = "/images/Landing/web3.jpg", href }) => (
   <Link href={href}>
-    <div className="p-[5px] md:p-2 border-[2px] border-[#d2d2d2] cursor-pointer font-dresden">
+    <div className="p-[5px] md:p-2 border-[2px] border-gray_1 cursor-pointer font-dresden">
       <div className="relative p-[10px] md:p-4 flex flex-col items-center justify-center border-darkgray border h-full">
         <div className="absolute inset-0 z-0">
           <Image

@@ -3,30 +3,23 @@ import { createContext, useContext, useMemo, useState } from "react"
 const PopupWidgetContext = createContext(null)
 
 const PopupWidgetProvider = ({ children }) => {
-  const [isOpenAbout, setIsOpenAbout] = useState(false)
-  const [isOpenMusic, setIsOpenMusic] = useState(false)
-  const [isOpenWeb3, setIsOpenWeb3] = useState(false)
-  const [isOpenPress, setIsOpenPress] = useState(false)
+  const [openPopupStatus, setOpenPopupState] = useState(null)
+
+  const openPopUp = (screenName) => {
+    let temp = {...openPopupStatus}
+
+    temp[screenName] = !temp[screenName]
+
+    setOpenPopupState({...temp})
+  }
 
   const value = useMemo(() => ({
-    isOpenAbout,
-    setIsOpenAbout,
-    isOpenMusic,
-    setIsOpenMusic,
-    isOpenWeb3,
-    setIsOpenWeb3,
-    isOpenPress,
-    setIsOpenPress
+    openPopupStatus,
+    openPopUp
   }), 
   [
-    isOpenAbout,
-    setIsOpenAbout,
-    isOpenMusic,
-    setIsOpenMusic,
-    isOpenWeb3,
-    setIsOpenWeb3,
-    isOpenPress,
-    setIsOpenPress
+    openPopUp,
+    openPopupStatus
   ])
 
   return <PopupWidgetContext.Provider value={value}>{children}</PopupWidgetContext.Provider>

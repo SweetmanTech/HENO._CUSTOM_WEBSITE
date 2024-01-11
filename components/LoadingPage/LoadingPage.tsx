@@ -12,7 +12,7 @@ const LoadingPage = () => {
         layout="fill"
         objectFit="cover"
         objectPosition="center center"
-        src={isMobile ? "/images/Loading/m_loading.svg" : "/images/Loading/loading.png"}
+        src={isMobile ? "/images/Loading/m_loading.png" : "/images/Loading/loading.png"}
       />
     </div>
   )

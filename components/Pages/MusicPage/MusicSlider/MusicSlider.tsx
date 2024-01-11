@@ -2,7 +2,7 @@ import Media from "../../../Core/Media"
 import Slider from "../../../Core/Slider"
 import musics from "../musics.json"
 
-const MusicSlider = () => (
+const MusicSlider = ({ isPopup }) => (
   <Slider
     className="!overflow-hidden w-full !py-[40px]"
     sliderProps={{
@@ -12,13 +12,13 @@ const MusicSlider = () => (
       slidesPerView: 1,
       breakpoints: {
         1560: {
-          slidesPerView: 4,
+          slidesPerView: isPopup ? 2 : 4,
         },
         1340: {
-          slidesPerView: 3,
+          slidesPerView: isPopup ? 2 : 4,
         },
         1060: {
-          slidesPerView: 2,
+          slidesPerView: isPopup ? 2 : 4,
         },
       },
       mousewheel: {

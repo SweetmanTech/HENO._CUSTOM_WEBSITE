@@ -12,6 +12,8 @@ const errorMessages = [
 ]
 
 const handleTxError = (error: any) => {
+  // eslint-disable-next-line no-console
+  console.error(error)
   const primaryError = error?.data?.message
   const nestedError = error?.error?.message
   const fallbackError = error.message

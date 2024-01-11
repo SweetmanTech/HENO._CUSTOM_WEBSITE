@@ -4,7 +4,7 @@ import musics from "../musics.json"
 
 const MusicSlider = ({ isPopup }) => (
   <Slider
-    className="!overflow-hidden w-full !py-[40px]"
+    className="!overflow-hidden w-full !py-[20px]"
     sliderProps={{
       centeredSlides: true,
       loop: true,

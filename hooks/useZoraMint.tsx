@@ -1,4 +1,4 @@
-import { BigNumber, Contract, utils } from "ethers"
+import { Contract, utils } from "ethers"
 import { useAccount } from "wagmi"
 import { useConnectModal } from "@rainbow-me/rainbowkit"
 import { toast } from "react-toastify"

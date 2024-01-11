@@ -32,7 +32,6 @@ const useZoraMint = () => {
       const mintReferral = process.env.NEXT_PUBLIC_MINT_REFERRAL
       const minter = "0x04e2516a2c207e84a1839755675dfd8ef6302f0a"
       const tokenId = 1
-      console.log("SWEETS ADDRESS", address)
       const minterArguments = utils.defaultAbiCoder.encode(
         ["address", "string"],
         [address, comment],

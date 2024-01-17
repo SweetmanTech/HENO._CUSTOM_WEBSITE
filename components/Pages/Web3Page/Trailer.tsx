@@ -1,22 +1,14 @@
-import useIsMobile from "../../../hooks/useIsMobile"
 import Media from "../../Core/Media"
 
 const Trailer = ({ isPopup = false }) => {
-  const isMobile = useIsMobile()
-
-  const desktopLensSize = isPopup ? "w-[40px]" : "w-[55px]"
-  const desktopZoraSize = isPopup ? "w-[30px]" : "w-[40px]"
-  const desktopSoundSize = isPopup ? "w-[30px]" : "w-[40px]"
-  const desktopCatalogSize = isPopup ? "w-[40px]" : "w-[50px]"
-
-  const mobileLensSize = "w-[25px]"
-  const mobileZoraSize = "w-[18px]"
-  const mobileSoundSize = "w-[18px]"
-  const mobileCatalogSize = "w-[20px]"
+  const lensIconSize = isPopup ? "w-[20px] md:w-[40px]" : "w-[25px] md:w-[55px]"
+  const zoraIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
+  const soundIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
+  const catalogIconSize = isPopup ? "w-[18px] md:w-[40px]" : "w-[20px] md:w-[50px]"
 
   return (
     <div className="h-fit max-h-full overflow-y-auto w-full">
-      <div className="flex flex-col items-center gap-y-[40px]">
+      <div className="flex flex-col items-center gap-y-[15px] md:gap-y-[40px]">
         <Media
           type="image"
           containerClasses={`${isPopup ? "w-[150px]" : "w-[250px]"} aspect-[880/1586]`}
@@ -30,7 +22,7 @@ const Trailer = ({ isPopup = false }) => {
                 type="image"
                 link="/images/Web3/LENS.svg"
                 blurLink="/images/Web3/LENS.png"
-                containerClasses={`aspect-[516/327] ${isMobile ? mobileLensSize : desktopLensSize}`}
+                containerClasses={`aspect-[516/327] ${lensIconSize}`}
               />
               <p className="text-white text-[12px] md:text-[20px]">LENS</p>
             </div>
@@ -41,7 +33,7 @@ const Trailer = ({ isPopup = false }) => {
                 type="image"
                 link="/images/Web3/ZORA.svg"
                 blurLink="/images/Web3/ZORA.png"
-                containerClasses={`aspect-[1/1] ${isMobile ? mobileZoraSize : desktopZoraSize}`}
+                containerClasses={`aspect-[1/1] ${zoraIconSize}`}
               />
               <p className="text-white text-[12px] md:text-[20px]">ZORA</p>
             </div>
@@ -52,7 +44,7 @@ const Trailer = ({ isPopup = false }) => {
                 type="image"
                 link="/images/Web3/SOUND.svg"
                 blurLink="/images/Web3/SOUND.png"
-                containerClasses={`aspect-[1/1] ${isMobile ? mobileSoundSize : desktopSoundSize}`}
+                containerClasses={`aspect-[1/1] ${soundIconSize}`}
               />
               <p className="text-white text-[12px] md:text-[20px]">SOUND.XYZ</p>
             </div>
@@ -63,9 +55,7 @@ const Trailer = ({ isPopup = false }) => {
                 type="image"
                 link="/images/Web3/CATALOG.svg"
                 blurLink="/images/Web3/CATALOG.png"
-                containerClasses={`aspect-[357/278] ${
-                  isMobile ? mobileCatalogSize : desktopCatalogSize
-                }`}
+                containerClasses={`aspect-[357/278] ${catalogIconSize}`}
               />
               <p className="text-white text-[12px] md:text-[20px]">CATALOG</p>
             </div>

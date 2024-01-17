@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-full grid grid-cols-6 md:flex gap-x-[5px] md:gap-x-[10px]">
+      <div className="w-full grid grid-cols-5 md:flex gap-x-[5px] md:gap-x-[10px]">
         <Link href="/">
           <div
             className={`${navClasses}
@@ -61,9 +61,6 @@ const Navbar = () => {
         >
           Press
         </button>
-        <a href="https://play.mynameisheno.com" target="_blank" rel="noreferrer">
-          <div className={navClasses}>Play</div>
-        </a>
       </div>
       <PopUpWindows />
     </>

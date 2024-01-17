@@ -1,5 +1,5 @@
 import RecBar from "../../RecBar"
-import Icon from "../../Core/Icon"
+import SocialLinks from "../../SocialLinks"
 
 const AboutContent = () => (
   <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
@@ -42,44 +42,7 @@ const AboutContent = () => (
               "Neybors" is on the lighter side of surveillance however the music further explores how
               surveillance affects all of us in a myriad of ways & why Heno. is tired of it.`}
         </p>
-        <div className="w-full flex items-center justify-center gap-x-[5px] pt-[10px] md:hidden">
-          <a
-            href="https://open.spotify.com/artist/3mr6jeVpPIXBp8IMMb60aD"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name="spotify" color="white" raw size={16} />
-          </a>
-          <a href="https://tidal.com/browse/artist/9582021" target="_blank" rel="noreferrer">
-            <Icon name="tidal" color="white" raw size={16} />
-          </a>
-          <a
-            href="https://music.apple.com/us/artist/heno/1352075132"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name="apple" color="white" raw size={16} />
-          </a>
-          <a href="https://soundcloud.com/mynameisheno" target="_blank" rel="noreferrer">
-            <Icon name="soundcloud" color="white" raw size={16} />
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UC3cM8JX39gmiNi7vSQX9KXQ"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name="youtube" color="white" raw size={16} />
-          </a>
-          <a href="https://www.facebook.com/mynameisheno/" target="_blank" rel="noreferrer">
-            <Icon name="facebook" color="white" raw size={16} />
-          </a>
-          <a href="https://www.instagram.com/mynameisheno/?hl=en" target="_blank" rel="noreferrer">
-            <Icon name="instagram" color="white" raw size={16} />
-          </a>
-          <a href="https://twitter.com/mynameisheno?lang=en" target="_blank" rel="noreferrer">
-            <Icon name="twitter" color="white" raw size={16} />
-          </a>
-        </div>
+        <SocialLinks />
       </div>
       <RecBar />
     </div>

@@ -1,4 +1,5 @@
 import Media from "../../Core/Media"
+import TrailerMintButton from "./TrailerMintButton"
 
 const Trailer = ({ isPopup = false }) => {
   const lensIconSize = isPopup ? "w-[20px] md:w-[40px]" : "w-[25px] md:w-[55px]"
@@ -9,12 +10,7 @@ const Trailer = ({ isPopup = false }) => {
   return (
     <div className="h-fit max-h-full overflow-y-auto w-full">
       <div className="flex flex-col items-center gap-y-[15px] md:gap-y-[40px]">
-        <Media
-          type="image"
-          containerClasses={`${isPopup ? "w-[150px]" : "w-[250px]"} aspect-[880/1586]`}
-          link="/images/Web3/heno.png"
-          blurLink="/images/Web3/heno.png"
-        />
+        <TrailerMintButton isPopup={isPopup} />
         <div className="flex gap-x-[15px] md:gap-x-[40px] items-end">
           <a href="https://hey.xyz/u/mynameisheno" target="_blank" rel="noreferrer">
             <div className="flex gap-y-[5px] items-center flex-col cursor-pointer">

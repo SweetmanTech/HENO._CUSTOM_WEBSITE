@@ -6,7 +6,6 @@ import "@progress/kendo-theme-default/dist/all.css"
 import type { AppProps } from "next/app"
 import { RainbowKitProvider, darkTheme, getDefaultWallets } from "@rainbow-me/rainbowkit"
 import { configureChains, createConfig, WagmiConfig } from "wagmi"
-import { base, baseGoerli } from "@wagmi/core/chains"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
 import { ToastContainer } from "react-toastify"
@@ -15,18 +14,16 @@ import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import Swiper, { Mousewheel } from "swiper"
 import { ThemeProvider } from "../providers/ThemeProvider"
-import { TITLE } from "../lib/consts"
+import { CHAIN, TITLE } from "../lib/consts"
 import PageLoadProvider from "../providers/PageLoadProvider"
 import PopupWidgetProvider from "../providers/PopupWidgetProvider"
 
 Swiper.use([Mousewheel])
 
-const isMainnet = !process.env.NEXT_PUBLIC_TESTNET
-const myChains = [isMainnet ? base : baseGoerli]
-const { chains, publicClient, webSocketPublicClient } = configureChains(myChains, [
-  alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
-  publicProvider(),
-])
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [CHAIN],
+  [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }), publicProvider()],
+)
 
 const { connectors } = getDefaultWallets({
   appName: TITLE,

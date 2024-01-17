@@ -9,16 +9,14 @@ const TrailerMintButton = ({ isPopup = false }) => {
   const { checkNetwork } = useCheckNetwork()
 
   const handleClick = () => {
-    console.log("SWEETS CONNECT WALLET / MINT")
     if (!signer) {
       openConnectModal()
-      return
+      return false
     }
     if (!checkNetwork()) {
-      return
+      return false
     }
-
-    console.log("SWEETS MINT")
+    return "ADD ONCHAIN MAGIC"
   }
 
   return (

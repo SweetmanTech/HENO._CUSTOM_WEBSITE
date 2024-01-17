@@ -12,7 +12,7 @@ export const SCREENS = {
     MUSIC_SCREEN: {
         screenName: "MUSIC_SCREEN",
         href: "/music",
-        screen: <MusicContent />
+        screen: <MusicContent isPopup />
     },
     WEB3_SCREEN: {
         screenName: "WEB3_SCREEN",

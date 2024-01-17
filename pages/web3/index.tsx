@@ -1,5 +1,5 @@
-import LandingPage from "../../components/Pages/LandingPage/LandingPage"
+import Web3Page from "../../components/Pages/Web3Page"
 
-const Web3 = () => <LandingPage />
+const Web3 = () => <Web3Page />
 
 export default Web3

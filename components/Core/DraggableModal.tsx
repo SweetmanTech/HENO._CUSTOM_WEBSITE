@@ -43,10 +43,10 @@ const DraggableModal = ({ children, href, handleClose, isVisible }) => {
             <div className="flex justify-start py-[5px] gap-x-[20px]">
               <div className="flex items-center gap-x-[5px]">
                 <button type="button" onClick={handleClose} onTouchStart={handleClose}>
-                  <Icon name="close" className="text-gray_1" size={20} />
+                  <Icon name="close" className="text-gray_1" size={20} raw />
                 </button>
                 <button type="button" onClick={handleExpand} onTouchStart={handleExpand}>
-                  <Icon name="expand" className="text-gray_1" size={20} />
+                  <Icon name="expand" className="text-gray_1" size={20} raw />
                 </button>
               </div>
               <div className="flex-grow flex flex-col gap-y-[8px] justify-center">

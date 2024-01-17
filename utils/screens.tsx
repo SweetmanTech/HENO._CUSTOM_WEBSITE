@@ -1,7 +1,7 @@
 import MusicContent from "../components/Pages/MusicPage/MusicContent";
 import AboutContent from "../components/Pages/AboutPage/AboutContent";
 import PressContent from "../components/Pages/PressPage/PressContent";
-import MintContent from "../components/Pages/MintPage/MintContent";
+import Web3Content from "../components/Pages/Web3Page/Web3Content";
 
 export const SCREENS = {
     ABOUT_SCREEN : {
@@ -16,8 +16,8 @@ export const SCREENS = {
     },
     WEB3_SCREEN: {
         screenName: "WEB3_SCREEN",
-        href: "/mint",
-        screen: <MintContent />
+        href: "/web3",
+        screen: <Web3Content isPopup/>
     },
     PRESS_SCREEN: {
         screenName: "PRESS_SCREEN",

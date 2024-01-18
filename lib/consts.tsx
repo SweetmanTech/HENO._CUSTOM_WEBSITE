@@ -1,6 +1,6 @@
 import { base, baseGoerli } from "@wagmi/core/chains"
 
-export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? baseGoerli : base
+export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? base : base
 export const CHAIN_ID = CHAIN.id
 export const SPOTIFY_CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID
 export const SPOTIFY_CLIENT_SECRET = process.env.NEXT_PUBLIC_CLIENT_SECRET

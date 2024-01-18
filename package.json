@@ -43,7 +43,7 @@
     "next": "^12.2.2",
     "next-api-decorators": "^2.0.0",
     "next-auth": "^4.20.1",
-    "onchain-magic": "^0.2.5",
+    "onchain-magic": "^0.2.6",
     "prop-types": "^15.6.0",
     "react": "^18.1.0",
     "react-confetti": "^6.1.0",

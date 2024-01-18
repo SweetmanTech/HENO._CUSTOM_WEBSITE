@@ -18,8 +18,8 @@ const TrailerMintButton = ({ isPopup = false }) => {
 
   useEffect(() => {
     const init = async () => {
-      const response = await sale(zoraDropAddress, 1)
-      console.log("SWEETS response", response)
+      const response = await sale(zoraDropAddress, "1")
+      console.log("SWEETS response", response?.pricePerToken?.toString?.())
     }
     init()
   }, [sale, zoraDropAddress])

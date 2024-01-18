@@ -1,7 +1,6 @@
 import { useConnectModal } from "@rainbow-me/rainbowkit"
 import { useAccount } from "wagmi"
-import { use1155Collect, useZoraFixedPriceSaleStrategy } from "onchain-magic"
-import { useEffect } from "react"
+import { use1155Collect } from "onchain-magic"
 import { useEthersSigner } from "../../../hooks/useEthersSigner"
 import Media from "../../Core/Media"
 import useCheckNetwork from "../../../hooks/useCheckNetwork"
@@ -14,15 +13,6 @@ const TrailerMintButton = ({ isPopup = false }) => {
   const zoraDropAddress = process.env.NEXT_PUBLIC_DROP_ADDRESS
   const salesConfig = "0xFF8B0f870ff56870Dc5aBd6cB3E6E89c8ba2e062"
   const { mintWithRewards } = use1155Collect(zoraDropAddress, salesConfig)
-  const { sale } = useZoraFixedPriceSaleStrategy(salesConfig)
-
-  useEffect(() => {
-    const init = async () => {
-      const response = await sale(zoraDropAddress, "1")
-      console.log("SWEETS response", response?.pricePerToken?.toString?.())
-    }
-    init()
-  }, [sale, zoraDropAddress])
 
   const handleClick = async () => {
     if (!signer) {
@@ -39,8 +29,7 @@ const TrailerMintButton = ({ isPopup = false }) => {
       mintReferralReward,
       "I'm Tired of Being Hypersurveilled",
     )
-    console.log("SWEETS RESPONSE", response)
-    return "ADD ONCHAIN MAGIC"
+    return response
   }
 
   return (

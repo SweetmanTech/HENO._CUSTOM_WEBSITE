@@ -9340,10 +9340,10 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
-onchain-magic@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/onchain-magic/-/onchain-magic-0.2.2.tgz#0ad817a3a7e8e1612e9af6b34f732a19f0afb1ee"
-  integrity sha512-/esVMPyWU/rUw99hbsV0wBpWBGjW3Pr0Tv+gDagtU63o352fOwoCu8u030Il+vINmcBa+HUf4KmRiJ9jF+Oo/g==
+onchain-magic@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/onchain-magic/-/onchain-magic-0.2.5.tgz#9d8c3531b9f3c2f5fc06f76efef3bde34495cf4d"
+  integrity sha512-Lx7JvtCpUQ3VRov40mxWSw+rGJ+hKYMlvGbMd2qAL2hej5CK8doH/bMvQRixuF/yks4PqK6bqj4ExoUjflKhgQ==
   dependencies:
     "@zoralabs/zorb" "^0.1.0"
     ethers "^5.0.0"

@@ -1,6 +1,6 @@
-import { base } from "@wagmi/core/chains"
+import { base, sepolia } from "@wagmi/core/chains"
 
-export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? base : base
+export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? sepolia : base
 export const CHAIN_ID = CHAIN.id
 export const SPOTIFY_CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID
 export const SPOTIFY_CLIENT_SECRET = process.env.NEXT_PUBLIC_CLIENT_SECRET
@@ -10,3 +10,5 @@ export const RELIEF_TRACK_ID = "5aDNHHNXc16VktqV1gSq23"
 export const HENO_ARTIST_ID = "3mr6jeVpPIXBp8IMMb60aD"
 export const TITLE = ""
 export const ARTIST = "HENO."
+export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET
+export const BASE_MINTER = "0xFF8B0f870ff56870Dc5aBd6cB3E6E89c8ba2e062"

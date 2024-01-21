@@ -7183,9 +7183,9 @@ dotenv@^16.0.3:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.2.tgz#3cb611ce5a63002dbabf7c281bc331f69d28f03f"
   integrity sha512-HTlk5nmhkm8F6JcdXvHIzaorzCoziNQT9mGxLPVXW8wJF1TiGSL60ZGB4gHWabHOaMmWmhvk2/lPHfnBiT78AQ==
 
-"ds-test@git+https://github.com/dapphub/ds-test.git#cd98eff28324bfac652e63a239a60632a761790b":
+"ds-test@https://github.com/dapphub/ds-test#cd98eff28324bfac652e63a239a60632a761790b":
   version "1.0.0"
-  resolved "git+https://github.com/dapphub/ds-test.git#cd98eff28324bfac652e63a239a60632a761790b"
+  resolved "https://github.com/dapphub/ds-test#cd98eff28324bfac652e63a239a60632a761790b"
 
 duplexify@^4.1.2:
   version "4.1.2"
@@ -8373,9 +8373,9 @@ foreground-child@^3.1.0:
     cross-spawn "^7.0.0"
     signal-exit "^4.0.1"
 
-"forge-std@git+https://github.com/foundry-rs/forge-std.git#705263c95892a906d7af65f0f73ce8a4a0c80b80":
+"forge-std@https://github.com/foundry-rs/forge-std#705263c95892a906d7af65f0f73ce8a4a0c80b80":
   version "1.6.0"
-  resolved "git+https://github.com/foundry-rs/forge-std.git#705263c95892a906d7af65f0f73ce8a4a0c80b80"
+  resolved "https://github.com/foundry-rs/forge-std#705263c95892a906d7af65f0f73ce8a4a0c80b80"
 
 form-data@^4.0.0:
   version "4.0.0"
@@ -10992,10 +10992,10 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
-onchain-magic@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/onchain-magic/-/onchain-magic-0.3.1.tgz#f4640016cc00fee10c9dde1a2d4b2722711a7562"
-  integrity sha512-THO5AGvLsiISz+ILDc2HUd1TEBC5rBDnp3hwwQwsVS2li0D2w4uh8uNZi77mD60TwUDKP1+ff+n6O4jRuEggKw==
+onchain-magic@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/onchain-magic/-/onchain-magic-0.4.4.tgz#f94fa0041b491efa6ba8d6146172fed8ce285e83"
+  integrity sha512-qd6O/1PdsUSuwKsKoZeHLOjqDbLBvuAngy+B/7K7SjRRxNYRRBtbo6Wqz/rW/NQBkfaauruvCM9cWs0e+KHG5g==
   dependencies:
     "@zoralabs/protocol-deployments" "^0.0.12"
     "@zoralabs/universal-minter" "^0.2.14"

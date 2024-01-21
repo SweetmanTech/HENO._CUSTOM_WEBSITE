@@ -4,7 +4,6 @@ import { useEthersSigner } from "../../../hooks/useEthersSigner"
 import Media from "../../Core/Media"
 import useCheckNetwork from "../../../hooks/useCheckNetwork"
 import { BASE_MINTER, CHAIN_ID, IS_TESTNET } from "../../../lib/consts"
-// import useCollection from "../../../hooks/useCollection"
 
 const TrailerMintButton = ({ isPopup = false }) => {
   const signer = useEthersSigner()

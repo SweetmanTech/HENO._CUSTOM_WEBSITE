@@ -3,14 +3,18 @@ import { useCollection } from "onchain-magic"
 import { useEthersSigner } from "../../../hooks/useEthersSigner"
 import Media from "../../Core/Media"
 import useCheckNetwork from "../../../hooks/useCheckNetwork"
-import { CHAIN_ID } from "../../../lib/consts"
+import { BASE_MINTER, CHAIN_ID, IS_TESTNET } from "../../../lib/consts"
 
 const TrailerMintButton = ({ isPopup = false }) => {
   const signer = useEthersSigner()
   const { openConnectModal } = useConnectModal()
   const { checkNetwork } = useCheckNetwork()
   const zoraDropAddress = process.env.NEXT_PUBLIC_DROP_ADDRESS
-  const { collectAll } = useCollection(zoraDropAddress, CHAIN_ID)
+  const { collectAll } = useCollection({
+    collectionAddress: zoraDropAddress,
+    chainId: CHAIN_ID,
+    minterOverride: IS_TESTNET ? "" : BASE_MINTER,
+  })
 
   const handleClick = async () => {
     if (!signer) {

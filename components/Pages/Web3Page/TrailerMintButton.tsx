@@ -1,10 +1,10 @@
 import { useConnectModal } from "@rainbow-me/rainbowkit"
 import { useCollection } from "onchain-magic"
-
 import { useEthersSigner } from "../../../hooks/useEthersSigner"
 import Media from "../../Core/Media"
 import useCheckNetwork from "../../../hooks/useCheckNetwork"
-import { CHAIN_ID } from "../../../lib/consts"
+import { CHAIN_ID, IS_TESTNET } from "../../../lib/consts"
+// import useCollection from "../../../hooks/useCollection"
 
 const TrailerMintButton = ({ isPopup = false }) => {
   const signer = useEthersSigner()
@@ -16,7 +16,7 @@ const TrailerMintButton = ({ isPopup = false }) => {
   const { drops, collectAll, priceValues } = useCollection({
     collectionAddress: zoraDropAddress,
     chainId: CHAIN_ID,
-    minterOverride: "0xFF8B0f870ff56870Dc5aBd6cB3E6E89c8ba2e062" as any,
+    minterOverride: IS_TESTNET ? "" : ("0xFF8B0f870ff56870Dc5aBd6cB3E6E89c8ba2e062" as any),
   })
   console.log("SWEETS drops", drops)
 

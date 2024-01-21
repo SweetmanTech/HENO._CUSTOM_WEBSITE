@@ -10,3 +10,4 @@ export const RELIEF_TRACK_ID = "5aDNHHNXc16VktqV1gSq23"
 export const HENO_ARTIST_ID = "3mr6jeVpPIXBp8IMMb60aD"
 export const TITLE = ""
 export const ARTIST = "HENO."
+export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET

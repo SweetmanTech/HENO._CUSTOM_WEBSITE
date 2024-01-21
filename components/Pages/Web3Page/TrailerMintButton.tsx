@@ -1,7 +1,5 @@
 import { useConnectModal } from "@rainbow-me/rainbowkit"
-import { useAccount } from "wagmi"
 import { useCollection } from "onchain-magic"
-
 import { useEthersSigner } from "../../../hooks/useEthersSigner"
 import Media from "../../Core/Media"
 import useCheckNetwork from "../../../hooks/useCheckNetwork"
@@ -11,9 +9,7 @@ const TrailerMintButton = ({ isPopup = false }) => {
   const signer = useEthersSigner()
   const { openConnectModal } = useConnectModal()
   const { checkNetwork } = useCheckNetwork()
-  const { address } = useAccount()
   const zoraDropAddress = process.env.NEXT_PUBLIC_DROP_ADDRESS
-  const salesConfig = "0xFF8B0f870ff56870Dc5aBd6cB3E6E89c8ba2e062"
   const { collectAll } = useCollection(zoraDropAddress, CHAIN_ID)
 
   const handleClick = async () => {
@@ -24,7 +20,6 @@ const TrailerMintButton = ({ isPopup = false }) => {
     if (!checkNetwork()) {
       return false
     }
-    const mintReferralReward = "0x69775D64D3770D93498063F7891467A80145AFa5"
     const response = await collectAll()
     return response
   }

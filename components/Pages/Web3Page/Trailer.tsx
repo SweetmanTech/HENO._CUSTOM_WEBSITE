@@ -1,5 +1,5 @@
-import CollectAllButton from "../../CollectAllButton"
 import Media from "../../Core/Media"
+import Buttons from "./Buttons"
 import ZoraDropPlayers from "./ZoraDropPlayers"
 
 const Trailer = ({ isPopup = false }) => {
@@ -13,7 +13,7 @@ const Trailer = ({ isPopup = false }) => {
       <div className="flex flex-col items-center gap-y-[15px] md:gap-y-[20px]">
         <div className="flex flex-col gap-y-[10px]">
           <ZoraDropPlayers isPopup={isPopup} />
-          <CollectAllButton />
+          <Buttons />
         </div>
         <div className="flex gap-x-[15px] md:gap-x-[40px] items-end">
           <a href="https://hey.xyz/u/mynameisheno" target="_blank" rel="noreferrer">

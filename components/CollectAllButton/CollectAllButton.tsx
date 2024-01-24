@@ -8,7 +8,7 @@ const CollectAllButton = ({ className = "" }) => {
       type="button"
       onTouchStart={onClick}
       onClick={onClick}
-      className={`${className} bg-darkgray py-[3px]`}
+      className={`${className} bg-darkgray py-[3px] px-[5px]`}
     >
       Collect All
     </button>

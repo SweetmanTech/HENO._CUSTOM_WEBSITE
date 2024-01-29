@@ -8,7 +8,7 @@ const AboutPage = () => {
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
-      <SeoHead title="HENO. ABOUT" image="/images/Landing/about.jpg" />
+      <SeoHead title="HENO. ABOUT" image="/images/Landing/about.jpeg" />
       <AboutContent />
     </Layout>
   )

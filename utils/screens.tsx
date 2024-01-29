@@ -2,6 +2,7 @@ import MusicContent from "../components/Pages/MusicPage/MusicContent";
 import AboutContent from "../components/Pages/AboutPage/AboutContent";
 import PressContent from "../components/Pages/PressPage/PressContent";
 import Web3Content from "../components/Pages/Web3Page/Web3Content";
+import ContactContent from "../components/Pages/ContactPage/ContactContent";
 
 export const SCREENS = {
     ABOUT_SCREEN : {
@@ -23,5 +24,10 @@ export const SCREENS = {
         screenName: "PRESS_SCREEN",
         href: "/press",
         screen: <PressContent />
+    },
+    CONTACT_SCREEN: {
+        screenName: "CONTACT_SCREEN",
+        href: "/contact",
+        screen: <ContactContent />
     }
 }

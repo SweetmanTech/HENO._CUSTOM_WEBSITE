@@ -7,6 +7,7 @@ const useVideoPlayer = (nextDrop, selectedDrop) => {
       if (ref.current) {
         const video = ref.current
         video.play()
+        video.muted = true
         video.addEventListener("ended", nextDrop)
       }
   

@@ -12,3 +12,4 @@ export const TITLE = ""
 export const ARTIST = "HENO."
 export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET
 export const BASE_MINTER = "0xFF8B0f870ff56870Dc5aBd6cB3E6E89c8ba2e062"
+export const HENO_EMAIL = "enjoy@onchainmagic.xyz"

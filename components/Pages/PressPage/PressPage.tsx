@@ -7,7 +7,7 @@ const PressPage = () => {
   const isMobile = useIsMobile()
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
-      <SeoHead title="HENO. PRESS" image="/images/Landing/about.jpg" />
+      <SeoHead title="HENO. PRESS" image="/images/Landing/press.jpeg" />
       <PressContent />
     </Layout>
   )

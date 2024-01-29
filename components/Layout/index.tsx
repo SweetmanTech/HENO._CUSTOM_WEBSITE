@@ -1,3 +1,4 @@
+import ContactProvider from "../../providers/ContactProvider"
 import BaseLayout from "./BaseLayout"
 import MobileLayout from "./MobileLayout"
 import { ILayout } from "./types"
@@ -14,7 +15,11 @@ interface ILayoutFactory extends ILayout {
 function Layout({ children, type }: ILayoutFactory) {
   const Container = layoutContainers[type]
 
-  return <Container>{children}</Container>
+  return (
+    <ContactProvider>
+      <Container>{children}</Container>
+    </ContactProvider>
+  )
 }
 
 export default Layout

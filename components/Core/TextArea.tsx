@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useEffect } from "react"
+import { ChangeEventHandler, useEffect, useRef, useState } from "react"
 import { useFormContext } from "react-hook-form"
 
 interface ITextArea {
@@ -24,6 +24,8 @@ function TextArea({
   clasNameError,
   rows = 1,
 }: ITextArea) {
+  const [isFocused, setIsFocused] = useState(false)
+  const textareaRef = useRef() as any
   const formContext = useFormContext()
   const isFullyHooked = name && hookToForm && formContext
 
@@ -34,6 +36,16 @@ function TextArea({
       formContext.setValue(name, value)
     }
   }, [value, name, formContext, hookToForm])
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      if (isFocused) {
+        textareaRef.current.focus()
+        return
+      }
+      textareaRef.current.blur()
+    }
+  }, [isFocused])
 
   return (
     <div className="relative">
@@ -56,10 +68,15 @@ function TextArea({
           : {})}
         name={name}
         rows={rows}
+        onTouchStart={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        ref={textareaRef}
       />
 
       {isFullyHooked && fieldError && fieldError?.message && (
-        <p className="text-red text-left text-[12px]">{fieldError?.message as string}</p>
+        <p className="text-red text-[9.5px] md:text-[12px] text-left text-[12px]">
+          {fieldError?.message as string}
+        </p>
       )}
     </div>
   )

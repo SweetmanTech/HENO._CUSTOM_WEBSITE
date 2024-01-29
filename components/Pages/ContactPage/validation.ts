@@ -14,6 +14,6 @@ export const validation = JoiBase.object({
     .email({ tlds: { allow: false } })
     .messages({
       "string.empty": `Please fill out this field.`,
-      "string.email": `Please enter a valid email address.`,
+      "string.email": `Please enter a valid email.`,
     }),
 })

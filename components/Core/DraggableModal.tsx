@@ -27,7 +27,7 @@ const DraggableModal = ({ children, href, handleClose, isVisible }) => {
           <motion.div
             className="flex flex-col bg-black
             h-full w-full 
-            px-[20px] pt-[5px] pb-[20px]"
+            p-[10px] md:px-[20px] py-[10px]"
             animate={{
               opacity: isVisible ? 1 : 0,
               scale: isVisible ? 1 : 0.5,
@@ -40,7 +40,7 @@ const DraggableModal = ({ children, href, handleClose, isVisible }) => {
               duration: 0.2,
             }}
           >
-            <div className="flex justify-start py-[5px] gap-x-[20px]">
+            <div className="flex justify-start pb-[10px] gap-x-[20px]">
               <div className="flex items-center gap-x-[5px]">
                 <button type="button" onClick={handleClose} onTouchStart={handleClose}>
                   <Icon name="close" className="text-gray_1" size={20} raw />

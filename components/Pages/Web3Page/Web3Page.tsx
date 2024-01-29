@@ -8,7 +8,7 @@ const Web3Page = () => {
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
-      <SeoHead title="HENO. WEB3" image="/images/Landing/webThree.jpg" />
+      <SeoHead title="HENO. WEB3" image="/images/Landing/web3.jpeg" />
       <Web3Content />
     </Layout>
   )

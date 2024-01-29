@@ -9,8 +9,8 @@ const BaseLayout = ({ children }: ILayout) => {
   const { entered } = usePageLoad()
 
   return (
-    <div className="w-screen h-screen p-[50px]">
-      <div className="flex flex-col h-[calc(100vh-145px)] gap-y-[5px]">
+    <div className="w-screen h-screen py-[30px] px-[50px]">
+      <div className="flex flex-col h-[calc(100vh-105px)] gap-y-[5px]">
         {entered && <Navbar />}
         <div className="flex flex-grow h-full gap-x-[20px]">
           <div className="flex-grow w-[calc(100vw-490px)]">{children}</div>

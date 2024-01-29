@@ -8,7 +8,7 @@ const MusicPage = () => {
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
-      <SeoHead title="HENO. MUSIC" image="/images/Landing/music.jpg" />
+      <SeoHead title="HENO. MUSIC" image="/images/Landing/music.png" />
       <MusicContent />
     </Layout>
   )

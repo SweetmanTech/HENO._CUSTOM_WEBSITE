@@ -35,22 +35,22 @@ const LandingPage = () => {
       >
         <LandingCard
           title="ABOUT"
-          img="/images/Landing/about.jpg"
+          img="/images/Landing/about.jpeg"
           onClick={() => openPopUp(SCREENS.ABOUT_SCREEN.screenName)}
         />
         <LandingCard
           title="MUSIC"
-          img="/images/Landing/music.jpg"
+          img="/images/Landing/music.png"
           onClick={() => openPopUp(SCREENS.MUSIC_SCREEN.screenName)}
         />
         <LandingCard
           title="WEB 3"
-          img="/images/Landing/webThree.jpg"
+          img="/images/Landing/web3.jpeg"
           onClick={() => openPopUp(SCREENS.WEB3_SCREEN.screenName)}
         />
         <LandingCard
           title="PRESS"
-          img="/images/Landing/press.jpg"
+          img="/images/Landing/press.jpeg"
           onClick={() => openPopUp(SCREENS.PRESS_SCREEN.screenName)}
         />
       </div>

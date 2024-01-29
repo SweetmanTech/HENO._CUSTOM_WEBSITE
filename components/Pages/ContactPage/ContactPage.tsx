@@ -8,7 +8,7 @@ const ContactPage = () => {
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
-      <SeoHead title="HENO. Contact" image="/images/Landing/webThree.jpg" />
+      <SeoHead title="HENO. Contact" image="/images/Landing/web3.jpeg" />
       <ContactContent />
     </Layout>
   )

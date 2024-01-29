@@ -61,6 +61,14 @@ const Navbar = () => {
         >
           Press
         </button>
+        <button
+          type="button"
+          onClick={() => openPopUp(SCREENS.CONTACT_SCREEN.screenName)}
+          className={`${navClasses}
+        ${isPressPage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
+        >
+          Contact
+        </button>
       </div>
       <PopUpWindows />
     </>

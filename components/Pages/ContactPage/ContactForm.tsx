@@ -1,5 +1,4 @@
 import { useRef } from "react"
-import { SCREEN } from "../../../hooks/useContactData"
 import { useContact } from "../../../providers/ContactProvider"
 import Form from "../../Core/Form"
 import Input from "../../Core/Input"
@@ -19,7 +18,7 @@ const ContactForm = () => {
     setEmailAddress,
     message,
     setMessage,
-    setScreenStatus,
+    handleSubmit,
   } = useContact()
 
   const inputClasses = `!w-[200px] md:!w-[400px] !text-[10px] md:!text-[20px] h-[32px] md:h-[44px]`
@@ -34,7 +33,7 @@ const ContactForm = () => {
   return (
     <Form
       className="w-full flex flex-col gap-y-[20px] items-end"
-      onSubmit={() => setScreenStatus(SCREEN.SUCCESS)}
+      onSubmit={handleSubmit}
       validationSchema={validation}
     >
       <div className="w-[200px] md:w-[400px] text-[10px] md:text-[22px]">
@@ -91,7 +90,6 @@ const ContactForm = () => {
             type="submit"
             ref={buttonRef}
             onTouchStart={handleClick}
-            onClick={handleClick}
           >
             <p className={labelClasses}>Submit</p>
           </button>

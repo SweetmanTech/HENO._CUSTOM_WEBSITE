@@ -39,6 +39,12 @@ const SocialLinks = () => {
       <a href="https://twitter.com/mynameisheno?lang=en" target="_blank" rel="noreferrer">
         <Icon name="twitter" color="white" raw size={iconSize} />
       </a>
+      <a href="https://mynameisheno.bandcamp.com" target="_blank" rel="noreferrer">
+        <Icon name="bandcamp" color="white" raw size={iconSize} />
+      </a>
+      <a href="https://audiomack.com/mynameisheno" target="_blank" rel="noreferrer">
+        <Icon name="audiomack" color="white" raw size={iconSize} />
+      </a>
     </div>
   )
 }

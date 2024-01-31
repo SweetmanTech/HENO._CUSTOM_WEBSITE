@@ -5,6 +5,11 @@ import Web3Content from "../components/Pages/Web3Page/Web3Content";
 import ContactContent from "../components/Pages/ContactPage/ContactContent";
 
 export const SCREENS = {
+    LANDON_SCEEN: {
+        screenName: "LANDON_SCEEN",
+        href: '/web3',
+        screen: <Web3Content isPopup isLandOn />
+    },
     ABOUT_SCREEN : {
         screenName: "ABOUT_SCREEN",
         href: "/about",

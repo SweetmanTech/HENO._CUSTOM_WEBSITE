@@ -4,7 +4,7 @@ const PopupWidgetContext = createContext(null)
 
 const PopupWidgetProvider = ({ children }) => {
   const [openPopupStatus, setOpenPopupState] = useState({
-    WEB3_SCREEN: true
+    LANDON_SCEEN: true
   })
 
   const openPopUp = (screenName) => {

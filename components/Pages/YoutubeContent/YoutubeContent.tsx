@@ -22,7 +22,6 @@ const YoutubeContent = () => {
             width={isMobile ? 250 : 500}
             height={isMobile ? 125 : 250}
             playing
-            muted
           />
         </div>
         <RecBar />

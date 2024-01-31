@@ -1,31 +1,18 @@
-import ReactPlayer from "react-player"
-import useIsMobile from "../../../hooks/useIsMobile"
 import CollectAllButton from "../../CollectAllButton"
 import Media from "../../Core/Media"
 import ZoraDropPlayers from "./ZoraDropPlayers"
 
-const Trailer = ({ isPopup = false, isLandOn = false }) => {
+const Trailer = ({ isPopup = false }) => {
   const lensIconSize = isPopup ? "w-[20px] md:w-[40px]" : "w-[25px] md:w-[55px]"
   const zoraIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
   const soundIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
   const catalogIconSize = isPopup ? "w-[18px] md:w-[40px]" : "w-[20px] md:w-[50px]"
-  const isMobile = useIsMobile()
 
   return (
     <div className="h-fit max-h-full overflow-y-auto w-full">
       <div className="flex flex-col items-center gap-y-[15px] md:gap-y-[20px]">
         <div className="flex flex-col gap-y-[10px]">
-          {isLandOn ? (
-            <ReactPlayer
-              url="https://www.youtube.com/watch?v=fOmSYA2Y42s&feature=youtu.be"
-              width={isMobile ? 250 : 400}
-              height={isMobile ? 125 : 200}
-              playing
-              muted
-            />
-          ) : (
-            <ZoraDropPlayers isPopup={isPopup} />
-          )}
+          <ZoraDropPlayers isPopup={isPopup} />
           <CollectAllButton />
         </div>
         <div className="flex gap-x-[15px] md:gap-x-[40px] items-end">

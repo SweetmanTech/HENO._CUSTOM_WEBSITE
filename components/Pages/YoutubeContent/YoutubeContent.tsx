@@ -1,8 +1,8 @@
-import Trailer from "./Trailer"
+import ReactPlayer from "react-player"
 import RecBar from "../../RecBar"
 import useIsMobile from "../../../hooks/useIsMobile"
 
-const Web3Content = ({ isPopup = false }) => {
+const YoutubeContent = () => {
   const isMobile = useIsMobile()
 
   return (
@@ -13,23 +13,17 @@ const Web3Content = ({ isPopup = false }) => {
             flex items-center justify-center text-[16px] relative h-full
             text-[12px] md:text-[16px] relative"
       >
-        {!isMobile && (
-          <div
-            className={`absolute top-[50px] left-[10%] text-left ${
-              isPopup ? "text-[14px]" : "text-[16px]"
-            }`}
-          >
-            1/9/24 <br />
-            HYPERSURVEILLED <br />
-            ART COLLECTION <br />
-            TRAILER
-          </div>
-        )}
         <div
           className="h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
             px-[15px] md:px-[20px] flex flex-col gap-y-[5px] md:gap-y-[20px]"
         >
-          <Trailer isPopup={isPopup} />
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=fOmSYA2Y42s&feature=youtu.be"
+            width={isMobile ? 250 : 500}
+            height={isMobile ? 125 : 250}
+            playing
+            muted
+          />
         </div>
         <RecBar />
       </div>
@@ -37,4 +31,4 @@ const Web3Content = ({ isPopup = false }) => {
   )
 }
 
-export default Web3Content
+export default YoutubeContent

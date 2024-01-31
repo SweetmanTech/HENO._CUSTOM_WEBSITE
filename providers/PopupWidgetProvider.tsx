@@ -3,7 +3,9 @@ import { createContext, useContext, useMemo, useState } from "react"
 const PopupWidgetContext = createContext(null)
 
 const PopupWidgetProvider = ({ children }) => {
-  const [openPopupStatus, setOpenPopupState] = useState(null)
+  const [openPopupStatus, setOpenPopupState] = useState({
+    WEB3_SCREEN: true
+  })
 
   const openPopUp = (screenName) => {
     let temp = {...openPopupStatus}

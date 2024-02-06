@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 import { usePopupWidget } from "../../providers/PopupWidgetProvider"
 import PopUpWindows from "../PopUpWindows/PopUpWindows"
-import { SCREENS } from "../../utils/screens"
+import { SCREENS } from "../../lib/screens"
 
 const Navbar = () => {
   const { pathname } = useRouter()

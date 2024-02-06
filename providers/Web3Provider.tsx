@@ -4,7 +4,7 @@ import useZoraDropPlayers from "../hooks/useZoraDropPlayers"
 const Web3DropsContext = createContext(null)
 
 const Web3Provider = ({ children }) => {
-    const zoraDropData = useZoraDropPlayers()
+  const zoraDropData = useZoraDropPlayers()
 
   const value = useMemo(
     () => ({

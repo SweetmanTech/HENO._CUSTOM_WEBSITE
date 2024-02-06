@@ -2,7 +2,7 @@ import Trailer from "./Trailer"
 import RecBar from "../../RecBar"
 import useIsMobile from "../../../hooks/useIsMobile"
 import { useWeb3Drops } from "../../../providers/Web3Provider"
-import data from "../../../utils/zora-drops"
+import data from "../../../lib/zora-drops"
 
 const Web3Content = ({ isPopup = false }) => {
   const isMobile = useIsMobile()

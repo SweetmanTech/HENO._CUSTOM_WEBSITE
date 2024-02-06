@@ -1,5 +1,5 @@
 import VideoPlayer from "../../VideoPlayer"
-import data from "../../../utils/zora-drops"
+import data from "../../../lib/zora-drops"
 import { useWeb3Drops } from "../../../providers/Web3Provider"
 
 const ZoraDropPlayers = ({ isPopup }) => {

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import data from "../utils/zora-drops"
+import data from "../lib/zora-drops"
 
 const useZoraDropPlayers = () => {
   const [selectedDrop, setSelectedDrop] = useState(0)

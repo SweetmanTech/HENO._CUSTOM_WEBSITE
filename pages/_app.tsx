@@ -18,6 +18,7 @@ import { ThemeProvider } from "../providers/ThemeProvider"
 import { CHAIN, TITLE } from "../lib/consts"
 import PageLoadProvider from "../providers/PageLoadProvider"
 import PopupWidgetProvider from "../providers/PopupWidgetProvider"
+import Web3Provider from "../providers/Web3Provider"
 
 Swiper.use([Mousewheel])
 
@@ -72,9 +73,11 @@ function MyApp({ Component, pageProps }: AppProps) {
             <ThemeProvider>
               <SessionProvider>
                 <PrivyProvider appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID} config={privyConfig}>
-                  <Component {...pageProps} />
-                  <ToastContainer />
-                  <Analytics />
+                  <Web3Provider>
+                    <Component {...pageProps} />
+                    <ToastContainer />
+                    <Analytics />
+                  </Web3Provider>
                 </PrivyProvider>
               </SessionProvider>
             </ThemeProvider>

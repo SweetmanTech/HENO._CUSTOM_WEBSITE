@@ -1,9 +1,12 @@
 import Trailer from "./Trailer"
 import RecBar from "../../RecBar"
 import useIsMobile from "../../../hooks/useIsMobile"
+import { useWeb3Drops } from "../../../providers/Web3Provider"
+import data from "../../../utils/zora-drops"
 
 const Web3Content = ({ isPopup = false }) => {
   const isMobile = useIsMobile()
+  const { selectedDrop } = useWeb3Drops()
 
   return (
     <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
@@ -15,14 +18,13 @@ const Web3Content = ({ isPopup = false }) => {
       >
         {!isMobile && (
           <div
-            className={`absolute top-[50px] left-[10%] text-left ${
+            className={`absolute top-[35px] left-1 text-left md:left-2 capitalize ${
               isPopup ? "text-[14px]" : "text-[16px]"
             }`}
           >
-            1/9/24 <br />
-            HYPERSURVEILLED <br />
-            ART COLLECTION <br />
-            TRAILER
+            {data[selectedDrop].startedAt} <br />
+            {data[selectedDrop].title} <br />
+            By {data[selectedDrop].artist}
           </div>
         )}
         <div

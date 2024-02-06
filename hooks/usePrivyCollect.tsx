@@ -34,9 +34,7 @@ const usePrivyCollect = () => {
     const onClick = async () => {
         if (!drops.length) return
         const calls = getMulticallFromDrops(drops, priceValues, mintData)
-
         if (!prepare()) return
-
         try {
             const response = await aggregate3Value(calls, totalPrice.toString())
             const { error } = response as any

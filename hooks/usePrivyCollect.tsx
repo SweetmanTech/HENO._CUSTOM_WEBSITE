@@ -6,6 +6,7 @@ import useConnectedWallet from "./useConnectedWallet"
 import usePrivySendTransaction from "./usePrivySendTransaction"
 import abi from "@/lib/abi/zora-UniversalMinter.json"
 import { toast } from "react-toastify"
+import handleTxError from "@/lib/handleTxError"
 
 const usePrivyCollect = () => {
   const zoraDropAddress = process.env.NEXT_PUBLIC_DROP_ADDRESS
@@ -22,7 +23,7 @@ const usePrivyCollect = () => {
 
   const onClick = async () => {
     try {
-      if (!drops.lenth && !priceValues.length) return
+      if (!drops.lenth || !priceValues.length || !connectedWallet) return
       if (!prepare()) return
 
       const targets = Array(drops.length).fill(zoraDropAddress)
@@ -37,8 +38,6 @@ const usePrivyCollect = () => {
         BigNumber.from(0),
       )
 
-      console.log(totalValue.toHexString())
-
       await sendTransaction(
         universalMinter,
         CHAIN_ID,
@@ -52,7 +51,7 @@ const usePrivyCollect = () => {
 
       toast.success("collected!")
     } catch (error) {
-      console.log(error, "ZIAD")
+      handleTxError(error)
     }
   }
 

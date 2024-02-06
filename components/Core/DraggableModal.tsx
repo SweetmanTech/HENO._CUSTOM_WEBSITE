@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import Draggable from "react-draggable"
 import { useRouter } from "next/router"
 import { motion } from "framer-motion"

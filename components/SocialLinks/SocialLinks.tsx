@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import useIsMobile from "../../hooks/useIsMobile"
 import Icon from "../Core/Icon"
 

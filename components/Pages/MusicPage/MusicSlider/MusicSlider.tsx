@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import Media from "../../../Core/Media"
 import Slider from "../../../Core/Slider"
 import musics from "../musics.json"

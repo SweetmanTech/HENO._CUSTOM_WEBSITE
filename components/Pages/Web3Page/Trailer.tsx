@@ -1,8 +1,11 @@
-import CollectAllButton from "../../CollectAllButton"
+import { usePrivy } from "@privy-io/react-auth"
+import LogoutButton from "@/components/LogoutButton"
+import CollectAllButton from "@/components/CollectAllButton"
 import Media from "../../Core/Media"
 import ZoraDropPlayers from "./ZoraDropPlayers"
 
 const Trailer = ({ isPopup = false }) => {
+  const { authenticated } = usePrivy()
   const lensIconSize = isPopup ? "w-[20px] md:w-[40px]" : "w-[25px] md:w-[55px]"
   const zoraIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
   const soundIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
@@ -14,6 +17,7 @@ const Trailer = ({ isPopup = false }) => {
         <div className="flex flex-col gap-y-[10px]">
           <ZoraDropPlayers isPopup={isPopup} />
           <CollectAllButton />
+          {authenticated && <LogoutButton />}
         </div>
         <div className="flex gap-x-[15px] md:gap-x-[40px] items-end">
           <a href="https://hey.xyz/u/mynameisheno" target="_blank" rel="noreferrer">

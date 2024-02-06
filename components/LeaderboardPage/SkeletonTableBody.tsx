@@ -1,4 +1,4 @@
-/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/no-array-index-key, jsx-a11y/control-has-associated-label */
 const SkeletonTableBody = () => (
   <tbody>
     {Array(10)

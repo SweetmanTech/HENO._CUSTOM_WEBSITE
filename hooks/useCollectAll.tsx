@@ -3,6 +3,7 @@ import { useCollection } from "onchain-magic"
 import { useEthersSigner } from "../hooks/useEthersSigner"
 import useCheckNetwork from "../hooks/useCheckNetwork"
 import { BASE_MINTER, CHAIN_ID, IS_TESTNET } from "../lib/consts"
+import { toast } from "react-toastify"
 
 const useCollectAll = () => {
   const signer = useEthersSigner()
@@ -24,6 +25,7 @@ const useCollectAll = () => {
       return false
     }
     const response = await collectAll()
+    toast.success("collected!")
     return response
   }
 

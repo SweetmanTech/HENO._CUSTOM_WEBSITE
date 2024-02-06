@@ -51,9 +51,6 @@ const privyConfig: PrivyClientConfig = {
   embeddedWallets: {
     createOnLogin: "all-users",
   },
-  fiatOnRamp: {
-    useSandbox: true,
-  },
 }
 
 function MyApp({ Component, pageProps }: AppProps) {

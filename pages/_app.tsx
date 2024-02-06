@@ -45,7 +45,7 @@ const privyConfig: PrivyClientConfig = {
   appearance: {
     theme: "dark",
     accentColor: "#FFFFFF",
-    logo: "/images/Landing/about.jpeg",
+    logo: "/images/Landing/music.png",
   },
   embeddedWallets: {
     createOnLogin: "all-users",

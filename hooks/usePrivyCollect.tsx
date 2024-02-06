@@ -29,7 +29,7 @@ const usePrivyCollect = () => {
   }, [priceValues])
 
   const onClick = async () => {
-    if (!drops.length) return
+    if (!drops.length && !priceValues.length) return
     const calls = getMulticallFromDrops(drops, priceValues, mintData)
     if (!prepare()) return
     try {

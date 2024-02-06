@@ -1,11 +1,15 @@
 import PrivyCollectButton from "@/components/PrivyCollectButton"
 import { usePrivy } from "@privy-io/react-auth"
 import LogoutButton from "@/components/LogoutButton"
+import CollectAllButton from "@/components/CollectAllButton"
+import LoginButton from "@/components/LoginButton"
+import { useUserProvider } from "@/providers/UserProvider"
 import Media from "../../Core/Media"
 import ZoraDropPlayers from "./ZoraDropPlayers"
 
 const Trailer = ({ isPopup = false }) => {
   const { authenticated } = usePrivy()
+  const { isLoggedByEmail } = useUserProvider()
   const lensIconSize = isPopup ? "w-[20px] md:w-[40px]" : "w-[25px] md:w-[55px]"
   const zoraIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
   const soundIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
@@ -16,7 +20,16 @@ const Trailer = ({ isPopup = false }) => {
       <div className="flex flex-col items-center gap-y-[15px] md:gap-y-[20px]">
         <div className="flex flex-col gap-y-[10px]">
           <ZoraDropPlayers isPopup={isPopup} />
-          <PrivyCollectButton />
+          {/* eslint-disable-next-line no-nested-ternary */}
+          {authenticated ? (
+            isLoggedByEmail ? (
+              <PrivyCollectButton />
+            ) : (
+              <CollectAllButton />
+            )
+          ) : (
+            <LoginButton />
+          )}
           {authenticated && <LogoutButton />}
         </div>
         <div className="flex gap-x-[15px] md:gap-x-[40px] items-end">

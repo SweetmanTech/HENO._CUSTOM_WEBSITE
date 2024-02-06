@@ -14,6 +14,7 @@ import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import Swiper, { Mousewheel } from "swiper"
 import { type PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth"
+import UserProvider from "@/providers/UserProvider"
 import { ThemeProvider } from "../providers/ThemeProvider"
 import { CHAIN, TITLE } from "../lib/consts"
 import PageLoadProvider from "../providers/PageLoadProvider"
@@ -41,7 +42,7 @@ const wagmiClient = createConfig({
 })
 
 const privyConfig: PrivyClientConfig = {
-  loginMethods: ["email"],
+  loginMethods: ["email", "wallet"],
   appearance: {
     theme: "dark",
     accentColor: "#FFFFFF",
@@ -70,19 +71,21 @@ function MyApp({ Component, pageProps }: AppProps) {
         })}
       >
         <PrivyProvider appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID} config={privyConfig}>
-          <PageLoadProvider>
-            <PopupWidgetProvider>
-              <ThemeProvider>
-                <SessionProvider>
-                  <Web3Provider>
-                    <Component {...pageProps} />
-                    <ToastContainer />
-                    <Analytics />
-                  </Web3Provider>
-                </SessionProvider>
-              </ThemeProvider>
-            </PopupWidgetProvider>
-          </PageLoadProvider>
+          <UserProvider>
+            <PageLoadProvider>
+              <PopupWidgetProvider>
+                <ThemeProvider>
+                  <SessionProvider>
+                    <Web3Provider>
+                      <Component {...pageProps} />
+                      <ToastContainer />
+                      <Analytics />
+                    </Web3Provider>
+                  </SessionProvider>
+                </ThemeProvider>
+              </PopupWidgetProvider>
+            </PageLoadProvider>
+          </UserProvider>
         </PrivyProvider>
       </RainbowKitProvider>
     </WagmiConfig>

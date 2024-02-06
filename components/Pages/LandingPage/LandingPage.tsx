@@ -5,7 +5,7 @@ import SeoHead from "../../SeoHead"
 import LoadingPage from "../../LoadingPage"
 import useIsMobile from "../../../hooks/useIsMobile"
 import { usePageLoad } from "../../../providers/PageLoadProvider"
-import { SCREENS } from "../../../utils/screens"
+import { SCREENS } from "../../../lib/screens"
 import { usePopupWidget } from "../../../providers/PopupWidgetProvider"
 
 const LandingPage = () => {

@@ -1,15 +1,15 @@
 import VideoPlayer from "../../VideoPlayer"
-import useZoraDropPlayers from "../../../hooks/useZoraDropPlayers"
-import data from "../../../utils/zora-drops"
+import data from "../../../lib/zora-drops"
+import { useWeb3Drops } from "../../../providers/Web3Provider"
 
 const ZoraDropPlayers = ({ isPopup }) => {
-  const { nextDrop, selectedDrop } = useZoraDropPlayers()
+  const { nextDrop, selectedDrop } = useWeb3Drops()
 
   return (
     <>
-      {data.map((src, i) => (
+      {data.map((item, i) => (
         <VideoPlayer
-          src={src}
+          src={item.ipfs}
           // eslint-disable-next-line react/no-array-index-key
           key={i}
           isActive={selectedDrop === i}

@@ -8,12 +8,9 @@ const PageLoadProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       entered,
-      setEntered
+      setEntered,
     }),
-    [
-      entered,
-      setEntered
-    ],
+    [entered, setEntered],
   )
 
   return <PageLoadContext.Provider value={value}>{children}</PageLoadContext.Provider>

@@ -1,7 +1,8 @@
 import { useConnectModal } from "@rainbow-me/rainbowkit"
 import { useEthersSigner, useCollection } from "onchain-magic"
-import useCheckNetwork from "./useCheckNetwork"
-import { BASE_MINTER, CHAIN_ID, IS_TESTNET } from "../lib/consts"
+import useCheckNetwork from "@/hooks/useCheckNetwork"
+import { BASE_MINTER, CHAIN_ID, IS_TESTNET } from "@/lib/consts"
+import { toast } from "react-toastify"
 
 const useCollectAll = () => {
   const signer = useEthersSigner()
@@ -24,6 +25,7 @@ const useCollectAll = () => {
       return false
     }
     const response = await collectAll()
+    toast.success("collected!")
     return response
   }
 

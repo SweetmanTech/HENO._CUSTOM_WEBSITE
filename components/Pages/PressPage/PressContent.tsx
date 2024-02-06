@@ -1,4 +1,4 @@
-import data from "../../../utils/press-data"
+import data from "../../../lib/press-data"
 import RecBar from "../../RecBar"
 
 const PressContent = () => (

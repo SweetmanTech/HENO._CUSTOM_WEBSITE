@@ -12,4 +12,7 @@ export const TITLE = ""
 export const ARTIST = "HENO."
 export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET
 export const BASE_MINTER = "0xFF8B0f870ff56870Dc5aBd6cB3E6E89c8ba2e062"
+export const SEPOLIA_MINTER = "0x1Cd1C1f3b8B779B50Db23155F2Cb244FCcA06B21"
 export const HENO_EMAIL = "enjoy@onchainmagic.xyz"
+export const GAS_LIMIT_PER_DROP = "175000"
+export const MULTICALL_3_ADDRESS = "0xcA11bde05977b3631167028862bE2a173976CA11"

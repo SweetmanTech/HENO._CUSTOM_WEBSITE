@@ -1,12 +1,13 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import useIsMobile from "../../hooks/useIsMobile"
 import Icon from "../Core/Icon"
 
-const SocialLinks = () => {
+const SocialLinks = ({ className = "" }) => {
   const isMobile = useIsMobile()
 
   const iconSize = isMobile ? 16 : 20
   return (
-    <div className="w-full flex items-center justify-center gap-x-[5px]">
+    <div className={`w-full flex items-center justify-center gap-x-[5px] ${className}`}>
       <a
         href="https://open.spotify.com/artist/3mr6jeVpPIXBp8IMMb60aD"
         target="_blank"

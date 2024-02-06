@@ -8,11 +8,9 @@ const ContactProvider = ({ children }) => {
 
   const value = useMemo(
     () => ({
-        ...contactData
+      ...contactData,
     }),
-    [
-        contactData
-    ],
+    [contactData],
   )
 
   return <ContactContext.Provider value={value}>{children}</ContactContext.Provider>

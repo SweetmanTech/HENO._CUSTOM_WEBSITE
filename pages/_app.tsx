@@ -13,6 +13,7 @@ import { SessionProvider } from "next-auth/react"
 import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import Swiper, { Mousewheel } from "swiper"
+import { type PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth"
 import { ThemeProvider } from "../providers/ThemeProvider"
 import { CHAIN, TITLE } from "../lib/consts"
 import PageLoadProvider from "../providers/PageLoadProvider"
@@ -38,6 +39,20 @@ const wagmiClient = createConfig({
   webSocketPublicClient,
 })
 
+const privyConfig: PrivyClientConfig = {
+  loginMethods: ["email"],
+  appearance: {
+    theme: "dark",
+    accentColor: "#FFFFFF",
+  },
+  embeddedWallets: {
+    createOnLogin: "all-users",
+  },
+  fiatOnRamp: {
+    useSandbox: true,
+  },
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiClient}>
@@ -56,9 +71,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           <PopupWidgetProvider>
             <ThemeProvider>
               <SessionProvider>
-                <Component {...pageProps} />
-                <ToastContainer />
-                <Analytics />
+                <PrivyProvider appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID} config={privyConfig}>
+                  <Component {...pageProps} />
+                  <ToastContainer />
+                  <Analytics />
+                </PrivyProvider>
               </SessionProvider>
             </ThemeProvider>
           </PopupWidgetProvider>

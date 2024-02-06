@@ -5,12 +5,13 @@ import { BigNumber } from "ethers"
 import useConnectedWallet from "./useConnectedWallet"
 import usePrivySendTransaction from "./usePrivySendTransaction"
 import abi from "@/lib/abi/zora-UniversalMinter.json"
+import { toast } from "react-toastify"
 
 const usePrivyCollect = () => {
   const zoraDropAddress = process.env.NEXT_PUBLIC_DROP_ADDRESS
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
-  const { universalMinter, mintBatchWithoutFees } = useUniversalMinter(CHAIN_ID)
+  const { universalMinter } = useUniversalMinter(CHAIN_ID)
   const { drops, priceValues } = useCollection({
     collectionAddress: zoraDropAddress,
     chainId: CHAIN_ID,
@@ -36,16 +37,20 @@ const usePrivyCollect = () => {
         BigNumber.from(0),
       )
 
+      console.log(totalValue.toHexString())
+
       await sendTransaction(
         universalMinter,
         CHAIN_ID,
         abi,
         "mintBatchWithoutFees",
         [targets, calldatas, priceValues],
-        totalValue,
+        totalValue.toHexString(),
         "HENO.WEB3",
         "COLLECT ALL",
       )
+
+      toast.success("collected!")
     } catch (error) {
       console.log(error, "ZIAD")
     }

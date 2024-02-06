@@ -4,6 +4,7 @@ import Navbar from "../../Navbar"
 import CameraFeed from "../../CameraFeed"
 import CameraFeedProvider from "../../../providers/CameraFeedProvider"
 import { usePageLoad } from "../../../providers/PageLoadProvider"
+import SocialLinks from "../../SocialLinks"
 
 const BaseLayout = ({ children }: ILayout) => {
   const { entered } = usePageLoad()
@@ -11,7 +12,12 @@ const BaseLayout = ({ children }: ILayout) => {
   return (
     <div className="w-screen h-screen py-[30px] px-[50px]">
       <div className="flex flex-col h-[calc(100vh-105px)] gap-y-[5px]">
-        {entered && <Navbar />}
+        {entered && (
+          <div className="flex justify-between">
+            <Navbar />
+            <SocialLinks className="!w-auto !gap-x-[5px]" />
+          </div>
+        )}
         <div className="flex flex-grow h-full gap-x-[20px]">
           <div className="flex-grow w-[calc(100vw-490px)]">{children}</div>
           {entered && (

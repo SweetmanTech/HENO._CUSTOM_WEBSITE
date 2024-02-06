@@ -4,25 +4,24 @@ const PopupWidgetContext = createContext(null)
 
 const PopupWidgetProvider = ({ children }) => {
   const [openPopupStatus, setOpenPopupState] = useState({
-    LANDON_SCEEN: true
+    LANDON_SCEEN: true,
   })
 
   const openPopUp = (screenName) => {
-    let temp = {...openPopupStatus}
+    let temp = { ...openPopupStatus }
 
     temp[screenName] = !temp[screenName]
 
-    setOpenPopupState({...temp})
+    setOpenPopupState({ ...temp })
   }
 
-  const value = useMemo(() => ({
-    openPopupStatus,
-    openPopUp
-  }), 
-  [
-    openPopUp,
-    openPopupStatus
-  ])
+  const value = useMemo(
+    () => ({
+      openPopupStatus,
+      openPopUp,
+    }),
+    [openPopUp, openPopupStatus],
+  )
 
   return <PopupWidgetContext.Provider value={value}>{children}</PopupWidgetContext.Provider>
 }

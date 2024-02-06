@@ -1,6 +1,6 @@
 import { usePopupWidget } from "../../providers/PopupWidgetProvider"
 import DraggableModal from "../Core/DraggableModal"
-import { SCREENS } from "../../utils/screens"
+import { SCREENS } from "../../lib/screens"
 
 const PopUpWindows = () => {
   const { openPopupStatus, openPopUp } = usePopupWidget()

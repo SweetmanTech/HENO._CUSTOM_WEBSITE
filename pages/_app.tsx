@@ -17,6 +17,7 @@ import { ThemeProvider } from "../providers/ThemeProvider"
 import { CHAIN, TITLE } from "../lib/consts"
 import PageLoadProvider from "../providers/PageLoadProvider"
 import PopupWidgetProvider from "../providers/PopupWidgetProvider"
+import Web3Provider from "../providers/Web3Provider"
 
 Swiper.use([Mousewheel])
 
@@ -56,9 +57,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           <PopupWidgetProvider>
             <ThemeProvider>
               <SessionProvider>
-                <Component {...pageProps} />
-                <ToastContainer />
-                <Analytics />
+                <Web3Provider>
+                  <Component {...pageProps} />
+                  <ToastContainer />
+                  <Analytics />
+                </Web3Provider>
               </SessionProvider>
             </ThemeProvider>
           </PopupWidgetProvider>

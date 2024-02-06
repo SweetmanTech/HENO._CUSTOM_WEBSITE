@@ -23,7 +23,7 @@ const usePrivyCollect = () => {
 
   const onClick = async () => {
     try {
-      if (!drops.lenth || !priceValues.length) return
+      if (!drops.length || !priceValues.length) return
       if (!prepare()) return
 
       const targets = Array(drops.length).fill(zoraDropAddress)

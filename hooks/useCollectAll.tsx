@@ -12,7 +12,7 @@ const useCollectAll = () => {
   const { collectAll, priceValues } = useCollection({
     collectionAddress: zoraDropAddress,
     chainId: CHAIN_ID,
-    minterOverride: IS_TESTNET ? "0x1Cd1C1f3b8B779B50Db23155F2Cb244FCcA06B21" : BASE_MINTER,
+    minterOverride: IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
   })
   console.log("SWEETS priceValues", priceValues)
 

@@ -20,7 +20,7 @@ const MusicContent = ({ isPopup = false }) => {
           {isMobile ? <MusicList /> : <MusicSlider isPopup={isPopup} />}
           <SocialLinks />
         </div>
-        <RecBar />
+        <RecBar cctvNumber={2} />
       </div>
     </div>
   )

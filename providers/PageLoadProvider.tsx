@@ -1,16 +1,19 @@
+import useLiveTime from "@/hooks/useLiveTime"
 import { createContext, useContext, useMemo, useState } from "react"
 
 const PageLoadContext = createContext(null)
 
 const PageLoadProvider = ({ children }) => {
   const [entered, setEntered] = useState(false)
+  const { liveTime } = useLiveTime()
 
   const value = useMemo(
     () => ({
       entered,
       setEntered,
+      liveTime,
     }),
-    [entered, setEntered],
+    [entered, setEntered, liveTime],
   )
 
   return <PageLoadContext.Provider value={value}>{children}</PageLoadContext.Provider>

@@ -1,9 +1,9 @@
-import useLiveTime from "@/hooks/useLiveTime"
 import getDateTimeString from "@/lib/getDateTimeString"
+import { usePageLoad } from "@/providers/PageLoadProvider"
 import Icon from "../Core/Icon"
 
 const RecBar = ({ cctvNumber = 0 }) => {
-  const { liveTime } = useLiveTime()
+  const { liveTime } = usePageLoad()
 
   return (
     <>

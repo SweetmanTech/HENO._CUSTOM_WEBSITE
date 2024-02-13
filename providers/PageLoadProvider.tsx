@@ -1,9 +1,11 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react"
+import useLiveTime from "@/hooks/useLiveTime"
+import { createContext, useContext, useMemo, useState, useEffect } from "react"
 
 const PageLoadContext = createContext(null)
 
 const PageLoadProvider = ({ children }) => {
   const [entered, setEntered] = useState(false)
+  const { liveTime } = useLiveTime()
 
   useEffect(() => {
     const handlePageClick = () => setEntered(true)
@@ -22,8 +24,9 @@ const PageLoadProvider = ({ children }) => {
     () => ({
       entered,
       setEntered,
+      liveTime,
     }),
-    [entered, setEntered],
+    [entered, setEntered, liveTime],
   )
 
   return <PageLoadContext.Provider value={value}>{children}</PageLoadContext.Provider>

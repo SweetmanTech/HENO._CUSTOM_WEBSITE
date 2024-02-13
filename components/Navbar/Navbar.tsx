@@ -8,8 +8,8 @@ const Navbar = () => {
   const { pathname } = useRouter()
   const { openPopUp } = usePopupWidget()
 
-  const navClasses = `md:min-w-[80px] px-0 md:px-[10px] md:h-[40px] 
-  text-[9.5px] md:text-[16px] md:py-[5px] py-[2px] h-fit uppercase md:capitalize
+  const navClasses = `md:min-w-[80px] px-0 md:px-[10px] md:h-[40px]
+  text-[9.5px] md:text-[16px] md:py-[5px] py-[2px] h-fit uppercase
   md:border-none bg-darkgray flex items-center justify-center text-gray_1 font-dresden cursor-pointer`
 
   const isHomePage = pathname === "/"

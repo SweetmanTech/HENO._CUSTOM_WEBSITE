@@ -37,7 +37,7 @@ const PressContent = () => (
           </a>
         ))}
       </div>
-      <RecBar />
+      <RecBar cctvNumber={4} />
     </div>
   </div>
 )

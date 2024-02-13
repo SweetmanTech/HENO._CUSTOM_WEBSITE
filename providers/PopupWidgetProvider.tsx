@@ -3,9 +3,7 @@ import { createContext, useContext, useMemo, useState } from "react"
 const PopupWidgetContext = createContext(null)
 
 const PopupWidgetProvider = ({ children }) => {
-  const [openPopupStatus, setOpenPopupState] = useState({
-    LANDON_SCEEN: true,
-  })
+  const [openPopupStatus, setOpenPopupState] = useState(null)
 
   const openPopUp = (screenName) => {
     let temp = { ...openPopupStatus }

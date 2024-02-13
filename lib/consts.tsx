@@ -16,3 +16,5 @@ export const SEPOLIA_MINTER = "0x1Cd1C1f3b8B779B50Db23155F2Cb244FCcA06B21"
 export const HENO_EMAIL = "enjoy@onchainmagic.xyz"
 export const GAS_LIMIT_PER_DROP = "175000"
 export const MULTICALL_3_ADDRESS = "0xcA11bde05977b3631167028862bE2a173976CA11"
+
+export const ONE_MILLISEOND = 1000

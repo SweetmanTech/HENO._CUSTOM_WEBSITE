@@ -13,6 +13,8 @@ import { SessionProvider } from "next-auth/react"
 import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import Swiper, { Mousewheel } from "swiper"
+import { type PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth"
+import UserProvider from "@/providers/UserProvider"
 import { ThemeProvider } from "../providers/ThemeProvider"
 import { CHAIN, TITLE } from "../lib/consts"
 import PageLoadProvider from "../providers/PageLoadProvider"
@@ -39,6 +41,18 @@ const wagmiClient = createConfig({
   webSocketPublicClient,
 })
 
+const privyConfig: PrivyClientConfig = {
+  loginMethods: ["email", "wallet"],
+  appearance: {
+    theme: "dark",
+    accentColor: "#FFFFFF",
+    logo: "/images/Landing/music.png",
+  },
+  embeddedWallets: {
+    createOnLogin: "all-users",
+  },
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiClient}>
@@ -53,19 +67,23 @@ function MyApp({ Component, pageProps }: AppProps) {
           overlayBlur: "small",
         })}
       >
-        <PageLoadProvider>
-          <PopupWidgetProvider>
-            <ThemeProvider>
-              <SessionProvider>
-                <Web3Provider>
-                  <Component {...pageProps} />
-                  <ToastContainer />
-                  <Analytics />
-                </Web3Provider>
-              </SessionProvider>
-            </ThemeProvider>
-          </PopupWidgetProvider>
-        </PageLoadProvider>
+        <PrivyProvider appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID} config={privyConfig}>
+          <UserProvider>
+            <PageLoadProvider>
+              <PopupWidgetProvider>
+                <ThemeProvider>
+                  <SessionProvider>
+                    <Web3Provider>
+                      <Component {...pageProps} />
+                      <ToastContainer />
+                      <Analytics />
+                    </Web3Provider>
+                  </SessionProvider>
+                </ThemeProvider>
+              </PopupWidgetProvider>
+            </PageLoadProvider>
+          </UserProvider>
+        </PrivyProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   )

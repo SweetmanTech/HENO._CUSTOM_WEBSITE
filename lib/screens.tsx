@@ -3,14 +3,8 @@ import AboutContent from "../components/Pages/AboutPage/AboutContent"
 import PressContent from "../components/Pages/PressPage/PressContent"
 import Web3Content from "../components/Pages/Web3Page/Web3Content"
 import ContactContent from "../components/Pages/ContactPage/ContactContent"
-import YoutubeContent from "../components/Pages/YoutubeContent"
 
 export const SCREENS = {
-  LANDON_SCEEN: {
-    screenName: "LANDON_SCEEN",
-    href: "/web3",
-    screen: <YoutubeContent />,
-  },
   ABOUT_SCREEN: {
     screenName: "ABOUT_SCREEN",
     href: "/about",

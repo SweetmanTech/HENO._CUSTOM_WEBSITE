@@ -2,7 +2,6 @@ import useIsMobile from "../../../hooks/useIsMobile"
 import MusicList from "./MusicList"
 import MusicSlider from "./MusicSlider"
 import RecBar from "../../RecBar"
-import SocialLinks from "../../SocialLinks"
 
 const MusicContent = ({ isPopup = false }) => {
   const isMobile = useIsMobile()
@@ -18,9 +17,8 @@ const MusicContent = ({ isPopup = false }) => {
             flex flex-row flex-wrap gap-y-[30px] justify-around md:flex-col md:gap-y-[20px] w-full overflow-hidden px-[30px]"
         >
           {isMobile ? <MusicList /> : <MusicSlider isPopup={isPopup} />}
-          <SocialLinks />
         </div>
-        <RecBar />
+        <RecBar cctvNumber={2} />
       </div>
     </div>
   )

@@ -10,7 +10,6 @@ const PageLoadProvider = ({ children }) => {
   useEffect(() => {
     const handlePageClick = () => setEntered(!entered)
     if (!entered) {
-      console.log("error")
       window.addEventListener("click", handlePageClick)
     }
 

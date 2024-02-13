@@ -1,30 +1,24 @@
-import { useEffect } from "react"
+import { usePageLoad } from "@/providers/PageLoadProvider"
+import DraggableModal from "@/components/Core/DraggableModal"
+import { useEffect, useState } from "react"
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
 import SeoHead from "../../SeoHead"
-import LoadingPage from "../../LoadingPage"
 import useIsMobile from "../../../hooks/useIsMobile"
-import { usePageLoad } from "../../../providers/PageLoadProvider"
 import { SCREENS } from "../../../lib/screens"
 import { usePopupWidget } from "../../../providers/PopupWidgetProvider"
+import YoutubeContent from "../YoutubeContent"
 
 const LandingPage = () => {
-  const { entered, setEntered } = usePageLoad()
   const { openPopUp } = usePopupWidget()
-
+  const { entered, setEntered } = usePageLoad()
   const isMobile = useIsMobile()
+  const [isOpenYoutubeModal, setIsOpenYoutubeModal] = useState(true)
 
   useEffect(() => {
-    const handlePageClick = () => setEntered(true)
-    if (!entered) {
-      window.addEventListener("click", handlePageClick)
-    }
-
-    return () => {
-      window.removeEventListener("click", handlePageClick)
-    }
+    setEntered(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [entered])
+  }, [])
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
@@ -70,7 +64,15 @@ const LandingPage = () => {
           Play Relief
         </a>
       )}
-      {!entered && <LoadingPage />}
+      {isOpenYoutubeModal && (
+        <DraggableModal
+          href="/"
+          handleClose={() => setIsOpenYoutubeModal(!isOpenYoutubeModal)}
+          isVisible={isOpenYoutubeModal}
+        >
+          <YoutubeContent />
+        </DraggableModal>
+      )}
     </Layout>
   )
 }

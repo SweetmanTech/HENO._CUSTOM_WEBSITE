@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { motion } from "framer-motion"
 import Icon from "./Icon"
 
-const DraggableModal = ({ children, href, handleClose, isVisible }) => {
+const DraggableModal = ({ children, href, handleClose, isVisible = null }) => {
   const router = useRouter()
 
   const handleExpand = () => {

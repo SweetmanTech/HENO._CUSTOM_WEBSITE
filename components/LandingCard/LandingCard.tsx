@@ -1,10 +1,10 @@
 import Image from "next/image"
 import getDateTimeString from "@/lib/getDateTimeString"
-import useLiveTime from "@/hooks/useLiveTime"
+import { usePageLoad } from "@/providers/PageLoadProvider"
 import Icon from "../Core/Icon"
 
 const LandingCard = ({ title, img = "/images/Landing/web3.jpg", onClick, cctvNumber = 1 }) => {
-  const { liveTime } = useLiveTime()
+  const { liveTime } = usePageLoad()
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions

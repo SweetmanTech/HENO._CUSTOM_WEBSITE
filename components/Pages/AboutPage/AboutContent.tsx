@@ -1,5 +1,4 @@
 import RecBar from "../../RecBar"
-import SocialLinks from "../../SocialLinks"
 
 const AboutContent = () => (
   <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
@@ -42,7 +41,6 @@ const AboutContent = () => (
               "Neybors" is on the lighter side of surveillance however the music further explores how
               surveillance affects all of us in a myriad of ways & why Heno. is tired of it.`}
         </p>
-        <SocialLinks />
       </div>
       <RecBar cctvNumber={1} />
     </div>

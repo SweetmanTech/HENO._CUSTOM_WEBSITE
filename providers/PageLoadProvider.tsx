@@ -1,9 +1,22 @@
-import { createContext, useContext, useMemo, useState } from "react"
+import { createContext, useContext, useEffect, useMemo, useState } from "react"
 
 const PageLoadContext = createContext(null)
 
 const PageLoadProvider = ({ children }) => {
   const [entered, setEntered] = useState(false)
+
+  useEffect(() => {
+    const handlePageClick = () => setEntered(true)
+    if (!entered) {
+      console.log("error")
+      window.addEventListener("click", handlePageClick)
+    }
+
+    return () => {
+      window.removeEventListener("click", handlePageClick)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entered])
 
   const value = useMemo(
     () => ({

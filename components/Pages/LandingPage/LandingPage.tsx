@@ -1,30 +1,15 @@
-import { useEffect } from "react"
+import { usePageLoad } from "@/providers/PageLoadProvider"
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
 import SeoHead from "../../SeoHead"
-import LoadingPage from "../../LoadingPage"
 import useIsMobile from "../../../hooks/useIsMobile"
-import { usePageLoad } from "../../../providers/PageLoadProvider"
 import { SCREENS } from "../../../lib/screens"
 import { usePopupWidget } from "../../../providers/PopupWidgetProvider"
 
 const LandingPage = () => {
-  const { entered, setEntered } = usePageLoad()
   const { openPopUp } = usePopupWidget()
-
+  const { entered } = usePageLoad()
   const isMobile = useIsMobile()
-
-  useEffect(() => {
-    const handlePageClick = () => setEntered(true)
-    if (!entered) {
-      window.addEventListener("click", handlePageClick)
-    }
-
-    return () => {
-      window.removeEventListener("click", handlePageClick)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [entered])
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
@@ -70,7 +55,6 @@ const LandingPage = () => {
           Play Relief
         </a>
       )}
-      {!entered && <LoadingPage />}
     </Layout>
   )
 }

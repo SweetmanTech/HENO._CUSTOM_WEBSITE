@@ -44,7 +44,7 @@ const AboutContent = () => (
         </p>
         <SocialLinks />
       </div>
-      <RecBar />
+      <RecBar cctvNumber={1} />
     </div>
   </div>
 )

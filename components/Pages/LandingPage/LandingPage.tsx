@@ -37,21 +37,25 @@ const LandingPage = () => {
           title="ABOUT"
           img="/images/Landing/about.jpeg"
           onClick={() => openPopUp(SCREENS.ABOUT_SCREEN.screenName)}
+          cctvNumber={1}
         />
         <LandingCard
           title="MUSIC"
           img="/images/Landing/music.png"
           onClick={() => openPopUp(SCREENS.MUSIC_SCREEN.screenName)}
+          cctvNumber={2}
         />
         <LandingCard
           title="WEB 3"
           img="/images/Landing/web3.jpeg"
           onClick={() => openPopUp(SCREENS.WEB3_SCREEN.screenName)}
+          cctvNumber={3}
         />
         <LandingCard
           title="PRESS"
           img="/images/Landing/press.jpeg"
           onClick={() => openPopUp(SCREENS.PRESS_SCREEN.screenName)}
+          cctvNumber={4}
         />
       </div>
       {isMobile && (

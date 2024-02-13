@@ -23,7 +23,7 @@ const Web3Content = ({ isPopup = false }) => {
             }`}
           >
             {data[selectedDrop].startedAt} <br />
-            {data[selectedDrop].title} <br />
+            <p className="uppercase">{data[selectedDrop].title}</p>
             By {data[selectedDrop].artist}
           </div>
         )}
@@ -33,7 +33,7 @@ const Web3Content = ({ isPopup = false }) => {
         >
           <Trailer isPopup={isPopup} />
         </div>
-        <RecBar />
+        <RecBar cctvNumber={3} />
       </div>
     </div>
   )

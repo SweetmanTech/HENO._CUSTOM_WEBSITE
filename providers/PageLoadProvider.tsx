@@ -4,11 +4,11 @@ import { createContext, useContext, useMemo, useState, useEffect } from "react"
 const PageLoadContext = createContext(null)
 
 const PageLoadProvider = ({ children }) => {
-  const [entered, setEntered] = useState(false)
+  const [entered, setEntered] = useState(true)
   const { liveTime } = useLiveTime()
 
   useEffect(() => {
-    const handlePageClick = () => setEntered(true)
+    const handlePageClick = () => setEntered(!entered)
     if (!entered) {
       console.log("error")
       window.addEventListener("click", handlePageClick)

@@ -28,9 +28,9 @@ const CollectAllButton = ({ className = "" }) => {
       type="button"
       onTouchStart={handleClick}
       onClick={handleClick}
-      className={`${className} bg-darkgray py-[3px]`}
+      className={`${className} bg-darkgray py-[3px] px-[5px] hover:opacity-60 transition-opacity ease-in-out`}
     >
-      Collect All
+      Collect with Crypto
     </button>
   )
 }

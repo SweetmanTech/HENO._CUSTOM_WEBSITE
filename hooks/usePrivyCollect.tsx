@@ -1,5 +1,5 @@
 import { getCalldatas, useUniversalMinter } from "onchain-magic"
-import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER } from "@/lib/consts"
+import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER, ZORA_DROP_ADDRESS } from "@/lib/consts"
 import { BigNumber } from "ethers"
 import abi from "@/lib/abi/zora-UniversalMinter.json"
 import { toast } from "react-toastify"
@@ -10,7 +10,6 @@ import useConnectedWallet from "./useConnectedWallet"
 import usePrivySendTransaction from "./usePrivySendTransaction"
 
 const usePrivyCollect = () => {
-  const zoraDropAddress = process.env.NEXT_PUBLIC_DROP_ADDRESS
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
   const { universalMinter } = useUniversalMinter(CHAIN_ID)
@@ -21,7 +20,7 @@ const usePrivyCollect = () => {
     try {
       if (!prepare()) return
       if (!drops.length || !priceValues.length) return
-      const targets = Array(drops.length).fill(zoraDropAddress)
+      const targets = Array(drops.length).fill(ZORA_DROP_ADDRESS)
       const calldatas = getCalldatas(
         drops.length,
         IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,

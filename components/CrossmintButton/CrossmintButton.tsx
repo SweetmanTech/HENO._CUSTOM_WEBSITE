@@ -15,23 +15,21 @@ const CrossmintButton = () => {
     BigNumber.from(0),
   )
   const targets = Array(drops.length).fill(ZORA_DROP_ADDRESS)
-  const calldatas = getCalldatas(
-    drops.length,
-    IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
-    connectedWallet,
-    connectedWallet,
-  )
-  console.log("SWEETS valueInEth", totalValue)
-  console.log("SWEETS valueInEth", universalMinter)
-  console.log("SWEETS valueInEth", targets)
-  console.log("SWEETS valueInEth", calldatas)
-  console.log("SWEETS valueInEth", priceValues)
+  const calldatas =
+    connectedWallet &&
+    getCalldatas(
+      drops.length,
+      IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
+      connectedWallet,
+      connectedWallet,
+    )
+
   return (
     <CrossmintPayButton
       collectionId="6ba98c63-365d-43ef-8915-9e097c31c3d2"
       projectId="425871f2-9b99-45d6-9c9c-8b1825f28bcd"
       mintConfig={{
-        totalPrice: formatEther(totalValue),
+        totalPrice: totalValue && formatEther(totalValue),
         _universalMinter: universalMinter,
         _target: ZORA_DROP_ADDRESS,
         _value: priceValues[0],

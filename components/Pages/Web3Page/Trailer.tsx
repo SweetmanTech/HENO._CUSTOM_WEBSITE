@@ -1,27 +1,11 @@
 import { usePrivy } from "@privy-io/react-auth"
 import LogoutButton from "@/components/LogoutButton"
 import CollectAllButton from "@/components/CollectAllButton"
+import CrossmintButton from "@/components/CrossmintButton"
 import Media from "../../Core/Media"
 import ZoraDropPlayers from "./ZoraDropPlayers"
-import CrossmintButton from "@/components/CrossmintButton"
-import { useWeb3Drops } from "@/providers/Web3Provider"
-import { BigNumber } from "ethers"
-import { formatEther } from "viem"
-import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER, ZORA_DROP_ADDRESS } from "@/lib/consts"
-import { getCalldatas, useUniversalMinter } from "onchain-magic"
-import useConnectedWallet from "@/hooks/useConnectedWallet"
 
 const Trailer = ({ isPopup = false }) => {
-  const { drops, priceValues } = useWeb3Drops()
-  const { connectedWallet } = useConnectedWallet()
-  const targets = Array(drops.length).fill(ZORA_DROP_ADDRESS)
-  const calldatas = getCalldatas(
-    drops.length,
-    IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
-    connectedWallet,
-    connectedWallet,
-  )
-
   const { authenticated } = usePrivy()
   const lensIconSize = isPopup ? "w-[20px] md:w-[40px]" : "w-[25px] md:w-[55px]"
   const zoraIconSize = isPopup ? "w-[15px] md:w-[30px]" : "w-[18px] md:w-[40px]"
@@ -34,7 +18,7 @@ const Trailer = ({ isPopup = false }) => {
         <div className="flex flex-col gap-y-[10px]">
           <ZoraDropPlayers isPopup={isPopup} />
           <CollectAllButton />
-          <CrossmintButton targets={targets} calldatas={calldatas} priceValues={priceValues} />
+          <CrossmintButton />
           {authenticated && <LogoutButton />}
         </div>
         <div className="flex gap-x-[15px] md:gap-x-[40px] items-end">

@@ -1,5 +1,6 @@
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER, ZORA_DROP_ADDRESS } from "@/lib/consts"
+import { useUserProvider } from "@/providers/UserProvider"
 import { useWeb3Drops } from "@/providers/Web3Provider"
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui"
 import { BigNumber } from "ethers"
@@ -14,6 +15,8 @@ const CrossmintButton = () => {
     (total: any, value: any) => total.add(BigNumber.from(value || "0")),
     BigNumber.from(0),
   )
+  const { privyEmail } = useUserProvider()
+  console.log("SWEETS privyEmail", privyEmail)
 
   return (
     <CrossmintPayButton
@@ -28,8 +31,12 @@ const CrossmintButton = () => {
         _referral: process.env.NEXT_PUBLIC_MINT_REFERRAL,
         _minter: IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
       }}
+      emailTo={privyEmail}
+      loginEmail={privyEmail}
       mintTo={connectedWallet}
-      checkoutProps={{ paymentMethods: ["fiat"] }}
+      checkoutProps={{
+        paymentMethods: ["fiat"],
+      }}
       environment="staging"
     />
   )

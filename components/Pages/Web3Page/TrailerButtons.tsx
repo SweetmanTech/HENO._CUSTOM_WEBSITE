@@ -1,14 +1,24 @@
 import CollectAllButton from "@/components/CollectAllButton"
 import CrossmintButton from "@/components/CrossmintButton"
 import LogoutButton from "@/components/LogoutButton"
+import useConnectedWallet from "@/hooks/useConnectedWallet"
+import { CHAIN_ID } from "@/lib/consts"
 import { usePrivy } from "@privy-io/react-auth"
+import { useBalance } from "wagmi"
 
 const TrailerButtons = () => {
   const { authenticated } = usePrivy()
+  const { connectedWallet } = useConnectedWallet()
+  const { data: balance } = useBalance({
+    address: connectedWallet as `0x${string}`,
+    chainId: CHAIN_ID,
+  })
+  const showCryptoButton = balance?.value > 0 || !authenticated
+  console.log("SWEETS CONNECTED WALLET", connectedWallet)
 
   return (
     <div className="flex flex-col gap-3">
-      <CollectAllButton />
+      {showCryptoButton && <CollectAllButton />}
       {authenticated && <CrossmintButton />}
       {authenticated && <LogoutButton />}
     </div>

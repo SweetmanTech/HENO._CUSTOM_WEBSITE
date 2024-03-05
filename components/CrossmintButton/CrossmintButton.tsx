@@ -3,7 +3,7 @@ import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER, ZORA_DROP_ADDRESS } 
 import { useWeb3Drops } from "@/providers/Web3Provider"
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui"
 import { BigNumber } from "ethers"
-import { getCalldatas, useUniversalMinter } from "onchain-magic"
+import { useUniversalMinter } from "onchain-magic"
 import { formatEther } from "viem"
 
 const CrossmintButton = () => {
@@ -14,20 +14,11 @@ const CrossmintButton = () => {
     (total: any, value: any) => total.add(BigNumber.from(value || "0")),
     BigNumber.from(0),
   )
-  const targets = Array(drops.length).fill(ZORA_DROP_ADDRESS)
-  const calldatas =
-    connectedWallet &&
-    getCalldatas(
-      drops.length,
-      IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
-      connectedWallet,
-      connectedWallet,
-    )
 
   return (
     <CrossmintPayButton
-      collectionId="6ba98c63-365d-43ef-8915-9e097c31c3d2"
-      projectId="425871f2-9b99-45d6-9c9c-8b1825f28bcd"
+      collectionId={process.env.NEXT_PUBLIC_CROSSMINT_COLLECTION_ID}
+      projectId={process.env.NEXT_PUBLIC_CROSSMINT_PROJECT_ID}
       mintConfig={{
         totalPrice: totalValue && formatEther(totalValue),
         _universalMinter: universalMinter,

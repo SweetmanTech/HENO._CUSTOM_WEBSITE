@@ -15,15 +15,12 @@ const usePrivyCollect = () => {
   const { connectedWallet } = useConnectedWallet()
   const { universalMinter } = useUniversalMinter(CHAIN_ID)
   const { drops, priceValues } = useWeb3Drops()
-  console.log("SWEETS universalMinter", universalMinter)
-
   const { sendTransaction } = usePrivySendTransaction()
 
   const onClick = async () => {
     try {
       if (!prepare()) return
       if (!drops.length || !priceValues.length) return
-
       const targets = Array(drops.length).fill(zoraDropAddress)
       const calldatas = getCalldatas(
         drops.length,
@@ -31,13 +28,10 @@ const usePrivyCollect = () => {
         connectedWallet,
         connectedWallet,
       )
-
       const totalValue = priceValues.reduce(
         (total: any, value: any) => total.add(BigNumber.from(value || "0")),
         BigNumber.from(0),
       )
-      console.log("SWEETS TOTAL VALUE", totalValue)
-
       await sendTransaction(
         universalMinter,
         CHAIN_ID,

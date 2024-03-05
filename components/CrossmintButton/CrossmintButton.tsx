@@ -9,14 +9,13 @@ import { formatEther } from "viem"
 
 const CrossmintButton = () => {
   const { connectedWallet } = useConnectedWallet()
+  const { privyEmail } = useUserProvider()
   const { drops, priceValues } = useWeb3Drops()
   const { universalMinter } = useUniversalMinter(CHAIN_ID)
   const totalValue = priceValues.reduce(
     (total: any, value: any) => total.add(BigNumber.from(value || "0")),
     BigNumber.from(0),
   )
-  const { privyEmail } = useUserProvider()
-  console.log("SWEETS privyEmail", privyEmail)
 
   return (
     <CrossmintPayButton
@@ -37,7 +36,7 @@ const CrossmintButton = () => {
       checkoutProps={{
         paymentMethods: ["fiat"],
       }}
-      environment="staging"
+      environment={IS_TESTNET ? "staging" : "production"}
     />
   )
 }

@@ -1,6 +1,7 @@
 import { usePrivy } from "@privy-io/react-auth"
 import LogoutButton from "@/components/LogoutButton"
 import CollectAllButton from "@/components/CollectAllButton"
+import CrossmintButton from "@/components/CrossmintButton"
 import Media from "../../Core/Media"
 import ZoraDropPlayers from "./ZoraDropPlayers"
 
@@ -17,6 +18,7 @@ const Trailer = ({ isPopup = false }) => {
         <div className="flex flex-col gap-y-[10px]">
           <ZoraDropPlayers isPopup={isPopup} />
           <CollectAllButton />
+          <CrossmintButton />
           {authenticated && <LogoutButton />}
         </div>
         <div className="flex gap-x-[15px] md:gap-x-[40px] items-end">

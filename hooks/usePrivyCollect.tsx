@@ -1,13 +1,13 @@
 import { getCalldatas, useUniversalMinter } from "onchain-magic"
 import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER } from "@/lib/consts"
-import usePreparePrivyWallet from "./usePreparePrivyWallet"
 import { BigNumber } from "ethers"
-import useConnectedWallet from "./useConnectedWallet"
-import usePrivySendTransaction from "./usePrivySendTransaction"
 import abi from "@/lib/abi/zora-UniversalMinter.json"
 import { toast } from "react-toastify"
 import handleTxError from "@/lib/handleTxError"
 import { useWeb3Drops } from "@/providers/Web3Provider"
+import usePreparePrivyWallet from "./usePreparePrivyWallet"
+import useConnectedWallet from "./useConnectedWallet"
+import usePrivySendTransaction from "./usePrivySendTransaction"
 
 const usePrivyCollect = () => {
   const zoraDropAddress = process.env.NEXT_PUBLIC_DROP_ADDRESS
@@ -15,6 +15,7 @@ const usePrivyCollect = () => {
   const { connectedWallet } = useConnectedWallet()
   const { universalMinter } = useUniversalMinter(CHAIN_ID)
   const { drops, priceValues } = useWeb3Drops()
+  console.log("SWEETS universalMinter", universalMinter)
 
   const { sendTransaction } = usePrivySendTransaction()
 
@@ -30,10 +31,12 @@ const usePrivyCollect = () => {
         connectedWallet,
         connectedWallet,
       )
+
       const totalValue = priceValues.reduce(
         (total: any, value: any) => total.add(BigNumber.from(value || "0")),
         BigNumber.from(0),
       )
+      console.log("SWEETS TOTAL VALUE", totalValue)
 
       await sendTransaction(
         universalMinter,

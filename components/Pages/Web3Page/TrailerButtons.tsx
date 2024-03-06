@@ -14,7 +14,6 @@ const TrailerButtons = () => {
     chainId: CHAIN_ID,
   })
   const showCryptoButton = balance?.value > 0 || !authenticated
-  console.log("SWEETS CONNECTED WALLET", connectedWallet)
 
   return (
     <div className="flex flex-col gap-3">

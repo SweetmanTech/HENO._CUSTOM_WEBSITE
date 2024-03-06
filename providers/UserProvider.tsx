@@ -7,7 +7,7 @@ const UserProvider = ({ children }) => {
   const [privyEmail, setPrivyEmail] = useState(null)
   const { user } = usePrivy()
 
-  const isLoggedByEmail = privyEmail ? true : false
+  const isLoggedByEmail = Boolean(privyEmail)
 
   useEffect(() => {
     if (user?.email?.address) {

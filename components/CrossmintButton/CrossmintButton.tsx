@@ -1,5 +1,6 @@
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER, ZORA_DROP_ADDRESS } from "@/lib/consts"
+import { useUserProvider } from "@/providers/UserProvider"
 import { useWeb3Drops } from "@/providers/Web3Provider"
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui"
 import { BigNumber } from "ethers"
@@ -8,6 +9,7 @@ import { formatEther } from "viem"
 
 const CrossmintButton = () => {
   const { connectedWallet } = useConnectedWallet()
+  const { privyEmail } = useUserProvider()
   const { drops, priceValues } = useWeb3Drops()
   const { universalMinter } = useUniversalMinter(CHAIN_ID)
   const totalValue = priceValues.reduce(
@@ -28,8 +30,14 @@ const CrossmintButton = () => {
         _referral: process.env.NEXT_PUBLIC_MINT_REFERRAL,
         _minter: IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
       }}
+      className="xmint-btn"
+      emailTo={privyEmail}
+      loginEmail={privyEmail}
       mintTo={connectedWallet}
-      checkoutProps={{ paymentMethods: ["fiat"] }}
+      checkoutProps={{
+        paymentMethods: ["fiat"],
+      }}
+      getButtonText={(connecting) => (connecting ? "Connecting" : `Pay with Credit Card`)}
       environment={IS_TESTNET ? "staging" : "production"}
     />
   )

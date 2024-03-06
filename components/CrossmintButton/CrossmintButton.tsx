@@ -30,7 +30,7 @@ const CrossmintButton = () => {
       }}
       mintTo={connectedWallet}
       checkoutProps={{ paymentMethods: ["fiat"] }}
-      environment="staging"
+      environment={IS_TESTNET ? "staging" : "production"}
     />
   )
 }

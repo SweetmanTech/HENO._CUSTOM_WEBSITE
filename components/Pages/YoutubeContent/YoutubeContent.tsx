@@ -4,6 +4,7 @@ import useIsMobile from "../../../hooks/useIsMobile"
 
 const YoutubeContent = () => {
   const isMobile = useIsMobile()
+  const videoId = "dRBu5yGEWqw"
 
   return (
     <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
@@ -18,7 +19,7 @@ const YoutubeContent = () => {
             px-[15px] md:px-[20px] flex flex-col gap-y-[5px] md:gap-y-[20px]"
         >
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=fOmSYA2Y42s&feature=youtu.be"
+            url={`https://www.youtube.com/watch?v=${videoId}&feature=youtu.be`}
             width={isMobile ? 250 : 500}
             height={isMobile ? 125 : 250}
             playing

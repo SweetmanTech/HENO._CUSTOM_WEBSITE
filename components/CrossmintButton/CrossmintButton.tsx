@@ -30,12 +30,14 @@ const CrossmintButton = () => {
         _referral: process.env.NEXT_PUBLIC_MINT_REFERRAL,
         _minter: IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
       }}
+      className="xmint-btn"
       emailTo={privyEmail}
       loginEmail={privyEmail}
       mintTo={connectedWallet}
       checkoutProps={{
         paymentMethods: ["fiat"],
       }}
+      getButtonText={(connecting) => (connecting ? "Connecting" : `Pay with Credit Card`)}
       environment={IS_TESTNET ? "staging" : "production"}
     />
   )

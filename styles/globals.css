@@ -240,3 +240,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button.xmint-btn {
+  background-color: #5b5959;
+  border-radius: 0;
+}
+img.crossmintImg-0-2-2 {
+  display: none;
+}

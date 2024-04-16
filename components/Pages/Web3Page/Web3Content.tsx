@@ -22,7 +22,7 @@ const Web3Content = ({ isPopup = false }) => {
             isPopup ? "text-[10px] md:text-[14px]" : "text-[12px] md:text-[16px]"
           }`}
         >
-          {data[selectedDrop].startedAt} {!isMobile && <br />}
+          {data[selectedDrop].startedAt} <br/>
           <span className="uppercase">{data[selectedDrop].title}</span> {isMobile && <br />}
           By {data[selectedDrop].artist}
         </div>

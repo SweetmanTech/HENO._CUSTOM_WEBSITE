@@ -5,7 +5,7 @@ const VideoPlayer = ({ src, isActive, nextDrop, selectedDrop, isPopup }) => {
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
-    <>
+    <div className="!w-full flex justify-center">
       {isActive && (
         <video
           src={src}
@@ -19,7 +19,7 @@ const VideoPlayer = ({ src, isActive, nextDrop, selectedDrop, isPopup }) => {
           className={`${isPopup ? "h-[200px]" : "h-[300px]"}`}
         />
       )}
-    </>
+    </div>
   )
 }
 

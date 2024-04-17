@@ -6,14 +6,17 @@ const PageLoadContext = createContext(null)
 const PageLoadProvider = ({ children }) => {
   const [entered, setEntered] = useState(false)
   const { liveTime } = useLiveTime()
+  const [granted, setGranted] = useState(false)
 
   const value = useMemo(
     () => ({
       entered,
       setEntered,
       liveTime,
+      setGranted,
+      granted,
     }),
-    [entered, setEntered, liveTime],
+    [entered, setEntered, liveTime, granted, setGranted],
   )
 
   return <PageLoadContext.Provider value={value}>{children}</PageLoadContext.Provider>

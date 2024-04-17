@@ -6,7 +6,20 @@ const ZoraDropPlayers = ({ isPopup }) => {
   const { nextDrop, selectedDrop } = useWeb3Drops()
 
   return (
-    <>
+    <div
+      className={`${isPopup ? "h-[200px]" : "h-[300px]"} overflow-y-auto overflow-x-hidden
+      flex flex-col items-center`}
+    >
+      <video
+        src="https://ipfs.decentralized-content.com/ipfs/bafybeicmqcva4bw7psql7hhfa4ugxi743i2ytuhhpfugxzhrfpvrffhwku"
+        preload="auto"
+        controls
+        playsInline
+        webkit-playsinline
+        x5-playsinline
+        muted
+        className={`${isPopup ? "h-[200px]" : "h-[300px]"}`}
+      />
       {data.map((item, i) => (
         <VideoPlayer
           src={item.ipfs}
@@ -18,7 +31,7 @@ const ZoraDropPlayers = ({ isPopup }) => {
           isPopup={isPopup}
         />
       ))}
-    </>
+    </div>
   )
 }
 

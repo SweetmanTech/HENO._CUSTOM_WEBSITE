@@ -244,7 +244,16 @@ a {
 button.xmint-btn {
   background-color: #5b5959;
   border-radius: 0;
+  padding: 0px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  font-weight: 400 !important;
 }
+
+button.xmint-btn span {
+  color: #d2d2d2 !important;
+}
+
 img.crossmintImg-0-2-2 {
   display: none;
 }

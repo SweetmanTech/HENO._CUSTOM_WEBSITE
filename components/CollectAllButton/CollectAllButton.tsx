@@ -28,7 +28,7 @@ const CollectAllButton = ({ className = "" }) => {
       type="button"
       onTouchStart={handleClick}
       onClick={handleClick}
-      className={`${className} bg-darkgray py-[3px]`}
+      className={`${className} bg-darkgray py-[3px] w-full`}
     >
       Collect All
     </button>

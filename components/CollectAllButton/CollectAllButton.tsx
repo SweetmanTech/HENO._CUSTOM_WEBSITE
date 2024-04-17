@@ -1,4 +1,4 @@
-import usePrivyCollect from "@/hooks/usePrivyCollect"
+import usePrivyCollectAll from "@/hooks/usePrivyCollectAll"
 import { usePrivy } from "@privy-io/react-auth"
 import { useUserProvider } from "@/providers/UserProvider"
 import useCollectAll from "../../hooks/useCollectAll"
@@ -6,7 +6,7 @@ import useCollectAll from "../../hooks/useCollectAll"
 const CollectAllButton = ({ className = "" }) => {
   const { login, authenticated } = usePrivy()
   const { onClick: collectWithWallet } = useCollectAll()
-  const { onClick: collectWithPrivy } = usePrivyCollect()
+  const { onClick: collectWithPrivy } = usePrivyCollectAll()
   const { isLoggedByEmail } = useUserProvider()
 
   const handleClick = () => {

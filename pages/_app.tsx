@@ -15,6 +15,7 @@ import { Analytics } from "@vercel/analytics/react"
 import Swiper, { Mousewheel } from "swiper"
 import { type PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth"
 import UserProvider from "@/providers/UserProvider"
+import { arbitrum, arbitrumSepolia } from "viem/chains"
 import { ThemeProvider } from "../providers/ThemeProvider"
 import { CHAIN, TITLE } from "../lib/consts"
 import PageLoadProvider from "../providers/PageLoadProvider"
@@ -24,7 +25,7 @@ import Web3Provider from "../providers/Web3Provider"
 Swiper.use([Mousewheel])
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [CHAIN],
+  [CHAIN, arbitrum, arbitrumSepolia],
   [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }), publicProvider()],
 )
 

@@ -1,23 +1,11 @@
 import useLiveTime from "@/hooks/useLiveTime"
-import { createContext, useContext, useMemo, useState, useEffect } from "react"
+import { createContext, useContext, useMemo, useState } from "react"
 
 const PageLoadContext = createContext(null)
 
 const PageLoadProvider = ({ children }) => {
-  const [entered, setEntered] = useState(true)
+  const [entered, setEntered] = useState(false)
   const { liveTime } = useLiveTime()
-
-  useEffect(() => {
-    const handlePageClick = () => setEntered(!entered)
-    if (!entered) {
-      window.addEventListener("click", handlePageClick)
-    }
-
-    return () => {
-      window.removeEventListener("click", handlePageClick)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [entered])
 
   const value = useMemo(
     () => ({

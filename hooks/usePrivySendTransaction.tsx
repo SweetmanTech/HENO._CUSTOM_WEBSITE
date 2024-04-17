@@ -1,6 +1,7 @@
 import { BigNumber } from "ethers"
 import { UnsignedTransactionRequest, usePrivy } from "@privy-io/react-auth"
 import { Interface } from "ethers/lib/utils"
+import handleTxError from "@/lib/handleTxError"
 
 const usePrivySendTransaction = () => {
   const { sendTransaction: privySendTransaction } = usePrivy()
@@ -16,24 +17,29 @@ const usePrivySendTransaction = () => {
     description = "",
     gasLimit = null,
   ) => {
-    const data = new Interface(abi).encodeFunctionData(functionName, args)
-    const unsignedTx = {
-      to,
-      chainId,
-      data,
-      value,
-    } as UnsignedTransactionRequest
-    if (gasLimit) {
-      unsignedTx.gasLimit = gasLimit
-    }
+    try {
+      const data = new Interface(abi).encodeFunctionData(functionName, args)
+      const unsignedTx = {
+        to,
+        chainId,
+        data,
+        value,
+      } as UnsignedTransactionRequest
+      if (gasLimit) {
+        unsignedTx.gasLimit = gasLimit
+      }
 
-    const uiConfig = {
-      header: title,
-      description,
-      buttonText: "Sign",
+      const uiConfig = {
+        header: title,
+        description,
+        buttonText: "Sign",
+      }
+      const txReceipt = await privySendTransaction(unsignedTx, uiConfig)
+      return txReceipt.transactionHash
+    } catch (error) {
+      handleTxError(error)
+      return false
     }
-    const txReceipt = await privySendTransaction(unsignedTx, uiConfig)
-    return txReceipt.transactionHash
   }
 
   return {

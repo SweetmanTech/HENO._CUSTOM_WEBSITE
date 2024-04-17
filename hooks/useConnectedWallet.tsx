@@ -1,14 +1,25 @@
-import { useUserProvider } from "@/providers/UserProvider"
-import { useWallets } from "@privy-io/react-auth"
+import { usePrivy, useWallets } from "@privy-io/react-auth"
+import { useMemo } from "react"
 
 const useConnectedWallet = () => {
   const { wallets } = useWallets()
-  const { privyEmail } = useUserProvider()
+  const { ready, authenticated, user } = usePrivy()
+  const isLoggedByEmail = Boolean(user?.email?.address)
+  const isAuthenticated = ready && authenticated
   const privyWallet = wallets?.find((wallet) => wallet.walletClientType === "privy")
-  const metamaskWallet = wallets?.find((wallet) => wallet.walletClientType === "metamask")
-  const connectedWallet = privyEmail ? privyWallet?.address : metamaskWallet?.address
+  const externalWallets = useMemo(
+    () => wallets?.filter((wallet) => wallet.walletClientType !== "privy"),
+    [wallets],
+  )
+  const externalWallet = externalWallets?.length ? externalWallets[0] : null
+  const wallet = isAuthenticated ? (isLoggedByEmail ? privyWallet : externalWallet) : null
+  const connectedWallet = wallet?.address
 
-  return { connectedWallet, privyWallet, metamaskWallet }
+  return {
+    connectedWallet,
+    externalWallet,
+    wallet,
+  }
 }
 
 export default useConnectedWallet

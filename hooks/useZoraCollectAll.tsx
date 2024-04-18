@@ -3,8 +3,6 @@ import handleTxError from "@/lib/handleTxError"
 import usePreparePrivyWallet from "./usePreparePrivyWallet"
 import useConnectedWallet from "./useConnectedWallet"
 import usePrivySendTransaction from "./usePrivySendTransaction"
-import { useUserProvider } from "@/providers/UserProvider"
-import useWalletTransaction from "./useWalletTransaction"
 import { useState } from "react"
 import abi from "@/lib/abi/zora-UniversalMinter.json"
 import { BigNumber } from "ethers"
@@ -20,9 +18,7 @@ const useZoraCollectAll = () => {
     chainId: CHAIN_ID,
     minterOverride: IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
   })
-  const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
-  const { sendTransaction: sendTxByWallet } = useWalletTransaction()
-  const { isLoggedByEmail } = useUserProvider()
+  const { sendTransaction } = usePrivySendTransaction()
   const [loading, setLoading] = useState(false)
 
   const collect = async () => {
@@ -45,30 +41,16 @@ const useZoraCollectAll = () => {
         BigNumber.from(0),
       )
 
-      if (isLoggedByEmail) {
-        const response = await sendTxByPrivy(
-          universalMinter,
-          CHAIN_ID,
-          abi,
-          "mintBatchWithoutFees",
-          [targets, calldatas, priceValues],
-          totalValue.toHexString(),
-          "HENO.WEB3",
-          "COLLECT ALL",
-        )
-        setLoading(false)
-        return response
-      }
-
-      const response = await sendTxByWallet(
+      const response = await sendTransaction(
         universalMinter,
         CHAIN_ID,
         abi,
         "mintBatchWithoutFees",
         [targets, calldatas, priceValues],
         totalValue.toHexString(),
+        "HENO.WEB3",
+        "COLLECT ALL",
       )
-
       setLoading(false)
       return response
     } catch (error) {

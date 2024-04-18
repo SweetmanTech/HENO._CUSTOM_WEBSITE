@@ -3,8 +3,6 @@ import handleTxError from "@/lib/handleTxError"
 import usePreparePrivyWallet from "./usePreparePrivyWallet"
 import useConnectedWallet from "./useConnectedWallet"
 import usePrivySendTransaction from "./usePrivySendTransaction"
-import { useUserProvider } from "@/providers/UserProvider"
-import useWalletTransaction from "./useWalletTransaction"
 import { useState } from "react"
 import abi from "@/lib/abi/zora-drop.json"
 import { BigNumber } from "ethers"
@@ -14,9 +12,7 @@ import getEncodedMinterArgs from "@/lib/zora/getEncodedMinterArgs"
 const useArbitrumCollect = () => {
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
-  const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
-  const { sendTransaction: sendTxByWallet } = useWalletTransaction()
-  const { isLoggedByEmail } = useUserProvider()
+  const { sendTransaction } = usePrivySendTransaction()
   const [loading, setLoading] = useState(false)
 
   const collect = async () => {
@@ -28,30 +24,16 @@ const useArbitrumCollect = () => {
       const totalFee = BigNumber.from(ZORA_FEE).toHexString()
       const minterArguments = getEncodedMinterArgs(connectedWallet, "!!!")
 
-      if (isLoggedByEmail) {
-        const response = await sendTxByPrivy(
-          ARBITRUM_DROP_ADDRESS,
-          IS_TESTNET ? arbitrumSepolia.id : arbitrum.id,
-          abi,
-          "mintWithRewards",
-          [ARBITRUM_MINTER, 1, 1, minterArguments, connectedWallet],
-          totalFee,
-          "HENO.WEB3",
-          "COLLECT",
-        )
-        setLoading(false)
-        return response
-      }
-
-      const response = await sendTxByWallet(
+      const response = await sendTransaction(
         ARBITRUM_DROP_ADDRESS,
         IS_TESTNET ? arbitrumSepolia.id : arbitrum.id,
         abi,
         "mintWithRewards",
         [ARBITRUM_MINTER, 1, 1, minterArguments, connectedWallet],
         totalFee,
+        "HENO.WEB3",
+        "COLLECT",
       )
-
       setLoading(false)
       return response
     } catch (error) {

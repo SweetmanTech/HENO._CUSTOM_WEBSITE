@@ -34,6 +34,11 @@ const useArbitrumCollect = () => {
         "HENO.WEB3",
         "COLLECT",
       )
+      const { error } = response as any
+      if (error) {
+        setLoading(false)
+        return
+      }
       setLoading(false)
       return response
     } catch (error) {

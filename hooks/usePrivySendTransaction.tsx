@@ -100,8 +100,15 @@ const usePrivySendTransaction = () => {
         )
         return response
       }
-
-      const response = await sendTransactionByWallet(to, chainId, abi, functionName, args, gasLimit)
+      const response = await sendTransactionByWallet(
+        to,
+        chainId,
+        abi,
+        functionName,
+        args,
+        value,
+        gasLimit,
+      )
       return response
     } catch (error) {
       handleTxError(error)

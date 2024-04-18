@@ -51,6 +51,11 @@ const useZoraCollectAll = () => {
         "HENO.WEB3",
         "COLLECT ALL",
       )
+      const { error } = response as any
+      if (error) {
+        setLoading(false)
+        return
+      }
       setLoading(false)
       return response
     } catch (error) {

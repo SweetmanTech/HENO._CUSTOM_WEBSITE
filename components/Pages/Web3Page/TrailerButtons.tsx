@@ -1,4 +1,5 @@
 import CollectAllButton from "@/components/CollectAllButton"
+import CollectArbitrum from "@/components/CollectArbitrum"
 import CrossmintButton from "@/components/CrossmintButton"
 import LogoutButton from "@/components/LogoutButton"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
@@ -16,7 +17,8 @@ const TrailerButtons = () => {
   const showCryptoButton = balance?.value > 0 || !authenticated
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-1">
+      <CollectArbitrum />
       {showCryptoButton && <CollectAllButton />}
       {authenticated && <CrossmintButton />}
       {authenticated && <LogoutButton />}

@@ -1,21 +1,21 @@
-import { getCalldatas, useUniversalMinter } from "onchain-magic"
-import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER, ZORA_DROP_ADDRESS } from "@/lib/consts"
-import { BigNumber } from "ethers"
-import abi from "@/lib/abi/zora-UniversalMinter.json"
-import { toast } from "react-toastify"
+import { ARBITRUM_DROP_ADDRESS, ARBITRUM_MINTER, IS_TESTNET } from "@/lib/consts"
 import handleTxError from "@/lib/handleTxError"
-import { useWeb3Drops } from "@/providers/Web3Provider"
 import usePreparePrivyWallet from "./usePreparePrivyWallet"
 import useConnectedWallet from "./useConnectedWallet"
 import usePrivySendTransaction from "./usePrivySendTransaction"
 import { useUserProvider } from "@/providers/UserProvider"
 import useWalletTransaction from "./useWalletTransaction"
 import { useState } from "react"
+import abi from "@/lib/abi/zora-drop.json"
+import { BigNumber } from "ethers"
+import { ZORA_FEE } from "onchain-magic"
+import { useWeb3Drops } from "@/providers/Web3Provider"
+import { arbitrum, arbitrumSepolia } from "viem/chains"
+import { defaultAbiCoder } from "ethers/lib/utils"
 
 const usePrivyCollect = () => {
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
-  const { universalMinter } = useUniversalMinter(CHAIN_ID)
   const { drops, priceValues } = useWeb3Drops()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
   const { sendTransaction: sendTxByWallet } = useWalletTransaction()
@@ -29,40 +29,35 @@ const usePrivyCollect = () => {
       if (!drops.length || !priceValues.length) return
 
       setLoading(true)
-      const targets = Array(drops.length).fill(ZORA_DROP_ADDRESS)
-      const calldatas = getCalldatas(
-        drops.length,
-        IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
-        connectedWallet,
-        connectedWallet,
-      )
-      const totalValue = priceValues.reduce(
-        (total: any, value: any) => total.add(BigNumber.from(value || "0")),
-        BigNumber.from(0),
+      const totalFee = BigNumber.from(ZORA_FEE).toHexString()
+
+      const minterArguments = defaultAbiCoder.encode(
+        ["address", "string"],
+        [connectedWallet, "!!!"],
       )
 
       if (isLoggedByEmail) {
-        const response = await sendTxByPrivy(
-          universalMinter,
-          CHAIN_ID,
+        const response =  await sendTxByPrivy(
+          ARBITRUM_DROP_ADDRESS,
+          IS_TESTNET ? arbitrumSepolia.id : arbitrum.id,
           abi,
-          "mintBatchWithoutFees",
-          [targets, calldatas, priceValues],
-          totalValue.toHexString(),
+          "mintWithRewards",
+          [ARBITRUM_MINTER, 1, 1, minterArguments, connectedWallet],
+          totalFee,
           "HENO.WEB3",
-          "COLLECT ALL",
+          "COLLECT",
         )
         setLoading(false)
         return response
       }
 
       const response = await sendTxByWallet(
-        universalMinter,
-        CHAIN_ID,
+        ARBITRUM_DROP_ADDRESS,
+        IS_TESTNET ? arbitrumSepolia.id : arbitrum.id,
         abi,
-        "mintBatchWithoutFees",
-        [targets, calldatas, priceValues],
-        totalValue.toHexString(),
+        "mintWithRewards",
+        [ARBITRUM_MINTER, 1, 1, minterArguments, connectedWallet],
+        totalFee
       )
 
       setLoading(false)

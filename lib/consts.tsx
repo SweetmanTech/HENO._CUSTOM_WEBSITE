@@ -19,5 +19,5 @@ export const HENO_EMAIL = "enjoy@onchainmagic.xyz"
 export const GAS_LIMIT_PER_DROP = "175000"
 export const MULTICALL_3_ADDRESS = "0xcA11bde05977b3631167028862bE2a173976CA11"
 export const ARBITRUM_DROP_ADDRESS = process.env.NEXT_PUBLIC_ARBITRUM_DROP_ADDRESS
-
-export const ONE_MILLISEOND = 1000
+export const ZORA_FEE = "777000000000000"
+export const ONE_MILLISECOND = 1000

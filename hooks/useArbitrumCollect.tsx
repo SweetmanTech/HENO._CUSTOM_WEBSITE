@@ -1,4 +1,4 @@
-import { ARBITRUM_DROP_ADDRESS, ARBITRUM_MINTER, IS_TESTNET } from "@/lib/consts"
+import { ARBITRUM_DROP_ADDRESS, ARBITRUM_MINTER, IS_TESTNET, ZORA_FEE } from "@/lib/consts"
 import handleTxError from "@/lib/handleTxError"
 import usePreparePrivyWallet from "./usePreparePrivyWallet"
 import useConnectedWallet from "./useConnectedWallet"
@@ -8,7 +8,6 @@ import useWalletTransaction from "./useWalletTransaction"
 import { useState } from "react"
 import abi from "@/lib/abi/zora-drop.json"
 import { BigNumber } from "ethers"
-import { ZORA_FEE } from "onchain-magic"
 import { arbitrum, arbitrumSepolia } from "viem/chains"
 import getEncodedMinterArgs from "@/lib/zora/getEncodedMinterArgs"
 

@@ -2,8 +2,7 @@ import { Contract } from "ethers"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import abi from "@/lib/abi/ZoraCreatorFixedPriceSaleStrategy.json"
 import getDefaultProvider from "@/lib/getDefaultProvider"
-import { ZORA_FEE } from "onchain-magic"
-import { CHAIN_ID } from "@/lib/consts"
+import { CHAIN_ID, ZORA_FEE } from "@/lib/consts"
 
 type UseZoraFixedPriceSaleStrategyParams = {
   saleConfig: string

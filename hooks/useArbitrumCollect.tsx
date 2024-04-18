@@ -21,7 +21,7 @@ const useArbitrumCollect = () => {
 
   const collect = async () => {
     try {
-      if (!(await prepare())) return false
+      if (!(await prepare(arbitrumSepolia.id))) return false
       if (!connectedWallet) return false
 
       setLoading(true)
@@ -56,6 +56,7 @@ const useArbitrumCollect = () => {
       return response
     } catch (error) {
       handleTxError(error)
+      return { error }
     }
   }
 

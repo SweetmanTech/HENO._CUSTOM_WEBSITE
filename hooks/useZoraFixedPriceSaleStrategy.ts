@@ -28,7 +28,7 @@ const useZoraFixedPriceSaleStrategy = ({
         const response = await saleConfigContract.sale(tokenContract, tokenId)
         return response
       } catch (error) {
-        return error
+        return { error }
       }
     },
     [saleConfigContract],

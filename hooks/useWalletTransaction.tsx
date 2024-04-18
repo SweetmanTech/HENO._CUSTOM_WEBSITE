@@ -1,6 +1,5 @@
 import { BigNumber, Contract } from "ethers"
 import useConnectedWallet from "./useConnectedWallet"
-import { CHAIN_ID } from "@/lib/consts"
 import usePrivyEthersSigner from "./usePrivyEthersSigner"
 import handleTxError from "@/lib/handleTxError"
 
@@ -18,12 +17,14 @@ const useWalletTransaction = () => {
     gasLimit = 0,
   ) => {
     if (!wallet) return false
+
     try {
       const privyChainId = wallet.chainId
       if (privyChainId !== `eip155:${chainId}`) {
-        await wallet.switchChain(CHAIN_ID)
+        await wallet.switchChain(chainId)
         return false
       }
+
       const contract = new Contract(to, abi, signer)
       if (signer) {
         const data = {

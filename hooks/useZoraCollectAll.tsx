@@ -27,7 +27,6 @@ const useZoraCollectAll = () => {
 
   const collect = async () => {
     try {
-      console.log("ZIAD", drops, priceValues)
       if (!(await prepare())) return false
       if (!connectedWallet) return false
       if (!drops.length || !priceValues.length) return
@@ -74,6 +73,7 @@ const useZoraCollectAll = () => {
       return response
     } catch (error) {
       handleTxError(error)
+      return { error }
     }
   }
 

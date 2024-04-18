@@ -1,45 +1,40 @@
-import { getCalldatas, useUniversalMinter } from "onchain-magic"
-import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER, ZORA_DROP_ADDRESS } from "@/lib/consts"
-import { BigNumber } from "ethers"
-import abi from "@/lib/abi/zora-UniversalMinter.json"
+import { ARBITRUM_DROP_ADDRESS, ARBITRUM_MINTER, IS_TESTNET } from "@/lib/consts"
 import { toast } from "react-toastify"
 import handleTxError from "@/lib/handleTxError"
-import { useWeb3Drops } from "@/providers/Web3Provider"
 import usePreparePrivyWallet from "./usePreparePrivyWallet"
 import useConnectedWallet from "./useConnectedWallet"
 import usePrivySendTransaction from "./usePrivySendTransaction"
+import { arbitrum, arbitrumSepolia } from "viem/chains"
+import abi from "@/lib/abi/zora-drop.json"
+import { BigNumber } from "ethers"
+import { ZORA_FEE } from "onchain-magic"
+import { defaultAbiCoder } from "ethers/lib/utils"
 
 const usePrivyCollect = () => {
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
-  const { universalMinter } = useUniversalMinter(CHAIN_ID)
-  const { drops, priceValues } = useWeb3Drops()
   const { sendTransaction } = usePrivySendTransaction()
 
   const onClick = async () => {
     try {
       if (!prepare()) return
-      if (!drops.length || !priceValues.length) return
-      const targets = Array(drops.length).fill(ZORA_DROP_ADDRESS)
-      const calldatas = getCalldatas(
-        drops.length,
-        IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
-        connectedWallet,
-        connectedWallet,
+
+      const totalFee = BigNumber.from(ZORA_FEE).toHexString()
+
+      const minterArguments = defaultAbiCoder.encode(
+        ["address", "string"],
+        [connectedWallet, "!!!"],
       )
-      const totalValue = priceValues.reduce(
-        (total: any, value: any) => total.add(BigNumber.from(value || "0")),
-        BigNumber.from(0),
-      )
+
       await sendTransaction(
-        universalMinter,
-        CHAIN_ID,
+        ARBITRUM_DROP_ADDRESS,
+        IS_TESTNET ? arbitrumSepolia.id : arbitrum.id,
         abi,
-        "mintBatchWithoutFees",
-        [targets, calldatas, priceValues],
-        totalValue.toHexString(),
+        "mintWithRewards",
+        [ARBITRUM_MINTER, 1, 1, minterArguments, connectedWallet],
+        totalFee,
         "HENO.WEB3",
-        "COLLECT ALL",
+        "COLLECT",
       )
 
       toast.success("collected!")

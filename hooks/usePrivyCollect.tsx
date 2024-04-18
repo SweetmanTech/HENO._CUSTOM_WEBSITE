@@ -37,7 +37,7 @@ const usePrivyCollect = () => {
       )
 
       if (isLoggedByEmail) {
-        const response =  await sendTxByPrivy(
+        const response = await sendTxByPrivy(
           ARBITRUM_DROP_ADDRESS,
           IS_TESTNET ? arbitrumSepolia.id : arbitrum.id,
           abi,
@@ -57,7 +57,7 @@ const usePrivyCollect = () => {
         abi,
         "mintWithRewards",
         [ARBITRUM_MINTER, 1, 1, minterArguments, connectedWallet],
-        totalFee
+        totalFee,
       )
 
       setLoading(false)

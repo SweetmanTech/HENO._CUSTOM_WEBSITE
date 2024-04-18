@@ -61,7 +61,7 @@ const usePrivyCollect = () => {
         abi,
         "mintBatchWithoutFees",
         [targets, calldatas, priceValues],
-        totalValue.toHexString()
+        totalValue.toHexString(),
       )
 
       setLoading(false)

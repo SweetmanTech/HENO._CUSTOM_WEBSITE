@@ -10,9 +10,9 @@ import abi from "@/lib/abi/zora-drop.json"
 import { BigNumber } from "ethers"
 import { ZORA_FEE } from "onchain-magic"
 import { arbitrum, arbitrumSepolia } from "viem/chains"
-import { defaultAbiCoder } from "ethers/lib/utils"
+import getEncodedMinterArgs from "@/lib/zora/getEncodedMinterArgs"
 
-const usePrivyCollect = () => {
+const useArbitrumCollect = () => {
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
@@ -27,11 +27,7 @@ const usePrivyCollect = () => {
 
       setLoading(true)
       const totalFee = BigNumber.from(ZORA_FEE).toHexString()
-
-      const minterArguments = defaultAbiCoder.encode(
-        ["address", "string"],
-        [connectedWallet, "!!!"],
-      )
+      const minterArguments = getEncodedMinterArgs(connectedWallet, "!!!")
 
       if (isLoggedByEmail) {
         const response = await sendTxByPrivy(
@@ -70,4 +66,4 @@ const usePrivyCollect = () => {
   }
 }
 
-export default usePrivyCollect
+export default useArbitrumCollect

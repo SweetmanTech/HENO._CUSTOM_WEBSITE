@@ -1,8 +1,8 @@
-import usePrivyCollect from "@/hooks/usePrivyCollect"
+import useArbitrumCollect from "@/hooks/useArbitrumCollect"
 import { toast } from "react-toastify"
 
 const CollectArbitrum = ({ className = "" }) => {
-  const { collect, loading } = usePrivyCollect()
+  const { collect, loading } = useArbitrumCollect()
 
   const handleClick = async () => {
     const response = await collect()

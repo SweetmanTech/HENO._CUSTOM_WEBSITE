@@ -1,8 +1,8 @@
-import usePrivyCollect from "@/hooks/usePrivyCollect"
 import { toast } from "react-toastify"
+import useZoraCollectAll from "@/hooks/useZoraCollectAll"
 
 const CollectAllButton = ({ className = "" }) => {
-  const { collect, loading } = usePrivyCollect()
+  const { collect, loading } = useZoraCollectAll()
 
   const handleClick = async () => {
     const response = await collect()

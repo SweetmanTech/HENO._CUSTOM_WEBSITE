@@ -6,13 +6,13 @@ import usePrivySendTransaction from "./usePrivySendTransaction"
 import { useUserProvider } from "@/providers/UserProvider"
 import useWalletTransaction from "./useWalletTransaction"
 import { useState } from "react"
-import abi from "@/lib/abi/zora-drop.json"
+import abi from "@/lib/abi/zora-UniversalMinter.json"
 import { BigNumber } from "ethers"
-import getCalldatas from "@/lib/zora.tsx/getCalldatas"
-import getUniversalMinter from "@/lib/zora.tsx/getUniversalMinter"
-import { useCollection } from "onchain-magic"
+import getCalldatas from "@/lib/zora/getCalldatas"
+import getUniversalMinter from "@/lib/zora/getUniversalMinter"
+import useCollection from "./useCollection"
 
-const usePrivyCollect = () => {
+const useZoraCollectAll = () => {
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
   const { drops, priceValues } = useCollection({
@@ -27,6 +27,7 @@ const usePrivyCollect = () => {
 
   const collect = async () => {
     try {
+      console.log("ZIAD", drops, priceValues)
       if (!(await prepare())) return false
       if (!connectedWallet) return false
       if (!drops.length || !priceValues.length) return
@@ -82,4 +83,4 @@ const usePrivyCollect = () => {
   }
 }
 
-export default usePrivyCollect
+export default useZoraCollectAll

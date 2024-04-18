@@ -6,14 +6,18 @@ function useCheckNetwork() {
   const { chain: activeChain } = useNetwork()
   const { switchNetwork } = useSwitchNetwork()
 
-  const checkNetwork = useCallback(() => {
-    if (activeChain?.id !== CHAIN_ID) {
-      switchNetwork(CHAIN_ID)
-      return false
-    }
+  const checkNetwork = useCallback(
+    (chainId = CHAIN_ID as any) => {
+      if (!chainId) return
+      if (activeChain?.id !== chainId) {
+        switchNetwork(chainId)
+        return false
+      }
 
-    return true
-  }, [switchNetwork, activeChain])
+      return true
+    },
+    [switchNetwork, activeChain],
+  )
 
   return {
     checkNetwork,

@@ -1,11 +1,11 @@
-import useVideoPlayer from "../../hooks/useVideoPlayer"
+import useVideoPlayer from "@/hooks/useVideoPlayer"
 
-const VideoPlayer = ({ src, isActive, nextDrop, selectedDrop, isPopup }) => {
+const VideoPlayer = ({ src, isPopup, isActive, nextDrop, selectedDrop }) => {
   const { ref } = useVideoPlayer(nextDrop, selectedDrop)
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       {isActive && (
         <video
           src={src}

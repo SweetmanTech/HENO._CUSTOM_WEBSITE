@@ -1,4 +1,4 @@
-import { arbitrum, arbitrumSepolia, base, baseSepolia, mainnet, sepolia } from "@wagmi/core/chains"
+import { mainnet, sepolia, base, baseSepolia, arbitrum, arbitrumSepolia } from "viem/chains"
 
 const ETH = "https://eth-mainnet.g.alchemy.com/"
 const SEPOLIA = "https://eth-sepolia.g.alchemy.com/"

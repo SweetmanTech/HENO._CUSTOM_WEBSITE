@@ -1,4 +1,4 @@
-import { base, sepolia } from "@wagmi/core/chains"
+import { sepolia, base } from "viem/chains"
 
 export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? sepolia : base
 export const CHAIN_ID = CHAIN.id

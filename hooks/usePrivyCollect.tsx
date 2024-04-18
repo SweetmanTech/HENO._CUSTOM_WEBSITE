@@ -9,14 +9,12 @@ import { useState } from "react"
 import abi from "@/lib/abi/zora-drop.json"
 import { BigNumber } from "ethers"
 import { ZORA_FEE } from "onchain-magic"
-import { useWeb3Drops } from "@/providers/Web3Provider"
 import { arbitrum, arbitrumSepolia } from "viem/chains"
 import { defaultAbiCoder } from "ethers/lib/utils"
 
 const usePrivyCollect = () => {
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
-  const { drops, priceValues } = useWeb3Drops()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
   const { sendTransaction: sendTxByWallet } = useWalletTransaction()
   const { isLoggedByEmail } = useUserProvider()
@@ -26,7 +24,6 @@ const usePrivyCollect = () => {
     try {
       if (!(await prepare())) return false
       if (!connectedWallet) return false
-      if (!drops.length || !priceValues.length) return
 
       setLoading(true)
       const totalFee = BigNumber.from(ZORA_FEE).toHexString()

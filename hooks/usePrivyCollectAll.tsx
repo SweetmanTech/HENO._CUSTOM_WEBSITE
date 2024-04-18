@@ -8,14 +8,18 @@ import useWalletTransaction from "./useWalletTransaction"
 import { useState } from "react"
 import abi from "@/lib/abi/zora-drop.json"
 import { BigNumber } from "ethers"
-import { getCalldatas, useUniversalMinter } from "onchain-magic"
-import { useWeb3Drops } from "@/providers/Web3Provider"
+import getCalldatas from "@/lib/zora.tsx/getCalldatas"
+import getUniversalMinter from "@/lib/zora.tsx/getUniversalMinter"
+import { useCollection } from "onchain-magic"
 
 const usePrivyCollect = () => {
   const { prepare } = usePreparePrivyWallet()
   const { connectedWallet } = useConnectedWallet()
-  const { universalMinter } = useUniversalMinter(CHAIN_ID)
-  const { drops, priceValues } = useWeb3Drops()
+  const { drops, priceValues } = useCollection({
+    collectionAddress: ZORA_DROP_ADDRESS,
+    chainId: CHAIN_ID,
+    minterOverride: IS_TESTNET ? SEPOLIA_MINTER : BASE_MINTER,
+  })
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
   const { sendTransaction: sendTxByWallet } = useWalletTransaction()
   const { isLoggedByEmail } = useUserProvider()
@@ -35,6 +39,7 @@ const usePrivyCollect = () => {
         connectedWallet,
         connectedWallet,
       )
+      const universalMinter = getUniversalMinter(CHAIN_ID)
       const totalValue = priceValues.reduce(
         (total: any, value: any) => total.add(BigNumber.from(value || "0")),
         BigNumber.from(0),

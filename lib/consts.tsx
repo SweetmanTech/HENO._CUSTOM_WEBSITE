@@ -6,7 +6,9 @@ export const CHAIN_ID = CHAIN.id
 export const SPOTIFY_CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID
 export const SPOTIFY_CLIENT_SECRET = process.env.NEXT_PUBLIC_CLIENT_SECRET
 export const SPOTIFY_REDIRECT_URI = process.env.NEXT_PUBLIC_REDIRECT_URI
-export const ZORA_DROP_ADDRESS = IS_TESTNET? "0x7a9d13f9427220fd876af288e9359f8fc411febb" : "0x4b130ef4051a35883e3b399b67d13b9bd4224798"
+export const ZORA_DROP_ADDRESS = IS_TESTNET
+  ? "0x7a9d13f9427220fd876af288e9359f8fc411febb"
+  : "0x4b130ef4051a35883e3b399b67d13b9bd4224798"
 export const SPOTIFY_STATE_KEY = "spotify_auth_state"
 export const RELIEF_TRACK_ID = "5aDNHHNXc16VktqV1gSq23"
 export const HENO_ARTIST_ID = "3mr6jeVpPIXBp8IMMb60aD"

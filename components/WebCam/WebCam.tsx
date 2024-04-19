@@ -1,15 +1,34 @@
-import { useRouter } from "next/router"
 import { usePageLoad } from "@/providers/PageLoadProvider"
-import AboutContent from "../Pages/AboutPage/AboutContent"
+import { useEffect, useRef, useState } from "react";
 
 const WebCam = () => {
   const { granted, setGranted } = usePageLoad()
-  const { pathname } = useRouter()
+  const [stream, setStream] = useState(null);
+  const videoRef = useRef(null);
 
-  const isWeb3Page = pathname.includes("/web3")
-  const isMusicPage = pathname.includes("/music")
-  const isAboutPage = pathname.includes("/about")
-  const isPressPage = pathname.includes("/press")
+  const onClick = async () => {
+    try {
+      const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      setStream(mediaStream);
+      setGranted(true)
+    } catch (error) {
+      console.error('Error accessing media devices:', error);
+      alert('Error accessing media devices. Please check your camera and microphone permissions.');
+    }
+  };
+
+  useEffect(() => {
+    if (stream) {
+      videoRef.current.srcObject = stream;
+      videoRef.current.muted = true;
+      videoRef.current.play();
+    }
+    return () => {
+      if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+      }
+    };
+  }, [stream]);
 
   return (
     <div className="w-full h-full">
@@ -17,12 +36,12 @@ const WebCam = () => {
         <button
           type="button"
           className="w-full h-full flex justify-center items-center"
-          onClick={() => setGranted(true)}
+          onClick={onClick}
         >
           <p className="text-white text-xl">WebCam</p>
         </button>
       )}
-      {granted && <>{isAboutPage && <AboutContent isCam />}</>}
+      {granted && <video id="vid" ref={videoRef} autoPlay playsInline muted className="w-full h-full"/>}
     </div>
   )
 }

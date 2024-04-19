@@ -1,34 +1,35 @@
 import { usePageLoad } from "@/providers/PageLoadProvider"
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react"
 
 const WebCam = () => {
   const { granted, setGranted } = usePageLoad()
-  const [stream, setStream] = useState(null);
-  const videoRef = useRef(null);
+  const [stream, setStream] = useState(null)
+  const videoRef = useRef(null)
 
   const onClick = async () => {
     try {
-      const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-      setStream(mediaStream);
+      const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+      setStream(mediaStream)
       setGranted(true)
     } catch (error) {
-      console.error('Error accessing media devices:', error);
-      alert('Error accessing media devices. Please check your camera and microphone permissions.');
+      // eslint-disable-next-line no-console
+      console.log("ZIAD", error)
+      // alert("Error accessing media devices. Please check your camera and microphone permissions.")
     }
-  };
+  }
 
   useEffect(() => {
     if (stream) {
-      videoRef.current.srcObject = stream;
-      videoRef.current.muted = true;
-      videoRef.current.play();
+      videoRef.current.srcObject = stream
+      videoRef.current.muted = true
+      videoRef.current.play()
     }
     return () => {
       if (stream) {
-        stream.getTracks().forEach(track => track.stop());
+        stream.getTracks().forEach((track) => track.stop())
       }
-    };
-  }, [stream]);
+    }
+  }, [stream])
 
   return (
     <div className="w-full h-full">
@@ -41,7 +42,9 @@ const WebCam = () => {
           <p className="text-white text-xl">WebCam</p>
         </button>
       )}
-      {granted && <video id="vid" ref={videoRef} autoPlay playsInline muted className="w-full h-full"/>}
+      {granted && (
+        <video id="vid" ref={videoRef} autoPlay playsInline muted className="w-full h-full" />
+      )}
     </div>
   )
 }

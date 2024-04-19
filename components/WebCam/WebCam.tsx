@@ -1,3 +1,4 @@
+import handleTxError from "@/lib/handleTxError"
 import { usePageLoad } from "@/providers/PageLoadProvider"
 import { useEffect, useRef, useState } from "react"
 
@@ -12,9 +13,7 @@ const WebCam = () => {
       setStream(mediaStream)
       setGranted(true)
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log("ZIAD", error)
-      // alert("Error accessing media devices. Please check your camera and microphone permissions.")
+      handleTxError(error)
     }
   }
 

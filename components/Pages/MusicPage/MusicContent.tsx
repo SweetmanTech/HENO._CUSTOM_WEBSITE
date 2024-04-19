@@ -3,7 +3,7 @@ import MusicList from "./MusicList"
 import MusicSlider from "./MusicSlider"
 import RecBar from "../../RecBar"
 
-const MusicContent = ({ isPopup = false, isCam = false }) => {
+const MusicContent = ({ isPopup = false }) => {
   const isMobile = useIsMobile()
   return (
     <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">

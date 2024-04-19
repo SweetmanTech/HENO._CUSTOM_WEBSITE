@@ -1,18 +1,16 @@
 import RecBar from "../../RecBar"
 
-const AboutContent = ({ isCam = false }) => (
-  <div className={`p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full ${isCam && "!p-[5px]"}`}>
+const AboutContent = () => (
+  <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
     <div
       className={`border-[1px] border-darkgray text-gray_1 font-dresden 
       py-[25px] text-center
       flex items-center justify-center relative h-full
-      text-[12px] md:text-[16px] ${isCam && "!text-[12px]"}`}
+      text-[12px] md:text-[16px]`}
     >
       <div
         className={`h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
-        px-[15px] md:px-[20px] flex flex-col gap-y-[5px] md:gap-y-[20px] ${
-          isCam && "!text-[12px]"
-        }`}
+        px-[15px] md:px-[20px] flex flex-col gap-y-[5px] md:gap-y-[20px]`}
       >
         <p>
           {` Heno. is a true trailblazer of the music industry, boasting a plethora of talents as an
@@ -44,7 +42,7 @@ const AboutContent = ({ isCam = false }) => (
               surveillance affects all of us in a myriad of ways & why Heno. is tired of it.`}
         </p>
       </div>
-      <RecBar cctvNumber={1} isCam={isCam} />
+      <RecBar cctvNumber={1} />
     </div>
   </div>
 )

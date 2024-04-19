@@ -1,15 +1,15 @@
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 import { BASE_MINTER, CHAIN_ID, IS_TESTNET, SEPOLIA_MINTER, ZORA_DROP_ADDRESS } from "@/lib/consts"
+import getUniversalMinter from "@/lib/zora/getUniversalMinter"
 import { useUserProvider } from "@/providers/UserProvider"
 import { useWeb3Drops } from "@/providers/Web3Provider"
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui"
-import { useUniversalMinter } from "onchain-magic"
 
 const CrossmintButton = () => {
   const { connectedWallet } = useConnectedWallet()
   const { privyEmail } = useUserProvider()
   const { priceValues } = useWeb3Drops()
-  const { universalMinter } = useUniversalMinter(CHAIN_ID)
+  const universalMinter = getUniversalMinter(CHAIN_ID)
 
   return (
     <CrossmintPayButton

@@ -1,4 +1,4 @@
-import { ONE_MILLISEOND } from "@/lib/consts"
+import { ONE_MILLISECOND } from "@/lib/consts"
 import { useEffect, useState } from "react"
 
 const useLiveTime = () => {
@@ -6,7 +6,7 @@ const useLiveTime = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setLiveTime((prev) => prev + ONE_MILLISEOND)
+      setLiveTime((prev) => prev + ONE_MILLISECOND)
     }, 1000)
 
     return () => {

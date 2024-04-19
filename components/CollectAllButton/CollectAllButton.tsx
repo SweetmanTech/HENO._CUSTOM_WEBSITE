@@ -1,8 +1,8 @@
-import usePrivyCollect from "@/hooks/usePrivyCollect"
 import { toast } from "react-toastify"
+import useZoraCollectAll from "@/hooks/useZoraCollectAll"
 
 const CollectAllButton = ({ className = "" }) => {
-  const { collect, loading } = usePrivyCollect()
+  const { collect, loading } = useZoraCollectAll()
 
   const handleClick = async () => {
     const response = await collect()
@@ -15,7 +15,7 @@ const CollectAllButton = ({ className = "" }) => {
       type="button"
       onTouchStart={handleClick}
       onClick={handleClick}
-      className={`${className} bg-darkgray py-[3px]`}
+      className={`${className} bg-darkgray py-[3px] w-full`}
       disabled={loading}
     >
       {loading ? `Collecting...` : "Collect All"}

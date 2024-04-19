@@ -1,6 +1,8 @@
 import { useRouter } from "next/router"
 import { usePageLoad } from "@/providers/PageLoadProvider"
 import AboutContent from "../Pages/AboutPage/AboutContent"
+import PressContent from "../Pages/PressPage/PressContent"
+import MusicContent from "../Pages/MusicPage/MusicContent"
 
 const WebCam = () => {
   const { granted, setGranted } = usePageLoad()
@@ -22,7 +24,11 @@ const WebCam = () => {
           <p className="text-white text-xl">WebCam</p>
         </button>
       )}
-      {granted && <>{isAboutPage && <AboutContent isCam />}</>}
+      {granted && <>
+      {isAboutPage && <AboutContent isCam />}
+      {isPressPage && <PressContent isCam />}
+      {isMusicPage && <MusicContent isCam />}
+      </>}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import data from "../../../lib/press-data"
 import RecBar from "../../RecBar"
 
-const PressContent = () => (
+const PressContent = ({ isCam = false }) => (
   <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
     <div
       className="border-[1px] border-darkgray text-gray_1 font-dresden 
@@ -10,9 +10,9 @@ const PressContent = () => (
           text-[12px] md:text-[16px]"
     >
       <div
-        className="h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
-          p-[15px] md:p-[20px] gap-[30px]
-          grid grid-cols-1 md:grid-cols-2 w-full"
+        className={`h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
+        p-[15px] md:p-[20px] gap-[30px]
+        grid grid-cols-1 md:grid-cols-2 w-full ${isCam && "!grid-cols-1 !p-[10px] !gap-4"}`}
       >
         {data.map((pressItem) => (
           <a
@@ -23,11 +23,17 @@ const PressContent = () => (
             rel="noreferrer"
           >
             <div
-              className="border-[2px] border-darkgray rounded-[24px] hover:border-gray
-                    transition duration-[300ms]
-                    w-full h-full max-w-[450px] flex flex-col items-center justify-center p-[30px]"
+              className={`border-[2px] border-darkgray rounded-[24px] hover:border-gray
+              transition duration-[300ms]
+              w-full h-full max-w-[450px] flex flex-col items-center justify-center p-[30px] ${
+                isCam && "!p-4"
+              }`}
             >
-              <p className="text-yellow font-dresden text-center text-[24px] md:text-[30px]">
+              <p
+                className={`text-yellow font-dresden text-center text-[24px] md:text-[30px] ${
+                  isCam && "!text-[24px]"
+                }`}
+              >
                 {pressItem.title}
               </p>
               <p className="text-center text-yellow font-dresden text-[9px] md:text-[11px]">

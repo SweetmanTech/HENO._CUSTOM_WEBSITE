@@ -1,11 +1,13 @@
 import CollectArbitrum from "@/components/CollectArbitrum"
+import useIsMobile from "@/hooks/useIsMobile"
 import { useWeb3Drops } from "@/providers/Web3Provider"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 
-const TopArbitrumSection = ({ isPopup }) => {
+const TopArbitrumSection = ({ isPopup, isCam }) => {
   const { setZoraDropActive, setSelectedDrop } = useWeb3Drops()
   const [ref, inView] = useInView()
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (inView) {
@@ -25,7 +27,7 @@ const TopArbitrumSection = ({ isPopup }) => {
         webkit-playsinline
         x5-playsinline
         muted
-        className={`${isPopup ? "h-[200px]" : "h-[300px]"}`}
+        className={`${isPopup || isMobile || isCam ? "h-[200px]" : "h-[300px]"}`}
       />
       <CollectArbitrum />
     </div>

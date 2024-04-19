@@ -43,7 +43,7 @@ const PressContent = ({ isCam = false }) => (
           </a>
         ))}
       </div>
-      <RecBar cctvNumber={4} />
+      <RecBar cctvNumber={4} isCam={isCam} />
     </div>
   </div>
 )

@@ -11,14 +11,15 @@ const MusicContent = ({ isPopup = false, isCam = false }) => {
         className="border border-darkgray text-gray_1 font-dresden py-[35px] text-center
                     flex flex-col items-center justify-center text-[16px] relative h-full"
       >
-        {!isMobile && <p className="text-[16px] md:text-[32px]">Scroll to see more</p>}
+        {!isMobile && !isCam && <p className="text-[16px] md:text-[32px]">Scroll to see more</p>}
         <div
-          className="h-fit max-h-full overflow-y-auto py-[10px] px-[20px]
-            flex flex-row flex-wrap gap-y-[30px] justify-around md:flex-col md:gap-y-[20px] w-full overflow-hidden px-[30px]"
+          className={`h-fit max-h-full overflow-y-auto py-[10px] px-[20px]
+          flex flex-row flex-wrap gap-y-[30px] justify-around md:flex-col 
+          md:gap-y-[20px] w-full overflow-hidden md:px-[30px] ${isCam && "!gap-[20px] !flex-row"}`}
         >
-          {isMobile ? <MusicList /> : <MusicSlider isPopup={isPopup} />}
+          {isMobile || isCam ? <MusicList /> : <MusicSlider isPopup={isPopup} />}
         </div>
-        <RecBar cctvNumber={2} />
+        <RecBar cctvNumber={2} isCam={isCam} />
       </div>
     </div>
   )

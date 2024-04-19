@@ -1,30 +1,24 @@
-import useCollect from "@/hooks/useCollect"
-import usePrivyCollect from "@/hooks/usePrivyCollect"
-import { useUserProvider } from "@/providers/UserProvider"
-import { usePrivy } from "@privy-io/react-auth"
+import useArbitrumCollect from "@/hooks/useArbitrumCollect"
+import { toast } from "react-toastify"
 
 const CollectArbitrum = ({ className = "" }) => {
-  const { login, authenticated } = usePrivy()
-  const { onClick: collectWithWallet } = useCollect()
-  const { onClick: collectWithPrivy } = usePrivyCollect()
-  const { isLoggedByEmail } = useUserProvider()
+  const { collect, loading } = useArbitrumCollect()
 
-  const handleClick = () => {
-    if (!authenticated) {
-      login()
-      return
-    }
-
-    if (isLoggedByEmail) {
-      collectWithPrivy()
-      return
-    }
-    collectWithWallet()
+  const handleClick = async () => {
+    const response = await collect()
+    if (!response) return
+    toast.success("Collected!")
   }
 
   return (
-    <button type="button" className={`${className} bg-darkgray py-[3px]`} onClick={handleClick}>
-      Collect
+    <button
+      type="button"
+      className={`${className} bg-darkgray py-[3px]`}
+      onClick={handleClick}
+      onTouchStart={handleClick}
+      disabled={loading}
+    >
+      {loading ? `Collecting...` : "Collect"}
     </button>
   )
 }

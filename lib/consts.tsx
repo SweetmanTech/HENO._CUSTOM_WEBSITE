@@ -1,4 +1,4 @@
-import { base, sepolia } from "@wagmi/core/chains"
+import { sepolia, base } from "viem/chains"
 
 export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET === "true"
 export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? sepolia : base
@@ -20,6 +20,8 @@ export const ARBITRUM_MINTER = "0x1Cd1C1f3b8B779B50Db23155F2Cb244FCcA06B21"
 export const HENO_EMAIL = "enjoy@onchainmagic.xyz"
 export const GAS_LIMIT_PER_DROP = "175000"
 export const MULTICALL_3_ADDRESS = "0xcA11bde05977b3631167028862bE2a173976CA11"
+export const ZORA_FEE = "777000000000000"
+export const ONE_MILLISECOND = 1000
 export const ARBITRUM_DROP_ADDRESS = IS_TESTNET
   ? "0x6cDBbABD9bcE10F57B745be6a768891AC3CF925b"
   : "0x35b6ce5e1073bbadf33cbcdae9a6b247e0cbf3db"

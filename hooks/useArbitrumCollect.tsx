@@ -14,10 +14,11 @@ const useArbitrumCollect = () => {
   const { connectedWallet } = useConnectedWallet()
   const { sendTransaction } = usePrivySendTransaction()
   const [loading, setLoading] = useState(false)
+  const chainId = IS_TESTNET ? arbitrumSepolia.id : arbitrum.id
 
   const collect = async () => {
     try {
-      if (!(await prepare(arbitrumSepolia.id))) return false
+      if (!(await prepare(chainId))) return false
       if (!connectedWallet) return false
 
       setLoading(true)
@@ -26,7 +27,7 @@ const useArbitrumCollect = () => {
 
       const response = await sendTransaction(
         ARBITRUM_DROP_ADDRESS,
-        IS_TESTNET ? arbitrumSepolia.id : arbitrum.id,
+        chainId,
         abi,
         "mintWithRewards",
         [ARBITRUM_MINTER, 1, 1, minterArguments, connectedWallet],

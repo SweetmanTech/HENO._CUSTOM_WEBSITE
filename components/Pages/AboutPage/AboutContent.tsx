@@ -3,10 +3,10 @@ import RecBar from "../../RecBar"
 const AboutContent = () => (
   <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
     <div
-      className={`border-[1px] border-darkgray text-gray_1 font-dresden 
+      className="border-[1px] border-darkgray text-gray_1 font-dresden 
       py-[25px] text-center
       flex items-center justify-center relative h-full
-      text-[12px] md:text-[16px]`}
+      text-[12px] md:text-[16px]"
     >
       <div
         className={`h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]

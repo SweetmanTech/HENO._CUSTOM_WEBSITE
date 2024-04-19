@@ -1,26 +1,13 @@
-import usePrivyCollect from "@/hooks/usePrivyCollect"
-import { usePrivy } from "@privy-io/react-auth"
-import { useUserProvider } from "@/providers/UserProvider"
-import useCollectAll from "../../hooks/useCollectAll"
+import { toast } from "react-toastify"
+import useZoraCollectAll from "@/hooks/useZoraCollectAll"
 
 const CollectAllButton = ({ className = "" }) => {
-  const { login, authenticated } = usePrivy()
-  const { onClick: collectWithWallet } = useCollectAll()
-  const { onClick: collectWithPrivy } = usePrivyCollect()
-  const { isLoggedByEmail } = useUserProvider()
+  const { collect, loading } = useZoraCollectAll()
 
-  const handleClick = () => {
-    if (!authenticated) {
-      login()
-      return
-    }
-
-    if (isLoggedByEmail) {
-      collectWithPrivy()
-      return
-    }
-
-    collectWithWallet()
+  const handleClick = async () => {
+    const response = await collect()
+    if (!response) return
+    toast.success("Collected!")
   }
 
   return (
@@ -28,9 +15,10 @@ const CollectAllButton = ({ className = "" }) => {
       type="button"
       onTouchStart={handleClick}
       onClick={handleClick}
-      className={`${className} bg-darkgray py-[3px]`}
+      className={`${className} bg-darkgray py-[3px] w-full`}
+      disabled={loading}
     >
-      Collect All
+      {loading ? `Collecting...` : "Collect All"}
     </button>
   )
 }

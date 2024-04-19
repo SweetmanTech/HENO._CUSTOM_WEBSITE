@@ -6,7 +6,7 @@ import TextArea from "../../Core/TextArea"
 import { validation } from "./validation"
 import useIsMobile from "../../../hooks/useIsMobile"
 
-const ContactForm = () => {
+const ContactForm = ({isCam = false}) => {
   const isMobile = useIsMobile()
 
   const {
@@ -21,8 +21,8 @@ const ContactForm = () => {
     handleSubmit,
   } = useContact()
 
-  const inputClasses = `!w-[200px] md:!w-[400px] !text-[10px] md:!text-[20px] h-[32px] md:h-[44px]`
-  const labelClasses = "uppercase text-[10px] md:text-[20px]"
+  const inputClasses = `!w-[200px] md:!w-[400px] !text-[10px] md:!text-[20px] h-[32px] md:h-[44px] ${isCam && "!w-[200px] !text-[10px] !h-[32px]"}`
+  const labelClasses = `uppercase text-[10px] md:text-[20px] ${isCam && "!text-[10px]"}`
 
   const buttonRef = useRef() as any
 
@@ -36,7 +36,7 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       validationSchema={validation}
     >
-      <div className="w-[200px] md:w-[400px] text-[10px] md:text-[22px]">
+      <div className={`w-[200px] md:w-[400px] text-[10px] md:text-[22px] ${isCam && "!w-[200px]"}`}>
         <p>ALL BOOKING / INQUIRIES :</p>
         <p>HENOMGMT@GMAIL.COM</p>
       </div>

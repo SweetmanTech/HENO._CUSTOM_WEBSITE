@@ -4,6 +4,7 @@ import AboutContent from "../Pages/AboutPage/AboutContent"
 import PressContent from "../Pages/PressPage/PressContent"
 import MusicContent from "../Pages/MusicPage/MusicContent"
 import Web3Content from "../Pages/Web3Page/Web3Content"
+import ContactContent from "../Pages/ContactPage/ContactContent"
 
 const WebCam = () => {
   const { granted, setGranted } = usePageLoad()
@@ -13,6 +14,7 @@ const WebCam = () => {
   const isMusicPage = pathname.includes("/music")
   const isAboutPage = pathname.includes("/about")
   const isPressPage = pathname.includes("/press")
+  const isContactPage = pathname.includes("/contact")
 
   return (
     <div className="w-full h-full">
@@ -31,6 +33,7 @@ const WebCam = () => {
           {isPressPage && <PressContent isCam />}
           {isMusicPage && <MusicContent isCam />}
           {isWeb3Page && <Web3Content isCam />}
+          {isContactPage && <ContactContent isCam />}
         </>
       )}
     </div>

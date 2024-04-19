@@ -1,9 +1,7 @@
 import useVideoPlayer from "@/hooks/useVideoPlayer"
-import useIsMobile from "@/hooks/useIsMobile"
 
-const VideoPlayer = ({ src, isPopup, isActive, nextDrop, selectedDrop, isCam }) => {
+const VideoPlayer = ({ src, isPopup, isActive, nextDrop, selectedDrop }) => {
   const { ref } = useVideoPlayer(nextDrop, selectedDrop)
-  const isMobile = useIsMobile()
 
   return (
     <>
@@ -18,7 +16,7 @@ const VideoPlayer = ({ src, isPopup, isActive, nextDrop, selectedDrop, isCam }) 
           x5-playsinline
           muted
           ref={ref}
-          className={`${isPopup || isMobile || isCam ? "h-[200px]" : "h-[300px]"}`}
+          className={`${isPopup ? "h-[200px]" : "h-[300px]"}`}
         />
       )}
     </>

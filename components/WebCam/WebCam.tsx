@@ -3,7 +3,6 @@ import { usePageLoad } from "@/providers/PageLoadProvider"
 import AboutContent from "../Pages/AboutPage/AboutContent"
 import PressContent from "../Pages/PressPage/PressContent"
 import MusicContent from "../Pages/MusicPage/MusicContent"
-import Web3Content from "../Pages/Web3Page/Web3Content"
 
 const WebCam = () => {
   const { granted, setGranted } = usePageLoad()
@@ -25,14 +24,11 @@ const WebCam = () => {
           <p className="text-white text-xl">WebCam</p>
         </button>
       )}
-      {granted && (
-        <>
-          {isAboutPage && <AboutContent isCam />}
-          {isPressPage && <PressContent isCam />}
-          {isMusicPage && <MusicContent isCam />}
-          {isWeb3Page && <Web3Content isCam />}
-        </>
-      )}
+      {granted && <>
+      {isAboutPage && <AboutContent isCam />}
+      {isPressPage && <PressContent isCam />}
+      {isMusicPage && <MusicContent isCam />}
+      </>}
     </div>
   )
 }

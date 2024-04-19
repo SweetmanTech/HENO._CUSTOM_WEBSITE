@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer"
 import { useEffect } from "react"
 import data from "../../../lib/zora-drops"
 
-const DropSection = ({ isPopup, isCam }) => {
+const DropSection = ({ isPopup }) => {
   const { nextDrop, selectedDrop, setZoraDropActive, setSelectedDrop, zoraDropActive } =
     useWeb3Drops()
   const [ref, inView] = useInView()
@@ -29,7 +29,6 @@ const DropSection = ({ isPopup, isCam }) => {
           nextDrop={nextDrop}
           selectedDrop={selectedDrop}
           isPopup={isPopup}
-          isCam={isCam}
         />
       ))}
       <CollectAllButton />

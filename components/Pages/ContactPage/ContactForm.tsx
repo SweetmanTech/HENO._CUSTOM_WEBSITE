@@ -6,7 +6,7 @@ import TextArea from "../../Core/TextArea"
 import { validation } from "./validation"
 import useIsMobile from "../../../hooks/useIsMobile"
 
-const ContactForm = ({isCam = false}) => {
+const ContactForm = ({ isCam = false }) => {
   const isMobile = useIsMobile()
 
   const {
@@ -21,7 +21,9 @@ const ContactForm = ({isCam = false}) => {
     handleSubmit,
   } = useContact()
 
-  const inputClasses = `!w-[200px] md:!w-[400px] !text-[10px] md:!text-[20px] h-[32px] md:h-[44px] ${isCam && "!w-[200px] !text-[10px] !h-[32px]"}`
+  const inputClasses = `!w-[200px] md:!w-[400px] !text-[10px] md:!text-[20px] h-[32px] md:h-[44px] ${
+    isCam && "!w-[200px] !text-[10px] !h-[32px]"
+  }`
   const labelClasses = `uppercase text-[10px] md:text-[20px] ${isCam && "!text-[10px]"}`
 
   const buttonRef = useRef() as any

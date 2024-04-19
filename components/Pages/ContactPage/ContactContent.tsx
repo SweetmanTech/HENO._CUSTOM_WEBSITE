@@ -4,7 +4,7 @@ import { useContact } from "../../../providers/ContactProvider"
 import { SCREEN } from "../../../hooks/useContactData"
 import ContactSuccess from "./ContactSuccess"
 
-const ContactContent = ({isCam = false}) => {
+const ContactContent = ({ isCam = false }) => {
   const { screenStatus } = useContact()
 
   return (
@@ -17,12 +17,14 @@ const ContactContent = ({isCam = false}) => {
       >
         <div
           className={`h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
-          px-[15px] md:px-[20px] flex flex-col gap-y-[5px] md:gap-y-[20px] ${isCam && "!text-[12px] !gap-y-[5px]"}`}
+          px-[15px] md:px-[20px] flex flex-col gap-y-[5px] md:gap-y-[20px] ${
+            isCam && "!text-[12px] !gap-y-[5px]"
+          }`}
         >
-          {screenStatus === SCREEN.INPUT_MODE && <ContactForm isCam={isCam}/>}
-          {screenStatus === SCREEN.SUCCESS && <ContactSuccess isCam={isCam}/>}
+          {screenStatus === SCREEN.INPUT_MODE && <ContactForm isCam={isCam} />}
+          {screenStatus === SCREEN.SUCCESS && <ContactSuccess isCam={isCam} />}
         </div>
-        <RecBar isCam={isCam} cctvNumber={5}/>
+        <RecBar isCam={isCam} cctvNumber={5} />
       </div>
     </div>
   )

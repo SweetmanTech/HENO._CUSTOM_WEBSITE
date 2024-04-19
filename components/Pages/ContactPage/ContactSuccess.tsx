@@ -1,4 +1,4 @@
-const ContactSuccess = ({isCam = false}) => (
+const ContactSuccess = ({ isCam = false }) => (
   <div
     className={`flex justify-center text-gray_1 flex-col
     items-center text-[24px] ${isCam && "!text-[20px]"}`}

@@ -18,7 +18,7 @@ const Web3Content = ({ isPopup = false }) => {
             text-[12px] md:text-[16px] relative"
       >
         <div
-          className={`md:absolute top-[35px] left-1 text-left md:left-2 capitalize ${
+          className={`md:absolute top-[35px] left-1 text-left md:left-2 z-[2] capitalize ${
             isPopup ? "text-[10px] md:text-[14px]" : "text-[12px] md:text-[16px]"
           }`}
         >
@@ -27,7 +27,7 @@ const Web3Content = ({ isPopup = false }) => {
           By {data[selectedDrop].artist}
         </div>
         <div
-          className="h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
+          className="relative z-[1] h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
             px-[15px] md:px-[20px] flex flex-col gap-y-[5px] md:gap-y-[20px]"
         >
           <Trailer isPopup={isPopup} />

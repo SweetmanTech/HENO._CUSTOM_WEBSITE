@@ -6,7 +6,7 @@ import TextArea from "../../Core/TextArea"
 import { validation } from "./validation"
 import useIsMobile from "../../../hooks/useIsMobile"
 
-const ContactForm = () => {
+const ContactForm = ({ isPopup }) => {
   const isMobile = useIsMobile()
 
   const {
@@ -21,8 +21,10 @@ const ContactForm = () => {
     handleSubmit,
   } = useContact()
 
-  const inputClasses = `!w-[200px] md:!w-[400px] !text-[10px] md:!text-[20px] h-[32px] md:h-[44px]`
-  const labelClasses = "uppercase text-[10px] md:text-[20px]"
+  const inputClasses = `${
+    isPopup ? "md:!w-[250px]" : "md:!w-[400px] md:h-[44px]"
+  } !w-[200px] !text-[10px] md:!text-[20px] h-[32px] `
+  const labelClasses = `uppercase text-[10px] ${!isPopup && "md:text-[20px]"}`
 
   const buttonRef = useRef() as any
 
@@ -36,7 +38,11 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       validationSchema={validation}
     >
-      <div className="w-[200px] md:w-[400px] text-[10px] md:text-[22px]">
+      <div
+        className={`w-[200px] md:w-[400px] text-[10px] ${
+          isPopup ? "md:text-[16px]" : "md:text-[22px]"
+        }`}
+      >
         <p>ALL BOOKING / INQUIRIES :</p>
         <p>HENOMGMT@GMAIL.COM</p>
       </div>
@@ -79,7 +85,9 @@ const ContactForm = () => {
           <TextArea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="!w-[200px] md:!w-[400px] !text-[10px] md:!text-[20px]"
+            className={`!w-[200px] ${
+              isPopup ? "md:!w-[250px]" : "md:!w-[400px]"
+            } !text-[10px] md:!text-[20px]`}
             id="message"
             name="message"
             rows={isMobile ? 2 : 5}

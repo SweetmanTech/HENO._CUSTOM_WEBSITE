@@ -20,8 +20,8 @@ const YoutubeContent = () => {
         >
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${videoId}&feature=youtu.be`}
-            width={isMobile ? 250 : 500}
-            height={isMobile ? 125 : 250}
+            width={isMobile ? 250 : 300}
+            height={isMobile ? 125 : 230}
             playing
           />
         </div>

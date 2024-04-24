@@ -4,7 +4,7 @@ import { useContact } from "../../../providers/ContactProvider"
 import { SCREEN } from "../../../hooks/useContactData"
 import ContactSuccess from "./ContactSuccess"
 
-const ContactContent = () => {
+const ContactContent = ({ isPopup = false }) => {
   const { screenStatus } = useContact()
 
   return (
@@ -19,8 +19,8 @@ const ContactContent = () => {
           className="h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
             px-[15px] md:px-[20px] flex flex-col gap-y-[5px] md:gap-y-[20px]"
         >
-          {screenStatus === SCREEN.INPUT_MODE && <ContactForm />}
-          {screenStatus === SCREEN.SUCCESS && <ContactSuccess />}
+          {screenStatus === SCREEN.INPUT_MODE && <ContactForm isPopup={isPopup} />}
+          {screenStatus === SCREEN.SUCCESS && <ContactSuccess isPopup={isPopup} />}
         </div>
         <RecBar />
       </div>

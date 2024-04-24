@@ -12,7 +12,7 @@ const PressContent = ({ isPopup = false }) => (
       <div
         className={`h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
         p-[15px] md:p-[20px] gap-[30px]
-        grid grid-cols-1 ${isPopup ? "" : "md:grid-cols-2"} w-full`}
+        grid grid-cols-1 ${!isPopup && "md:grid-cols-2"} w-full`}
       >
         {data.map((pressItem) => (
           <a

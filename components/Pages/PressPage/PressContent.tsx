@@ -1,7 +1,7 @@
 import data from "../../../lib/press-data"
 import RecBar from "../../RecBar"
 
-const PressContent = () => (
+const PressContent = ({ isPopup = false }) => (
   <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
     <div
       className="border-[1px] border-darkgray text-gray_1 font-dresden 
@@ -10,9 +10,9 @@ const PressContent = () => (
           text-[12px] md:text-[16px]"
     >
       <div
-        className="h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
-          p-[15px] md:p-[20px] gap-[30px]
-          grid grid-cols-1 md:grid-cols-2 w-full"
+        className={`h-fit max-h-full overflow-y-auto text-[12px] md:text-[16px]
+        p-[15px] md:p-[20px] gap-[30px]
+        grid grid-cols-1 ${isPopup ? "" : "md:grid-cols-2"} w-full`}
       >
         {data.map((pressItem) => (
           <a

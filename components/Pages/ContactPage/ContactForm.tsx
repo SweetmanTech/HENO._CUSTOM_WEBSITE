@@ -24,7 +24,7 @@ const ContactForm = ({ isPopup }) => {
   const inputClasses = `${
     isPopup ? "md:!w-[250px]" : "md:!w-[400px] md:h-[44px]"
   } !w-[200px] !text-[10px] md:!text-[20px] h-[32px] `
-  const labelClasses = `uppercase text-[10px] ${isPopup ? "" : "md:text-[20px]"}`
+  const labelClasses = `uppercase text-[10px] ${!isPopup && "md:text-[20px]"}`
 
   const buttonRef = useRef() as any
 

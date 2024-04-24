@@ -13,7 +13,7 @@ const Web3Content = ({ isPopup = false }) => {
       <div
         className={`border-[1px] border-darkgray text-gray_1 font-dresden 
         py-[25px] text-center
-        flex flex-col ${isPopup ? "" : "md:flex-row "}
+        flex flex-col ${!isPopup && "md:flex-row "}
         gap-2 items-center justify-center text-[16px] relative h-full
         text-[12px] md:text-[16px] relative`}
       >

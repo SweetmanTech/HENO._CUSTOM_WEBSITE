@@ -5,7 +5,7 @@ const Web3Socials = ({ isPopup = false }) => {
   const zoraIconSize = isPopup ? "w-[15px] md:w-[20px]" : "w-[18px] md:w-[40px]"
   const soundIconSize = isPopup ? "w-[15px] md:w-[25px]" : "w-[18px] md:w-[40px]"
   const catalogIconSize = isPopup ? "w-[18px] md:w-[30px]" : "w-[20px] md:w-[50px]"
-  const textClasses = isPopup ? "" : "md:text-[20px]"
+  const textClasses = !isPopup && "md:text-[20px]"
 
   return (
     <div className="flex gap-x-[15px] md:gap-x-[40px] items-end">

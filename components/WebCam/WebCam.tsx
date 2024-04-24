@@ -38,7 +38,7 @@ const WebCam = () => {
           className="w-full h-full flex justify-center items-center"
           onClick={onClick}
         >
-          <p className="text-white text-xl">Verify Identify</p>
+          <p className="text-white text-xl">Verify Identity</p>
         </button>
       )}
       {granted && (

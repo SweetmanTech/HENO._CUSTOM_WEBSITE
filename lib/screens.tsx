@@ -8,7 +8,7 @@ export const SCREENS = {
   ABOUT_SCREEN: {
     screenName: "ABOUT_SCREEN",
     href: "/about",
-    screen: <AboutContent />,
+    screen: <AboutContent isPopup />,
   },
   MUSIC_SCREEN: {
     screenName: "MUSIC_SCREEN",
@@ -23,11 +23,11 @@ export const SCREENS = {
   PRESS_SCREEN: {
     screenName: "PRESS_SCREEN",
     href: "/press",
-    screen: <PressContent />,
+    screen: <PressContent isPopup />,
   },
   CONTACT_SCREEN: {
     screenName: "CONTACT_SCREEN",
     href: "/contact",
-    screen: <ContactContent />,
+    screen: <ContactContent isPopup />,
   },
 }

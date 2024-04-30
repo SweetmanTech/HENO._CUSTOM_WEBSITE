@@ -18,17 +18,30 @@ const WebCam = () => {
   }
 
   useEffect(() => {
-    if (stream) {
-      videoRef.current.srcObject = stream
+    const init = async () => {
+      let mediaStream = null
+      if (granted) {
+        mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        setStream(mediaStream)
+      }
+
+      if (!stream && !mediaStream) return
+
+      videoRef.current.srcObject = stream || mediaStream
       videoRef.current.muted = true
       videoRef.current.play()
     }
+
+    if (!videoRef?.current) return
+
+    init()
+    // eslint-disable-next-line consistent-return
     return () => {
       if (stream) {
         stream.getTracks().forEach((track) => track.stop())
       }
     }
-  }, [stream])
+  }, [stream, granted, videoRef])
 
   return (
     <div className="w-full h-full">

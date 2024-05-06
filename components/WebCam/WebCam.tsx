@@ -14,9 +14,7 @@ const WebCam = () => {
           <p className="text-white text-xl">Verify Identity</p>
         </button>
       )}
-      {granted && (
-        <video id="vid" ref={videoRef} autoPlay playsInline muted className="w-full h-full" />
-      )}
+      {granted && <video ref={videoRef} autoPlay playsInline muted className="w-full h-full" />}
     </div>
   )
 }

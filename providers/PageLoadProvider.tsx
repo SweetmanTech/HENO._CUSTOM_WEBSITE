@@ -22,16 +22,12 @@ const PageLoadProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const init = async () => {
+    if (stream) {
       videoRef.current.srcObject = stream
       videoRef.current.muted = true
       videoRef.current.play()
     }
-
-    if (!videoRef?.current || !stream) return
-
-    init()
-  }, [stream, videoRef])
+  }, [stream, videoRef?.current])
 
   const value = useMemo(
     () => ({

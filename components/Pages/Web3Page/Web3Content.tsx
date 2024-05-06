@@ -24,7 +24,6 @@ const Web3Content = ({ isPopup = false }) => {
               : "md:absolute top-[35px] left-1 text-left md:left-2 text-[12px] md:text-[16px]"
           }`}
         >
-          {data[selectedDrop].startedAt} <br />
           <span className="uppercase">{data[selectedDrop].title}</span>{" "}
           {isMobile || (isPopup && <br />)}
           By {data[selectedDrop].artist}

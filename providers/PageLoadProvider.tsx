@@ -43,8 +43,9 @@ const PageLoadProvider = ({ children }) => {
       stream,
       setStream,
       grantCamera,
+      videoRef,
     }),
-    [entered, setEntered, liveTime, granted, setGranted, stream, setStream, grantCamera],
+    [entered, setEntered, liveTime, granted, setGranted, stream, setStream, grantCamera, videoRef],
   )
 
   return <PageLoadContext.Provider value={value}>{children}</PageLoadContext.Provider>

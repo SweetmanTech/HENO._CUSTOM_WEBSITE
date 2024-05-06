@@ -28,7 +28,7 @@ const PageLoadProvider = ({ children }) => {
       videoRef.current.play()
     }
 
-    if (!videoRef?.current) return
+    if (!videoRef?.current || !stream) return
 
     init()
   }, [stream, videoRef])

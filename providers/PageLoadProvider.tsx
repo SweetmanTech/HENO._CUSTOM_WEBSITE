@@ -1,5 +1,6 @@
 import useLiveTime from "@/hooks/useLiveTime"
-import { createContext, useContext, useMemo, useState } from "react"
+import handleTxError from "@/lib/handleTxError"
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react"
 
 const PageLoadContext = createContext(null)
 
@@ -7,6 +8,30 @@ const PageLoadProvider = ({ children }) => {
   const [entered, setEntered] = useState(false)
   const { liveTime } = useLiveTime()
   const [granted, setGranted] = useState(false)
+  const [stream, setStream] = useState(null)
+  const videoRef = useRef(null)
+
+  const grantCamera = async () => {
+    try {
+      const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+      setStream(mediaStream)
+      setGranted(true)
+    } catch (error) {
+      handleTxError(error)
+    }
+  }
+
+  useEffect(() => {
+    const init = async () => {
+      videoRef.current.srcObject = stream
+      videoRef.current.muted = true
+      videoRef.current.play()
+    }
+
+    if (!videoRef?.current) return
+
+    init()
+  }, [stream, videoRef])
 
   const value = useMemo(
     () => ({
@@ -15,8 +40,11 @@ const PageLoadProvider = ({ children }) => {
       liveTime,
       setGranted,
       granted,
+      stream,
+      setStream,
+      grantCamera,
     }),
-    [entered, setEntered, liveTime, granted, setGranted],
+    [entered, setEntered, liveTime, granted, setGranted, stream, setStream, grantCamera],
   )
 
   return <PageLoadContext.Provider value={value}>{children}</PageLoadContext.Provider>

@@ -21,7 +21,7 @@ const DraggableModal = ({ children, href, handleClose, isVisible = null }) => {
         absolute left-0 top-0 z-[1]"
           onClick={handleClose}
         />
-        <Draggable scale={1} bounds="parent">
+        <Draggable scale={1} bounds="parent" allowAnyClick={false} handle=".handle">
           <div className="w-[90%] md:w-[450px] h-[70%] md:h-[500px] relative z-[1000]">
             <motion.div
               className="flex flex-col bg-black
@@ -38,7 +38,7 @@ const DraggableModal = ({ children, href, handleClose, isVisible = null }) => {
                 duration: 0.2,
               }}
             >
-              <div className="flex justify-start pb-[10px] gap-x-[20px]">
+              <div className="handle flex justify-start pb-[10px] gap-x-[20px]">
                 <div className="flex items-center gap-x-[5px]">
                   <button type="button" onClick={handleClose} onTouchStart={handleClose}>
                     <Icon name="close" className="text-gray_1" size={20} raw />

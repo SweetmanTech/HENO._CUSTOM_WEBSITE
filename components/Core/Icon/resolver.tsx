@@ -12,6 +12,7 @@ import {
 import { SlSocialSoundcloud } from "react-icons/sl"
 import { VscExpandAll } from "react-icons/vsc"
 import { IoMdClose } from "react-icons/io"
+import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md"
 
 export const Icons = {
   bandcamp: FaBandcamp,
@@ -27,4 +28,6 @@ export const Icons = {
   twitter: FaTwitter,
   expand: VscExpandAll,
   close: IoMdClose,
+  arrowDown: MdArrowDropDown,
+  arrowUp: MdArrowDropUp,
 }

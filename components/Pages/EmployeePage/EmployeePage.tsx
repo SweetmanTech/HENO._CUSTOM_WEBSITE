@@ -1,4 +1,4 @@
-import useIsMobile from "../../../hooks/useIsMobile"
+import useIsMobile from "@/hooks/useIsMobile"
 import Layout from "../../Layout"
 import SeoHead from "../../SeoHead"
 import EmployeeContent from "./EmployeeContent"

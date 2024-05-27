@@ -1,6 +1,6 @@
 import useIsMobile from "@/hooks/useIsMobile"
-import Layout from "../../Layout"
-import SeoHead from "../../SeoHead"
+import Layout from "@/components/Layout"
+import SeoHead from "@/components/SeoHead"
 import EmployeeContent from "./EmployeeContent"
 
 const EmployeePage = () => {

@@ -22,7 +22,7 @@ const ContactContent = ({ isPopup = false }) => {
           {screenStatus === SCREEN.INPUT_MODE && <ContactForm isPopup={isPopup} />}
           {screenStatus === SCREEN.SUCCESS && <ContactSuccess isPopup={isPopup} />}
         </div>
-        <RecBar />
+        <RecBar cctvNumber={5} />
       </div>
     </div>
   )

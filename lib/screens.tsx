@@ -1,3 +1,4 @@
+import EmployeeContent from "@/components/Pages/EmployeePage/EmployeeContent"
 import MusicContent from "../components/Pages/MusicPage/MusicContent"
 import AboutContent from "../components/Pages/AboutPage/AboutContent"
 import PressContent from "../components/Pages/PressPage/PressContent"
@@ -29,5 +30,10 @@ export const SCREENS = {
     screenName: "CONTACT_SCREEN",
     href: "/contact",
     screen: <ContactContent isPopup />,
+  },
+  EMPLOYEE_SCREEN: {
+    screenName: "EMPLOYEE_SCREEN",
+    href: "/employee",
+    screen: <EmployeeContent isPopup />,
   },
 }

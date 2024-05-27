@@ -3,7 +3,7 @@ import useClickOutsideSelect from "@/hooks/useClickOutsideSelect"
 import Icon from "@/components/Core/Icon"
 import { useEmployee } from "@/providers/EmployeeProvider"
 import { milestones } from "@/hooks/useEmployeeData"
-import RecBar from "../../RecBar"
+import RecBar from "@/components/RecBar"
 
 const EmployeeContent = ({ isPopup = false }) => {
   const { selectRef, setIsVisibleSelect, isVisibleSelect } = useClickOutsideSelect()

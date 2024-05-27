@@ -1,15 +1,13 @@
 import Media from "@/components/Core/Media"
 import useClickOutsideSelect from "@/hooks/useClickOutsideSelect"
-import { useState } from "react"
 import Icon from "@/components/Core/Icon"
+import { useEmployee } from "@/providers/EmployeeProvider"
+import { milestones } from "@/hooks/useEmployeeData"
 import RecBar from "../../RecBar"
 
 const EmployeeContent = ({ isPopup = false }) => {
   const { selectRef, setIsVisibleSelect, isVisibleSelect } = useClickOutsideSelect()
-
-  const milestones = ["#Milestone 1", "#Milestone 2", "#Milestone 3"]
-
-  const [selectedValue, setSelectedValue] = useState(milestones[0])
+  const { selectedValue, setSelectedValue } = useEmployee()
 
   const handleClick = (value) => {
     setSelectedValue(value)

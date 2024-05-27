@@ -1,6 +1,7 @@
 import LoadingPage from "@/components/LoadingPage"
 import ContactProvider from "@/providers/ContactProvider"
 import { usePageLoad } from "@/providers/PageLoadProvider"
+import EmployeeProvider from "@/providers/EmployeeProvider"
 import BaseLayout from "./BaseLayout"
 import MobileLayout from "./MobileLayout"
 import { ILayout } from "./types"
@@ -20,7 +21,9 @@ function Layout({ children, type }: ILayoutFactory) {
 
   return (
     <ContactProvider>
-      {entered ? <Container>{children}</Container> : <LoadingPage />}
+      <EmployeeProvider>
+        {entered ? <Container>{children}</Container> : <LoadingPage />}
+      </EmployeeProvider>
     </ContactProvider>
   )
 }

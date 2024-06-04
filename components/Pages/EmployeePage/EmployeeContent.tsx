@@ -9,10 +9,10 @@ const EmployeeContent = ({ isPopup = false }) => (
               flex items-center justify-center text-[16px] relative h-full
               text-[12px] md:text-[16px] relative"
     >
-      <Folder name="Mission Briefings" isPopup={isPopup} link="briefings" />
-      <Folder name="Leaderboards" isPopup={isPopup} link="leaderboard" />
-      <Folder name="intel" isPopup={isPopup} link="intel" />
-      <Folder name="chat room" isPopup={isPopup} link="chat-room" />
+      <Folder name="Mission Briefings" isPopup={isPopup} link="/briefings" />
+      <Folder name="Leaderboards" isPopup={isPopup} link="/leaderboard" />
+      <Folder name="intel" isPopup={isPopup} link="/intel" />
+      <Folder name="chat room" isPopup={isPopup} link="/chat-room" />
       <RecBar cctvNumber={6} />
       <p
         className="uppercase text-white mx-auto absolute right-2 md:right-10 bottom-10 border border-white px-3 py-1

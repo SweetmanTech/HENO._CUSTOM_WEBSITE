@@ -5,10 +5,12 @@ import EmployeeProvider from "@/providers/EmployeeProvider"
 import BaseLayout from "./BaseLayout"
 import MobileLayout from "./MobileLayout"
 import { ILayout } from "./types"
+import FullLayout from "./FullLayout"
 
 const layoutContainers = {
   base: BaseLayout,
   mobile: MobileLayout,
+  full: FullLayout,
 }
 
 interface ILayoutFactory extends ILayout {

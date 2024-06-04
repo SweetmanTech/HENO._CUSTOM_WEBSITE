@@ -17,7 +17,7 @@ const BriefingsPage = () => {
         <div
           className="border-[1px] border-darkgray text-gray_1 font-dresden 
                     py-[25px] text-center relative h-full
-                    flex flex-col items-center justify-center gap-2"
+                    flex flex-col items-center justify-center gap-3"
         >
           <section className="w-[320px] md:w-[360px] aspect-video bg-white rounded-2xl flex items-center justify-center">
             <p className="text-black text-[20px]">Embedded video</p>

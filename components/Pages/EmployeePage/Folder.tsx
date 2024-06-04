@@ -24,7 +24,7 @@ const Folder = ({ name = "", link = "", isPopup }) => {
       }}
     >
       <div
-        className="flex flex-col justify-center items-center w-fit mx-auto folder-handle"
+        className="flex flex-col justify-center items-center w-fit mx-auto folder-handle select-none"
         draggable={false}
       >
         <Media

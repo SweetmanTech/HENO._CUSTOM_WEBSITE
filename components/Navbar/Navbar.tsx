@@ -5,7 +5,7 @@ import PopUpWindows from "../PopUpWindows/PopUpWindows"
 import { SCREENS } from "../../lib/screens"
 
 const Navbar = () => {
-  const { pathname } = useRouter()
+  const { pathname, push } = useRouter()
   const { openPopUp } = usePopupWidget()
 
   const navClasses = `md:min-w-[80px] px-0 md:px-[10px] md:h-[40px]
@@ -73,7 +73,7 @@ const Navbar = () => {
         </button>
         <button
           type="button"
-          onClick={() => openPopUp(SCREENS.EMPLOYEE_SCREEN.screenName)}
+          onClick={() => push("/employee")}
           className={`${navClasses}
         ${isEmployeePage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
         >

@@ -1,9 +1,9 @@
 import React from "react"
 import WebCam from "@/components/WebCam"
-import Navbar from "@/components/Navbar"
-import CameraFeedProvider from "@/providers/CameraFeedProvider"
 import { ILayout } from "../types"
+import Navbar from "../../Navbar"
 import CameraFeed from "../../CameraFeed"
+import CameraFeedProvider from "../../../providers/CameraFeedProvider"
 import { usePageLoad } from "../../../providers/PageLoadProvider"
 import SocialLinks from "../../SocialLinks"
 

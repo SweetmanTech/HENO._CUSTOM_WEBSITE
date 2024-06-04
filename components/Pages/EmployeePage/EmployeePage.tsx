@@ -8,7 +8,7 @@ const EmployeePage = () => {
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
-      <SeoHead title="HENO. Contact" image="/images/Landing/web3.jpeg" />
+      <SeoHead title="HENO. Employee" image="/images/Landing/web3.jpeg" />
       <EmployeeContent />
     </Layout>
   )

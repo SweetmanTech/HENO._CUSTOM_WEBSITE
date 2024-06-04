@@ -1,8 +1,8 @@
 import React from "react"
 import Navbar from "@/components/Navbar"
 import { usePageLoad } from "@/providers/PageLoadProvider"
+import SocialLinks from "@/components/SocialLinks"
 import { ILayout } from "../types"
-import SocialLinks from "../../SocialLinks"
 
 const FullLayout = ({ children }: ILayout) => {
   const { entered } = usePageLoad()

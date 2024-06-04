@@ -1,11 +1,11 @@
 import React from "react"
 import WebCam from "@/components/WebCam"
 import Navbar from "@/components/Navbar"
+import CameraFeed from "@/components/CameraFeed"
 import CameraFeedProvider from "@/providers/CameraFeedProvider"
+import SocialLinks from "@/components/SocialLinks"
+import { usePageLoad } from "@/providers/PageLoadProvider"
 import { ILayout } from "../types"
-import CameraFeed from "../../CameraFeed"
-import { usePageLoad } from "../../../providers/PageLoadProvider"
-import SocialLinks from "../../SocialLinks"
 
 const BaseLayout = ({ children }: ILayout) => {
   const { entered } = usePageLoad()

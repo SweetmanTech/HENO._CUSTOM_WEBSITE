@@ -1,7 +1,7 @@
 import React from "react"
+import Navbar from "@/components/Navbar"
+import SocialLinks from "@/components/SocialLinks"
 import { ILayout } from "../types"
-import Navbar from "../../Navbar"
-import SocialLinks from "../../SocialLinks"
 
 const MobileLayout = ({ children }: ILayout) => (
   <div className="w-screen h-screen p-[10px]">

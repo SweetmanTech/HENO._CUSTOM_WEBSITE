@@ -1,6 +1,6 @@
 import React from "react"
 import { ILayout } from "../types"
-import Navbar from "../../Navbar"
+import Navbar from "@/components/Navbar"
 import { usePageLoad } from "../../../providers/PageLoadProvider"
 import SocialLinks from "../../SocialLinks"
 

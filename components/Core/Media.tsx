@@ -31,7 +31,7 @@ function Media({
     <div className={`relative ${containerClasses || ""}`} style={containerStyle || {}}>
       {type === "image" && link && (
         <Image
-          className="absolute !w-full object-contain"
+          className="absolute !w-full object-contain pointer-events-none"
           src={link}
           layout={layout}
           alt={alt || "not found image"}

@@ -7,8 +7,8 @@ const EmployeePage = () => {
   const isMobile = useIsMobile()
 
   return (
-    <Layout type={isMobile ? "mobile" : "base"}>
-      <SeoHead title="HENO. Contact" image="/images/Landing/web3.jpeg" />
+    <Layout type={isMobile ? "mobile" : "full"}>
+      <SeoHead title="HENO. Employee" image="/images/Landing/web3.jpeg" />
       <EmployeeContent />
     </Layout>
   )

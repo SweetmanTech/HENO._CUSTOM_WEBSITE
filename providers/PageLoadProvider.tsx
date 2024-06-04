@@ -1,5 +1,6 @@
 import useLiveTime from "@/hooks/useLiveTime"
 import handleTxError from "@/lib/handleTxError"
+import { useRouter } from "next/router"
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react"
 
 const PageLoadContext = createContext(null)
@@ -10,6 +11,9 @@ const PageLoadProvider = ({ children }) => {
   const [granted, setGranted] = useState(false)
   const [stream, setStream] = useState(null)
   const videoRef = useRef(null)
+  const { isReady, pathname } = useRouter()
+
+  const isEmployeePage = pathname.includes("/employee")
 
   const grantCamera = async () => {
     try {
@@ -28,6 +32,10 @@ const PageLoadProvider = ({ children }) => {
       videoRef.current.play()
     }
   }, [stream, videoRef?.current])
+
+  useEffect(() => {
+    if (isEmployeePage) setEntered(true)
+  }, [isEmployeePage])
 
   const value = useMemo(
     () => ({

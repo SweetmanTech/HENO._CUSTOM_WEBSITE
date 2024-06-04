@@ -6,7 +6,7 @@ const BackPortalButton = () => {
   return (
     <button
       type="button"
-      className="uppercase text-[18px] text-white border border-white absolute left-6 top-10 px-3 py-1"
+      className="uppercase text-[14px] md:text-[18px] text-white border border-white absolute md:left-6 top-10 px-3 py-1"
       onClick={() => push("/employee")}
     >
       Back to employee portal

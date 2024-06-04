@@ -11,9 +11,9 @@ const BriefingsPage = () => {
   const [answer, setAnswer] = useState("")
 
   return (
-    <Layout type={isMobile ? "mobile" : "base"}>
+    <Layout type={isMobile ? "mobile" : "full"}>
       <SeoHead title="HENO. Employee" image="/images/Landing/web3.jpeg" />
-      <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">
+      <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full w-full">
         <div
           className="border-[1px] border-darkgray text-gray_1 font-dresden 
                     py-[25px] text-center relative h-full
@@ -34,6 +34,12 @@ const BriefingsPage = () => {
           />
           <RecBar cctvNumber={6} />
           <BackPortalButton />
+          <p
+            className="uppercase text-white mx-auto absolute right-2 md:right-10 bottom-10 border border-white px-3 py-1
+          text-[12px] md:text-[14px]"
+          >
+            Mission brefings
+          </p>
         </div>
       </div>
     </Layout>

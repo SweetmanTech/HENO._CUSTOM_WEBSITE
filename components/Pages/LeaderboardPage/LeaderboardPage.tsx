@@ -16,7 +16,7 @@ const LeaderboardPage = () => {
                     py-[25px] text-center relative h-full
                     flex flex-col items-center justify-center gap-3"
         >
-          <section className="border-[2px] border-[red] rounded-xl overflow-hidden">
+          <section className="border-[2px] rounded-xl overflow-hidden">
             <iframe
               src="https://www.stack.so/leaderboard/leaderboard-40a3-78225-2471/embed?excludeHeader=true"
               className="mx-auto"

@@ -5,6 +5,7 @@ import { useState } from "react"
 import Input from "@/components/Core/Input"
 import RecBar from "@/components/RecBar"
 import BackPortalButton from "@/components/BackPortalButton"
+import Media from "@/components/Core/Media"
 
 const IntelPage = () => {
   const isMobile = useIsMobile()
@@ -19,8 +20,19 @@ const IntelPage = () => {
                     py-[25px] text-center relative h-full
                     flex flex-col items-center justify-center gap-3"
         >
-          <section className="w-[320px] md:w-[360px] aspect-video bg-white rounded-2xl flex items-center justify-center">
-            <p className="text-black text-[20px]">Embedded video</p>
+          <section className="w-[320px] h-[300px] md:h-auto md:w-auto gap-4 flex flex-col md:flex-row items-center justify-center">
+            <Media
+              type="image"
+              link="/images/Employee/intel-1.png"
+              blurLink="/images/Employee/intel-1.png"
+              containerClasses="aspect-[556/720] w-[250px] md:w-[300px]"
+            />
+            <Media
+              type="image"
+              link="/images/Employee/intel-2.png"
+              blurLink="/images/Employee/intel-2.png"
+              containerClasses="aspect-[556/720] w-[250px] md:w-[300px]"
+            />
           </section>
           <p className="text-[20px] uppercase">Intel/Question</p>
           <Input
@@ -28,7 +40,7 @@ const IntelPage = () => {
             onChange={(e) => setAnswer(e.target.value)}
             id="answer"
             name="answer"
-            className="!w-[320px] !text-[16px] !h-10 !text-center"
+            className="!w-[250px] md:!w-[320px] !text-[16px] !h-10 !text-center"
             hookToForm={false}
             placeholder="TYPE ANSWER HERE"
           />

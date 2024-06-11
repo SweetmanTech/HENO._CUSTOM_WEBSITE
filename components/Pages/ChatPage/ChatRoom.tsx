@@ -4,7 +4,6 @@ import JoinButton from "./JoinButton"
 import MemeberList from "./MemberList"
 import ChatHistory from "./ChatHistory"
 import SendMessage from "./SendMessage"
-import CreateGroupButton from "./CreateGroupButton"
 
 export const members = [
   "0x51027631B9DEF86e088C33368eC4E3A4BE0aD264",
@@ -21,7 +20,6 @@ const ChatRoom = () => {
     <section className="flex gap-3">
       <div className="space-y-2">
         <MemeberList />
-        <CreateGroupButton />
       </div>
       <div className="space-y-2">
         <ChatHistory />

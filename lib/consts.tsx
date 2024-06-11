@@ -27,3 +27,6 @@ export const ARBITRUM_DROP_ADDRESS = IS_TESTNET
   : "0x35b6ce5e1073bbadf33cbcdae9a6b247e0cbf3db"
 
 export const ONE_MILLISEOND = 1000
+
+export const SYSTEM_COMMERCIAL =
+  "ipfs://Qmccf1fZeNZc9nWwvq3a5aiQr3bCr5VNCi3PaUbhrUnpRJ/SYSTEM%20COMMERCIAL.mp4"

@@ -16,7 +16,7 @@ const useVideoPlayer = (nextDrop, selectedDrop) => {
       if (ref.current) ref.current.removeEventListener("ended", nextDrop)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedDrop, ref])
+  }, [selectedDrop, ref.current])
 
   return {
     ref,

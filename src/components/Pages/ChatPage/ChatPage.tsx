@@ -10,7 +10,7 @@ const ChatPage = () => {
   const isMobile = useIsMobile()
 
   return (
-    <Layout type={isMobile ? "mobile" : "base"}>
+    <Layout type={isMobile ? "mobile" : "full"}>
       <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full w-full">
         <div
           className="border-[1px] border-darkgray text-gray_1 font-dresden 

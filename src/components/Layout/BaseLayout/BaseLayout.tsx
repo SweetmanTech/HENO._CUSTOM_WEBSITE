@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react"
 import WebCam from "@/components/WebCam"
 import Navbar from "@/components/Navbar"

@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image"
 import { usePageLoad } from "@/providers/PageLoadProvider"
 import useIsMobile from "../../hooks/useIsMobile"

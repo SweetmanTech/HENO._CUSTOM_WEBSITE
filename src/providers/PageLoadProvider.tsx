@@ -3,7 +3,7 @@
 import useLiveTime from "@/hooks/useLiveTime"
 import handleTxError from "@/lib/handleTxError"
 import { usePathname } from "next/navigation"
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react"
 
 const PageLoadContext = createContext(null)
 
@@ -17,7 +17,8 @@ const PageLoadProvider = ({ children }) => {
 
   const isEmployeePage = pathname.includes("/employee")
 
-  const grantCamera = useCallback(async () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const grantCamera = async () => {
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       setStream(mediaStream)
@@ -25,8 +26,7 @@ const PageLoadProvider = ({ children }) => {
     } catch (error) {
       handleTxError(error)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }
 
   useEffect(() => {
     if (stream) {

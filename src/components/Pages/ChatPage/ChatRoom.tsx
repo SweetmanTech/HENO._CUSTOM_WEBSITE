@@ -1,16 +1,16 @@
-"use client"
-
 import { ChatUIProvider, ChatView, MODAL_POSITION_TYPE } from "@pushprotocol/uiweb"
 
 const ChatRoom = () => (
-  <ChatUIProvider>
-    <ChatView
-      chatId="b8e068e02fe12d7136bc2f24408835573f30c6fbf0b65ea26ab4c7055a2c85f1"
-      limit={10}
-      isConnected
-      verificationFailModalPosition={MODAL_POSITION_TYPE.RELATIVE}
-    />
-  </ChatUIProvider>
+  <section className="w-[90%] md:w-[80%] h-[300px] md:h-[600px]">
+    <ChatUIProvider>
+      <ChatView
+        chatId={process.env.NEXT_PUBLIC_GROUP_CHAT_ID}
+        limit={10}
+        isConnected
+        verificationFailModalPosition={MODAL_POSITION_TYPE.RELATIVE}
+      />
+    </ChatUIProvider>
+  </section>
 )
 
 export default ChatRoom

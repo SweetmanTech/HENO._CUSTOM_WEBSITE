@@ -1,5 +1,3 @@
-"use client"
-
 import { usePageLoad } from "@/providers/PageLoadProvider"
 
 const WebCam = () => {

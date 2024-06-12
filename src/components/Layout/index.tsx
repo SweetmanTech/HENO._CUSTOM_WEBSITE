@@ -1,5 +1,3 @@
-"use client"
-
 import LoadingPage from "@/components/LoadingPage"
 import ContactProvider from "@/providers/ContactProvider"
 import { usePageLoad } from "@/providers/PageLoadProvider"

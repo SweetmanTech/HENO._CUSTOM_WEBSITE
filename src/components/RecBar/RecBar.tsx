@@ -1,5 +1,3 @@
-"use client"
-
 import getDateTimeString from "@/lib/getDateTimeString"
 import { usePageLoad } from "@/providers/PageLoadProvider"
 import Icon from "../Core/Icon"

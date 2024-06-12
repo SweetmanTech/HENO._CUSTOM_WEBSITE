@@ -4,7 +4,7 @@ import useConnectedWallet from "./useConnectedWallet"
 
 const usePreparePrivyWallet = () => {
   const { ready, user, login, authenticated } = usePrivy()
-  const { wallet } = useConnectedWallet()
+  const { wallet } = useConnectedWallet() as any
 
   const prepare = async (chainId: any = CHAIN_ID) => {
     if (!user && ready && !authenticated) {

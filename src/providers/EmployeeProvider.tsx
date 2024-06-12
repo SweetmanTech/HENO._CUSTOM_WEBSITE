@@ -8,7 +8,7 @@ const EmployeeContext = createContext(null)
 const EmployeeProvider = ({ children }) => {
   const employeeData = useEmployeeData()
 
-  const value = useMemo(
+  const value: any = useMemo(
     () => ({
       ...employeeData,
     }),

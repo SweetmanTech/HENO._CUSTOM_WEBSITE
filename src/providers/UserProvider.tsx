@@ -7,7 +7,7 @@ const UserContext = createContext(null)
 
 const UserProvider = ({ children }) => {
   const [privyEmail, setPrivyEmail] = useState(null)
-  const { user } = usePrivy()
+  const { user } = usePrivy() as any
 
   const isLoggedByEmail = Boolean(privyEmail)
 
@@ -20,7 +20,7 @@ const UserProvider = ({ children }) => {
     setPrivyEmail(null)
   }, [user])
 
-  const value = useMemo(
+  const value: any = useMemo(
     () => ({
       privyEmail,
       isLoggedByEmail,

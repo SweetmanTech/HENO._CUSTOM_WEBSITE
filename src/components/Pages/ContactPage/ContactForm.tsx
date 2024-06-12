@@ -19,7 +19,7 @@ const ContactForm = ({ isPopup }) => {
     message,
     setMessage,
     handleSubmit,
-  } = useContact()
+  } = useContact() as any
 
   const inputClasses = `${
     isPopup ? "md:!w-[250px]" : "md:!w-[400px] md:h-[44px]"

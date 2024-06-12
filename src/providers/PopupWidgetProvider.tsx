@@ -5,7 +5,7 @@ import { createContext, useContext, useMemo, useState } from "react"
 const PopupWidgetContext = createContext(null)
 
 const PopupWidgetProvider = ({ children }) => {
-  const [openPopupStatus, setOpenPopupState] = useState(null)
+  const [openPopupStatus, setOpenPopupState] = useState(null) as any
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const openPopUp = (screenName) => {
@@ -16,7 +16,7 @@ const PopupWidgetProvider = ({ children }) => {
     setOpenPopupState({ ...temp })
   }
 
-  const value = useMemo(
+  const value: any = useMemo(
     () => ({
       openPopupStatus,
       openPopUp,

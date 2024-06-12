@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 
 const TopArbitrumSection = ({ isPopup }) => {
-  const { setZoraDropActive, setSelectedDrop } = useWeb3Drops()
+  const { setZoraDropActive, setSelectedDrop } = useWeb3Drops() as any
   const [ref, inView] = useInView()
 
   useEffect(() => {

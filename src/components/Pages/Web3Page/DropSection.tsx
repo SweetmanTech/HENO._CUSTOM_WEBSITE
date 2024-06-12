@@ -7,7 +7,7 @@ import data from "../../../lib/zora-drops"
 
 const DropSection = ({ isPopup }) => {
   const { nextDrop, selectedDrop, setZoraDropActive, setSelectedDrop, zoraDropActive } =
-    useWeb3Drops()
+    useWeb3Drops() as any
   const [ref, inView] = useInView()
 
   useEffect(() => {

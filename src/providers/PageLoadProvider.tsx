@@ -11,8 +11,8 @@ const PageLoadProvider = ({ children }) => {
   const [entered, setEntered] = useState(false)
   const { liveTime } = useLiveTime()
   const [granted, setGranted] = useState(false)
-  const [stream, setStream] = useState(null)
-  const videoRef = useRef(null)
+  const [stream, setStream] = useState(null) as any
+  const videoRef = useRef(null) as any
   const pathname = usePathname()
 
   const isEmployeePage = pathname.includes("/employee")
@@ -40,7 +40,7 @@ const PageLoadProvider = ({ children }) => {
     if (isEmployeePage) setEntered(true)
   }, [isEmployeePage])
 
-  const value = useMemo(
+  const value: any = useMemo(
     () => ({
       entered,
       setEntered,

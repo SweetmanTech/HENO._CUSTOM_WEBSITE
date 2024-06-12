@@ -20,7 +20,7 @@ const CameraFeedProvider = ({ children }) => {
     event.item.expanded = !event.item.expanded
   }, [])
 
-  const value = useMemo(
+  const value: any = useMemo(
     () => ({
       feeds,
       onExpandChange,

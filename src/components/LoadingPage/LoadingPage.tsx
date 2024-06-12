@@ -4,7 +4,7 @@ import useIsMobile from "../../hooks/useIsMobile"
 
 const LoadingPage = () => {
   const isMobile = useIsMobile()
-  const { setEntered } = usePageLoad()
+  const { setEntered } = usePageLoad() as any
 
   return (
     <button

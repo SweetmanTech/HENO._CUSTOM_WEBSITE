@@ -8,7 +8,7 @@ const Web3DropsContext = createContext(null)
 const Web3Provider = ({ children }) => {
   const zoraDropPlayerData = useZoraDropPlayers()
 
-  const value = useMemo(
+  const value: any = useMemo(
     () => ({
       ...zoraDropPlayerData,
     }),

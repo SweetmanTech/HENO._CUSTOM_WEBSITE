@@ -26,7 +26,7 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
     }
   }
 
-  const values = useMemo(
+  const values: any = useMemo(
     () => ({
       themeMode,
       onChangeThemeConfig: (mode?: string) => {

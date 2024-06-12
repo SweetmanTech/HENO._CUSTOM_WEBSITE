@@ -8,7 +8,7 @@ const Navbar = () => {
   const pathname = usePathname()
   const { push } = useRouter()
 
-  const { openPopUp } = usePopupWidget()
+  const { openPopUp } = usePopupWidget() as any
 
   const navClasses = `md:min-w-[80px] px-0 md:px-[10px] md:h-[40px]
   text-[7.5px] md:text-[16px] md:py-[5px] py-[2px] h-fit uppercase

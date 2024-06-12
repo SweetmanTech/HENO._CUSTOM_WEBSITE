@@ -8,7 +8,7 @@ const ContactContext = createContext(null)
 const ContactProvider = ({ children }) => {
   const contactData = useContactData()
 
-  const value = useMemo(
+  const value: any = useMemo(
     () => ({
       ...contactData,
     }),

@@ -109,7 +109,7 @@ const usePrivySendTransaction = () => {
         functionName,
         args,
         value,
-        gasLimit,
+        gasLimit as any,
       )
       return response
     } catch (error) {

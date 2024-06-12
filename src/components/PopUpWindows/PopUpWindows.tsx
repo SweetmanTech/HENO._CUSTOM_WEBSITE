@@ -3,7 +3,7 @@ import DraggableModal from "../Core/DraggableModal"
 import { SCREENS } from "../../lib/screens"
 
 const PopUpWindows = () => {
-  const { openPopupStatus, openPopUp } = usePopupWidget()
+  const { openPopupStatus, openPopUp } = usePopupWidget() as any
 
   return (
     <>

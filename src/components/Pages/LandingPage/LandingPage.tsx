@@ -11,10 +11,10 @@ import Layout from "../../Layout"
 import YoutubeContent from "../YoutubeContent"
 
 const LandingPage = () => {
-  const { openPopUp } = usePopupWidget()
+  const { openPopUp } = usePopupWidget() as any
   const { entered } = usePageLoad()
   const isMobile = useIsMobile()
-  const [isOpenYoutubeModal, setIsOpenYoutubeModal] = useState(true)
+  const [isOpenYoutubeModal, setIsOpenYoutubeModal] = useState<any>(true)
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>

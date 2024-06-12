@@ -1,7 +1,7 @@
 import { usePageLoad } from "@/providers/PageLoadProvider"
 
 const WebCam = () => {
-  const { granted, grantCamera, videoRef } = usePageLoad()
+  const { granted, grantCamera, videoRef } = usePageLoad() as any
 
   return (
     <div className="w-full h-full">

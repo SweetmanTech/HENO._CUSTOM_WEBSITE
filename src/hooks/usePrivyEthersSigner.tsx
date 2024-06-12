@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import useConnectedWallet from "./useConnectedWallet"
 
 const usePrivyEthersSigner = () => {
-  const { wallet } = useConnectedWallet()
+  const { wallet } = useConnectedWallet() as any
   const [signer, setSigner] = useState(null)
 
   useEffect(() => {

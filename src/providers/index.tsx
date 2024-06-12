@@ -27,7 +27,7 @@ const privyConfig: PrivyClientConfig = {
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <PrivyProvider appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID} config={privyConfig}>
+    <PrivyProvider appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID as string} config={privyConfig}>
       <UserProvider>
         <PageLoadProvider>
           <PopupWidgetProvider>

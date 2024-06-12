@@ -2,13 +2,14 @@ import { SPOTIFY_CLIENT_ID, SPOTIFY_REDIRECT_URI } from "../consts"
 
 const getAccessToken = async (code) => {
   const codeVerifier = localStorage.getItem("code_verifier")
-  const body = new URLSearchParams({
+  const body: any = new URLSearchParams({
     grant_type: "authorization_code",
     code,
-    redirect_uri: SPOTIFY_REDIRECT_URI,
-    client_id: SPOTIFY_CLIENT_ID,
-    code_verifier: codeVerifier,
+    redirect_uri: SPOTIFY_REDIRECT_URI as string,
+    client_id: SPOTIFY_CLIENT_ID as string,
+    code_verifier: codeVerifier as string,
   })
+
   return fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {

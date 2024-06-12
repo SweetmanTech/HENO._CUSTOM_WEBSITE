@@ -16,9 +16,9 @@ const login = () => {
 
     const args = new URLSearchParams({
       response_type: "code",
-      client_id: clientId,
+      client_id: clientId as string,
       scope,
-      redirect_uri: redirectUri,
+      redirect_uri: redirectUri as string,
       state,
       code_challenge_method: "S256",
       code_challenge: codeChallenge,

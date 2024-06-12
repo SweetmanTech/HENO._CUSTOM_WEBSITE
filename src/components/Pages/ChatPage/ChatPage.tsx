@@ -22,7 +22,7 @@ const ChatPage = () => {
           <BackPortalButton />
           <p
             className="uppercase text-white mx-auto absolute right-2 md:right-10 bottom-10 border border-white px-3 py-1
-          text-[12px] md:text-[14px]"
+            text-[12px] md:text-[14px]"
           >
             Chat Room
           </p>

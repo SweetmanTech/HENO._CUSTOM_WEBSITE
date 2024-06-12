@@ -13,7 +13,7 @@ const CrossmintButton = () => {
 
   return (
     <CrossmintPayButton
-      collectionId={process.env.NEXT_PUBLIC_CROSSMINT_COLLECTION_ID}
+      collectionId={process.env.NEXT_PUBLIC_CROSSMINT_COLLECTION_ID as string}
       projectId={process.env.NEXT_PUBLIC_CROSSMINT_PROJECT_ID}
       mintConfig={{
         totalPrice: "0.012432",

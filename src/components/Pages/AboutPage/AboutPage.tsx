@@ -1,6 +1,6 @@
 "use client"
 
-import useIsMobile from "../../../hooks/useIsMobile"
+import useIsMobile from "@/hooks/useIsMobile"
 import Layout from "../../Layout"
 import AboutContent from "./AboutContent"
 

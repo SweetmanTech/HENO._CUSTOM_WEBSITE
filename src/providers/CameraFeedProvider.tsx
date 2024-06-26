@@ -1,31 +1,18 @@
 "use client"
 
-import { createContext, useCallback, useContext, useMemo } from "react"
-import feedsData from "./feeds.json"
+import useCameraFeedData from "@/hooks/useCameraFeedData"
+import { createContext, useContext, useMemo } from "react"
 
 const CameraFeedContext = createContext(null)
 
 const CameraFeedProvider = ({ children }) => {
-  const wrapTreeViewItems = (items) =>
-    items.map((item) => ({ ...item, items: item.items && wrapTreeViewItems(item.items) }))
-
-  const feeds = useMemo(
-    () => wrapTreeViewItems(feedsData),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [feedsData],
-  )
-
-  const onExpandChange = useCallback((event: any) => {
-    // eslint-disable-next-line no-param-reassign
-    event.item.expanded = !event.item.expanded
-  }, [])
+  const cameraFeedData = useCameraFeedData()
 
   const value: any = useMemo(
     () => ({
-      feeds,
-      onExpandChange,
+      ...cameraFeedData,
     }),
-    [feeds, onExpandChange],
+    [cameraFeedData],
   )
 
   return <CameraFeedContext.Provider value={value}>{children}</CameraFeedContext.Provider>

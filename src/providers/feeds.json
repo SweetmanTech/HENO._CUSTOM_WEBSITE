@@ -1,30 +1,7 @@
 [
   {
-    "text": "CCTV 005",
-    "expanded": true,
-    "items": [
-      {
-        "text": "CCTV 005",
-        "expanded": true,
-        "items": [
-          {
-            "text": "CCTV 005"
-          },
-          {
-            "text": "CCTV 005"
-          },
-          {
-            "text": "CCTV 005"
-          }
-        ]
-      },
-      {
-        "text": "CCTV 005"
-      },
-      {
-        "text": "CCTV 005"
-      }
-    ]
+    "id": "verify-mints",
+    "text": "Verify Mints"
   },
   {
     "text": "CCTV 006",

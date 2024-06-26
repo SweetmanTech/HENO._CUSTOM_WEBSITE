@@ -33,7 +33,7 @@ const BaseLayout = ({ children }: ILayout) => {
                   </CameraFeedProvider>
                 </div>
                 <div className="border-gray_1 border-[2px]">
-                  <a href="https://play.mynameisheno.com" target="_blank" rel="noreferrer">
+                  <a href="https://play.mynameisheno.xyz/" target="_blank" rel="noreferrer">
                     {/* eslint-disable-next-line  @next/next/no-img-element */}
                     <img src="/images/Landing/play_relief.png" alt="not found relief" />
                   </a>

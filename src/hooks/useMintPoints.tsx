@@ -11,6 +11,11 @@ const useMintPoints = () => {
     const points = await getTotalPoints(address)
     const mintPoints = await getMintPoints(address)
 
+    if (points === 0) {
+      toast.error("no tokens owned. please collect a token from Heno. to start earning points.")
+      return
+    }
+
     const newPoints = points - mintPoints
     const stackClient = getStackClient()
 

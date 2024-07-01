@@ -2,14 +2,11 @@ import { useMemo } from "react"
 import feedsData from "@/providers/feeds.json"
 import { usePrivy } from "@privy-io/react-auth"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
-import usePrivyWalletClient from "@/hooks/usePrivyWalletClient"
-import { Address } from "viem"
 import handleTxError from "@/lib/handleTxError"
 
 const useCameraFeedData = () => {
   const { login, authenticated, ready } = usePrivy()
   const { connectedWallet } = useConnectedWallet()
-  const { walletClient } = usePrivyWalletClient()
 
   const wrapTreeViewItems = (items) =>
     items.map((item) => ({ ...item, items: item.items && wrapTreeViewItems(item.items) }))
@@ -24,15 +21,9 @@ const useCameraFeedData = () => {
     try {
       const isAuthenticated = ready && authenticated && connectedWallet
       if (!isAuthenticated) login()
-      if (!walletClient) return
-
-      const verifyMintsSignature = await walletClient.signMessage({
-        account: connectedWallet as Address,
-        message: "Verify Mints",
-      })
 
       // eslint-disable-next-line consistent-return
-      return verifyMintsSignature
+      return true
     } catch (error) {
       handleTxError({ message: "Verify mints failed." })
       // eslint-disable-next-line consistent-return

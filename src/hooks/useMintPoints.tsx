@@ -1,5 +1,4 @@
 import { Address } from "viem"
-
 import getMintPoints from "@/lib/stack/getMintPoints"
 import getTotalPoints from "@/lib/getTotalPoints"
 import getStackClient from "@/lib/stack/getStackClient"

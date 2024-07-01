@@ -1,7 +1,7 @@
 import { Address } from "viem"
 import getStackClient from "./getStackClient"
 
-const getStackPoints = async (address: Address) => {
+const getMintPoints = async (address: Address) => {
   const stackClient = getStackClient()
   const stackPoints = await stackClient.getPoints(address, {
     event: "heno_mints_500",
@@ -10,4 +10,4 @@ const getStackPoints = async (address: Address) => {
   return stackPoints
 }
 
-export default getStackPoints
+export default getMintPoints

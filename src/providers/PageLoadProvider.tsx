@@ -1,7 +1,6 @@
 "use client"
 
 import useLiveTime from "@/hooks/useLiveTime"
-import useMintPoints from "@/hooks/useMintPoints"
 import handleTxError from "@/lib/handleTxError"
 import { usePathname } from "next/navigation"
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react"
@@ -16,7 +15,6 @@ const PageLoadProvider = ({ children }) => {
   const videoRef = useRef(null) as any
   const pathname = usePathname()
   const isEmployeePage = pathname.includes("/employee")
-  const { updateMintPoints } = useMintPoints()
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const grantCamera = async () => {
@@ -52,20 +50,8 @@ const PageLoadProvider = ({ children }) => {
       setStream,
       grantCamera,
       videoRef,
-      updateMintPoints,
     }),
-    [
-      entered,
-      setEntered,
-      liveTime,
-      granted,
-      setGranted,
-      stream,
-      setStream,
-      grantCamera,
-      videoRef,
-      updateMintPoints,
-    ],
+    [entered, setEntered, liveTime, granted, setGranted, stream, setStream, grantCamera, videoRef],
   )
 
   return <PageLoadContext.Provider value={value}>{children}</PageLoadContext.Provider>

@@ -1,40 +1,33 @@
-import { COLLECTIONS } from "@/lib/consts"
 import { getPublicClient } from "@/lib/clients"
 import { zoraCreator1155ImplABI } from "@zoralabs/protocol-deployments"
 import { Address } from "viem"
 
-const getCollectionBalanceOf = async (address: Address) => {
-  const balancesPromise = COLLECTIONS.map(async (collection) => {
-    const publicClient = getPublicClient(collection.chain.id as number)
-    const response: any = await publicClient.readContract({
-      address: collection.collectionAddress as Address,
-      abi: zoraCreator1155ImplABI,
-      functionName: "nextTokenId",
-    })
-
-    const nextTokenId = parseInt(response.toString(), 10)
-    const tokenIds = Array.from({ length: nextTokenId - 1 }, (_, i) => i + 1)
-    const multicallCalls = tokenIds.map((tokenId) => ({
-      address: collection.collectionAddress as Address,
-      abi: zoraCreator1155ImplABI,
-      functionName: "balanceOf",
-      args: [address, tokenId],
-    }))
-
-    const results = await publicClient.multicall({
-      contracts: multicallCalls as any,
-    })
-
-    return results
+const getCollectionBalanceOf = async (
+  collectionAddress: Address,
+  chainId: number,
+  address: Address,
+) => {
+  const publicClient = getPublicClient(chainId)
+  const response: any = await publicClient.readContract({
+    address: collectionAddress,
+    abi: zoraCreator1155ImplABI,
+    functionName: "nextTokenId",
   })
 
-  const balances = await Promise.all(balancesPromise)
-  const formattedBalances = balances
-    .flat()
-    .map((balance: any) => parseInt(balance.result.toString(), 10))
-  const balance = formattedBalances.reduce((acc, num) => acc + num, 0)
+  const nextTokenId = parseInt(response.toString(), 10)
+  const tokenIds = Array.from({ length: nextTokenId - 1 }, (_, i) => i + 1)
+  const multicallCalls = tokenIds.map((tokenId) => ({
+    address: collectionAddress,
+    abi: zoraCreator1155ImplABI,
+    functionName: "balanceOf",
+    args: [address, tokenId],
+  }))
 
-  return balance
+  const results = await publicClient.multicall({
+    contracts: multicallCalls as any,
+  })
+
+  return results
 }
 
 export default getCollectionBalanceOf

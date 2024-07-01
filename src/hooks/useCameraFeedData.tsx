@@ -3,10 +3,12 @@ import feedsData from "@/providers/feeds.json"
 import { usePrivy } from "@privy-io/react-auth"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 import handleTxError from "@/lib/handleTxError"
+import useMintPoints from "./useMintPoints"
 
 const useCameraFeedData = () => {
   const { login, authenticated, ready } = usePrivy()
   const { connectedWallet } = useConnectedWallet()
+  const { updateMintPoints } = useMintPoints()
 
   const wrapTreeViewItems = (items) =>
     items.map((item) => ({ ...item, items: item.items && wrapTreeViewItems(item.items) }))
@@ -21,7 +23,7 @@ const useCameraFeedData = () => {
     try {
       const isAuthenticated = ready && authenticated && connectedWallet
       if (!isAuthenticated) login()
-
+      updateMintPoints()
       // eslint-disable-next-line consistent-return
       return true
     } catch (error) {

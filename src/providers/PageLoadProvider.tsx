@@ -85,18 +85,12 @@ const PageLoadProvider = ({ children }) => {
       })
       const newPoints = totalPoints - stackPoints
 
-      console.log("ZIAD newPoints", newPoints, stackPoints)
-
-      try {
-        console.log("ZIAD newPoints", newPoints, stackPoints)
+      if (newPoints)
         await stackClient.track("heno_mints_500", {
           points: newPoints,
           account: connectedWallet as Address,
           uniqueId: `${Date.now()}`,
         })
-      } catch (error) {
-        console.log("ZIAD", error, newPoints)
-      }
     }
 
     if (!connectedWallet) return

@@ -1,9 +1,9 @@
 import { utils } from "ethers"
-import abi from "@/lib/abi/zora-drop.json"
+import { zoraCreator1155ImplABI } from "@zoralabs/protocol-deployments"
 import getEncodedMinterArgs from "./getEncodedMinterArgs"
 
 const getCalldatas = (count: number, minter: string, referral: string, to: string) => {
-  const iface = new utils.Interface(abi)
+  const iface = new utils.Interface(zoraCreator1155ImplABI)
   const quantity = 1
   const mintReferral = referral
   const minterArguments = getEncodedMinterArgs(to, "MAGIC")

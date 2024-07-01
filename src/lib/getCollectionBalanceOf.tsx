@@ -3,7 +3,7 @@ import { getPublicClient } from "@/lib/clients"
 import zora1155Abi from "@/lib/abi/zora-drop.json"
 import { Address } from "viem"
 
-const getTotalPoints = async (address: Address) => {
+const getCollectionBalanceOf = async (address: Address) => {
   const balancesPromise = COLLECTIONS.map(async (collection) => {
     const publicClient = getPublicClient(collection.chain.id as number)
     const response: any = await publicClient.readContract({
@@ -32,9 +32,9 @@ const getTotalPoints = async (address: Address) => {
   const formattedBalances = balances
     .flat()
     .map((balance: any) => parseInt(balance.result.toString(), 10))
-  const points = formattedBalances.reduce((acc, num) => acc + num, 0) * 500
+  const balance = formattedBalances.reduce((acc, num) => acc + num, 0)
 
-  return points
+  return balance
 }
 
-export default getTotalPoints
+export default getCollectionBalanceOf

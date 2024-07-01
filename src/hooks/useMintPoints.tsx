@@ -3,7 +3,7 @@ import { Address } from "viem"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 import { useCallback, useEffect } from "react"
 import getStackPoints from "@/lib/stack/getStackPoints"
-import getTotalPoints from "@/lib/getTotalPoints"
+import getCollectionBalanceOf from "@/lib/getCollectionBalanceOf"
 import getStackClient from "@/lib/stack/getStackClient"
 
 const useMintPoints = () => {
@@ -11,7 +11,8 @@ const useMintPoints = () => {
 
   const updateMintPoints = useCallback(async () => {
     if (!connectedWallet) return
-    const points = await getTotalPoints(connectedWallet as Address)
+    const balance = await getCollectionBalanceOf(connectedWallet as Address)
+    const points = balance * 500
     const stackPoints = await getStackPoints(connectedWallet as Address)
 
     const newPoints = points - stackPoints

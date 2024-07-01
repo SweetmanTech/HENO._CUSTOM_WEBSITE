@@ -1,6 +1,6 @@
 import { COLLECTIONS } from "@/lib/consts"
 import { getPublicClient } from "@/lib/clients"
-import zora1155Abi from "@/lib/abi/zora-drop.json"
+import { zoraCreator1155ImplABI } from "@zoralabs/protocol-deployments"
 import { Address } from "viem"
 
 const getCollectionBalanceOf = async (address: Address) => {
@@ -8,7 +8,7 @@ const getCollectionBalanceOf = async (address: Address) => {
     const publicClient = getPublicClient(collection.chain.id as number)
     const response: any = await publicClient.readContract({
       address: collection.collectionAddress as Address,
-      abi: zora1155Abi,
+      abi: zoraCreator1155ImplABI,
       functionName: "nextTokenId",
     })
 
@@ -16,7 +16,7 @@ const getCollectionBalanceOf = async (address: Address) => {
     const tokenIds = Array.from({ length: nextTokenId - 1 }, (_, i) => i + 1)
     const multicallCalls = tokenIds.map((tokenId) => ({
       address: collection.collectionAddress as Address,
-      abi: zora1155Abi,
+      abi: zoraCreator1155ImplABI,
       functionName: "balanceOf",
       args: [address, tokenId],
     }))

@@ -15,9 +15,11 @@ const useCameraFeedData = () => {
   const { walletClient } = usePrivyWalletClient()
 
   const { login } = useLogin({
-    onComplete: (user) => {
-      const address = user?.wallet?.address
-      if (address) updateMintPoints(address as Address)
+    onComplete: (wallet) => {
+      const address = wallet.wallet?.address
+      if (address) {
+        updateMintPoints(address as Address)
+      }
     },
   })
 

@@ -1,14 +1,23 @@
 import { useMemo } from "react"
 import feedsData from "@/providers/feeds.json"
-import { usePrivy } from "@privy-io/react-auth"
+import { useLogin, usePrivy } from "@privy-io/react-auth"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 import handleTxError from "@/lib/handleTxError"
+import { Address } from "viem"
 import useMintPoints from "./useMintPoints"
 
 const useCameraFeedData = () => {
-  const { login, authenticated, ready } = usePrivy()
+  const { authenticated, ready } = usePrivy()
   const { connectedWallet } = useConnectedWallet()
   const { updateMintPoints } = useMintPoints()
+  const isAuthenticated = ready && authenticated && connectedWallet
+
+  const { login } = useLogin({
+    onComplete: (user) => {
+      const address = user?.wallet?.address
+      if (address) updateMintPoints(address as Address)
+    },
+  })
 
   const wrapTreeViewItems = (items) =>
     items.map((item) => ({ ...item, items: item.items && wrapTreeViewItems(item.items) }))
@@ -21,9 +30,12 @@ const useCameraFeedData = () => {
 
   const verifyMints = async () => {
     try {
-      const isAuthenticated = ready && authenticated && connectedWallet
-      if (!isAuthenticated) login()
-      updateMintPoints()
+      if (!isAuthenticated) {
+        login()
+        return
+      }
+
+      updateMintPoints(connectedWallet as Address)
       // eslint-disable-next-line consistent-return
       return true
     } catch (error) {

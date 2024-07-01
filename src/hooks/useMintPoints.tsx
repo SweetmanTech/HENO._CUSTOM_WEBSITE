@@ -21,7 +21,10 @@ const useMintPoints = () => {
         uniqueId: `${Date.now()}`,
       })
       toast.success(`${newPoints} awarded!!!`)
+      return
     }
+
+    toast.success("you've already claimed all points. mint another token from Heno. to earn more.")
   }
 
   return {

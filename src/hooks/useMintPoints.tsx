@@ -5,6 +5,7 @@ import { useCallback, useEffect } from "react"
 import getStackPoints from "@/lib/stack/getStackPoints"
 import getCollectionBalanceOf from "@/lib/getCollectionBalanceOf"
 import getStackClient from "@/lib/stack/getStackClient"
+import { toast } from "react-toastify"
 
 const useMintPoints = () => {
   const { connectedWallet } = useConnectedWallet()
@@ -18,12 +19,14 @@ const useMintPoints = () => {
     const newPoints = points - stackPoints
     const stackClient = getStackClient()
 
-    if (newPoints)
+    if (newPoints) {
       await stackClient.track("heno_mints_500", {
         points: newPoints,
         account: connectedWallet as Address,
         uniqueId: `${Date.now()}`,
       })
+      toast.success(`${newPoints} awarded!!!`)
+    }
   }, [connectedWallet])
 
   useEffect(() => {

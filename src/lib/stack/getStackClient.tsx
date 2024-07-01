@@ -1,12 +1,12 @@
-import {StackClient} from "@stackso/js-core";
+import { StackClient } from "@stackso/js-core"
 
 const getStackClient = () => {
-    const stack = new StackClient({
-        apiKey: process.env.NEXT_PUBLIC_STACK_KEY, 
-        pointSystemId: "leaderboard-40a3-78225-2471",
-      });
+  const stack = new StackClient({
+    apiKey: process.env.NEXT_PUBLIC_STACK_KEY as string,
+    pointSystemId: parseInt(process.env.NEXT_PUBLIC_POINT_STYEM_ID as string, 10),
+  })
 
-      return stack
+  return stack
 }
 
 export default getStackClient

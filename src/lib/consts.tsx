@@ -1,4 +1,4 @@
-import { sepolia, base } from "viem/chains"
+import { sepolia, base, zora, arbitrumSepolia, arbitrum } from "viem/chains"
 
 export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET === "true"
 export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? sepolia : base
@@ -7,8 +7,17 @@ export const SPOTIFY_CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID
 export const SPOTIFY_CLIENT_SECRET = process.env.NEXT_PUBLIC_CLIENT_SECRET
 export const SPOTIFY_REDIRECT_URI = process.env.NEXT_PUBLIC_REDIRECT_URI
 export const ZORA_DROP_ADDRESS = IS_TESTNET
-  ? "0x7a9d13f9427220fd876af288e9359f8fc411febb"
+  ? "0xeC0F4fb2f5d429DF08B77437214A36104a435E00"
   : "0x4b130ef4051a35883e3b399b67d13b9bd4224798"
+export const SYSTEM_PREVIEW = IS_TESTNET
+  ? "0x55A3c55c769637e9166968d9696ED9db7AF2B5a7"
+  : "0xd89f4379c2bb81405bbc3484abcd52f402bb393e"
+export const HYPERSURVEILLED_ART = IS_TESTNET
+  ? "0xb84F5aF0c70EfEb93f8f5DA3C6Ead4EF46805013"
+  : "0x21eedbba84befdd4db256ebf6b3db5fc76b49d72"
+export const SXSW_BTS = IS_TESTNET
+  ? "0x6a080D831CDEe15263CC6Db32E0F888d9ec11392"
+  : "0x0837ced4a124a0f766c2974bc0bdeb4232abb9a1"
 export const SPOTIFY_STATE_KEY = "spotify_auth_state"
 export const RELIEF_TRACK_ID = "5aDNHHNXc16VktqV1gSq23"
 export const HENO_ARTIST_ID = "3mr6jeVpPIXBp8IMMb60aD"
@@ -30,3 +39,26 @@ export const ONE_MILLISEOND = 1000
 
 export const SYSTEM_COMMERCIAL =
   "ipfs://Qmccf1fZeNZc9nWwvq3a5aiQr3bCr5VNCi3PaUbhrUnpRJ/SYSTEM%20COMMERCIAL.mp4"
+
+export const COLLECTIONS = [
+  {
+    collectionAddress: ZORA_DROP_ADDRESS,
+    chain: IS_TESTNET ? sepolia : base,
+  },
+  {
+    collectionAddress: SYSTEM_PREVIEW,
+    chain: IS_TESTNET ? sepolia : base,
+  },
+  {
+    collectionAddress: HYPERSURVEILLED_ART,
+    chain: IS_TESTNET ? sepolia : zora,
+  },
+  {
+    collectionAddress: SXSW_BTS,
+    chain: IS_TESTNET ? sepolia : zora,
+  },
+  {
+    collectionAddress: ARBITRUM_DROP_ADDRESS,
+    chain: IS_TESTNET ? arbitrumSepolia : arbitrum,
+  },
+]

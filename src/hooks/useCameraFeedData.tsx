@@ -5,12 +5,14 @@ import useConnectedWallet from "@/hooks/useConnectedWallet"
 import handleTxError from "@/lib/handleTxError"
 import { Address } from "viem"
 import useMintPoints from "./useMintPoints"
+import usePrivyWalletClient from "./usePrivyWalletClient"
 
 const useCameraFeedData = () => {
   const { authenticated, ready } = usePrivy()
   const { connectedWallet } = useConnectedWallet()
   const { updateMintPoints } = useMintPoints()
   const isAuthenticated = ready && authenticated && connectedWallet
+  const { walletClient } = usePrivyWalletClient()
 
   const { login } = useLogin({
     onComplete: (user) => {
@@ -34,10 +36,14 @@ const useCameraFeedData = () => {
         login()
         return
       }
-
-      updateMintPoints(connectedWallet as Address)
+      if (!walletClient) return
+      const verifyMintsSignature = await walletClient.signMessage({
+        account: connectedWallet as Address,
+        message: "Verify Mints",
+      })
+      await updateMintPoints(connectedWallet as Address)
       // eslint-disable-next-line consistent-return
-      return true
+      return verifyMintsSignature
     } catch (error) {
       handleTxError({ message: "Verify mints failed." })
       // eslint-disable-next-line consistent-return

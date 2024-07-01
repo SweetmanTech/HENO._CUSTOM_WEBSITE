@@ -14,7 +14,6 @@ const PageLoadProvider = ({ children }) => {
   const [stream, setStream] = useState(null) as any
   const videoRef = useRef(null) as any
   const pathname = usePathname()
-
   const isEmployeePage = pathname.includes("/employee")
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

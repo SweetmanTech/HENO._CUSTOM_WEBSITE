@@ -1,10 +1,10 @@
 import { ARBITRUM_DROP_ADDRESS, ARBITRUM_MINTER, IS_TESTNET, ZORA_FEE } from "@/lib/consts"
 import handleTxError from "@/lib/handleTxError"
 import { useState } from "react"
-import abi from "@/lib/abi/zora-drop.json"
 import { BigNumber } from "ethers"
 import { arbitrum, arbitrumSepolia } from "viem/chains"
 import getEncodedMinterArgs from "@/lib/zora/getEncodedMinterArgs"
+import { zoraCreator1155ImplABI } from "@zoralabs/protocol-deployments"
 import usePrivySendTransaction from "./usePrivySendTransaction"
 import useConnectedWallet from "./useConnectedWallet"
 import usePreparePrivyWallet from "./usePreparePrivyWallet"
@@ -28,7 +28,7 @@ const useArbitrumCollect = () => {
       const response = await sendTransaction(
         ARBITRUM_DROP_ADDRESS,
         chainId,
-        abi,
+        zoraCreator1155ImplABI,
         "mintWithRewards",
         [ARBITRUM_MINTER, 1, 1, minterArguments, connectedWallet],
         totalFee,

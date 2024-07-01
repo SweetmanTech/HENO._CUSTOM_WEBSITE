@@ -16,7 +16,7 @@ const PageLoadProvider = ({ children }) => {
   const videoRef = useRef(null) as any
   const pathname = usePathname()
   const isEmployeePage = pathname.includes("/employee")
-  const { totalPoints } = useMintPoints()
+  const { updateMintPoints } = useMintPoints()
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const grantCamera = async () => {
@@ -52,7 +52,7 @@ const PageLoadProvider = ({ children }) => {
       setStream,
       grantCamera,
       videoRef,
-      totalPoints,
+      updateMintPoints,
     }),
     [
       entered,
@@ -64,7 +64,7 @@ const PageLoadProvider = ({ children }) => {
       setStream,
       grantCamera,
       videoRef,
-      totalPoints,
+      updateMintPoints,
     ],
   )
 

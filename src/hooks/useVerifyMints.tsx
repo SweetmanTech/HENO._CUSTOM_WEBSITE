@@ -2,7 +2,6 @@ import { useLogin, usePrivy } from "@privy-io/react-auth"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 import handleTxError from "@/lib/handleTxError"
 import { Address } from "viem"
-import usePrivyWalletClient from "./usePrivyWalletClient"
 import useMintPoints from "./useMintPoints"
 
 const useVerifyMints = () => {
@@ -11,7 +10,6 @@ const useVerifyMints = () => {
   const { updateMintPoints } = useMintPoints()
 
   const isAuthenticated = ready && authenticated && connectedWallet
-  const { walletClient } = usePrivyWalletClient()
 
   const { login } = useLogin({
     onComplete: (wallets) => {
@@ -32,14 +30,9 @@ const useVerifyMints = () => {
         login()
         return
       }
-      if (!walletClient) return
-      const verifyMintsSignature = await walletClient.signMessage({
-        account: connectedWallet as Address,
-        message: "Verify Mints",
-      })
       await updateMintPoints(connectedWallet as Address)
       // eslint-disable-next-line consistent-return
-      return verifyMintsSignature
+      return true
     } catch (error) {
       handleTxError({ message: "Verify mints failed." })
       // eslint-disable-next-line consistent-return

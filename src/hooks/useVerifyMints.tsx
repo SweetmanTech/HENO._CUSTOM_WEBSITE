@@ -1,37 +1,28 @@
-import { useLogin, usePrivy } from "@privy-io/react-auth"
+import { usePrivy } from "@privy-io/react-auth"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 import handleTxError from "@/lib/handleTxError"
 import { Address } from "viem"
+import { useState } from "react"
 import useMintPoints from "./useMintPoints"
 
 const useVerifyMints = () => {
-  const { authenticated, ready } = usePrivy()
+  const { authenticated, ready, login } = usePrivy()
   const { connectedWallet } = useConnectedWallet()
   const { updateMintPoints } = useMintPoints()
+  const [verifyingMint, setVerifyingMint] = useState(false)
 
   const isAuthenticated = ready && authenticated && connectedWallet
 
-  const { login } = useLogin({
-    onComplete: (wallets) => {
-      const externalWallets = wallets.linkedAccounts?.filter(
-        (wallet: any) => wallet?.walletClientType !== "privy",
-      )
-      const externalWallet: any = externalWallets?.length ? externalWallets[0] : null
-
-      if (externalWallet) {
-        updateMintPoints(externalWallet?.address as Address)
-      }
-    },
-  })
-
   const verifyMints = async () => {
     try {
+      setVerifyingMint(true)
       if (!isAuthenticated) {
         login()
-        return
+        return true
       }
       await updateMintPoints(connectedWallet as Address)
       // eslint-disable-next-line consistent-return
+      setVerifyingMint(false)
       return true
     } catch (error) {
       handleTxError({ message: "Verify mints failed." })
@@ -42,6 +33,7 @@ const useVerifyMints = () => {
 
   return {
     verifyMints,
+    verifyingMint,
   }
 }
 

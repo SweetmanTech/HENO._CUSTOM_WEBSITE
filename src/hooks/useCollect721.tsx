@@ -30,7 +30,7 @@ const use721Collect = () => {
         CHAIN_ID,
         abi,
         "mintWithRewards",
-        [connectedWallet, 1, "HENO.WEB3", connectedWallet],
+        [connectedWallet, 1, "!!!", connectedWallet],
         totalFee,
         "HENO.WEB3",
         "COLLECT",

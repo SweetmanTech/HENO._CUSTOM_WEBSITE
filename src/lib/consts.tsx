@@ -1,4 +1,4 @@
-import { sepolia, base, zora, arbitrumSepolia, arbitrum } from "viem/chains"
+import { sepolia, base, zora, arbitrumSepolia, arbitrum, mainnet } from "viem/chains"
 
 export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET === "true"
 export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? sepolia : base
@@ -47,21 +47,31 @@ export const COLLECTIONS = [
   {
     collectionAddress: ZORA_DROP_ADDRESS,
     chain: IS_TESTNET ? sepolia : base,
+    type: "ERC1155",
   },
   {
     collectionAddress: SYSTEM_PREVIEW,
     chain: IS_TESTNET ? sepolia : base,
+    type: "ERC1155",
   },
   {
     collectionAddress: HYPERSURVEILLED_ART,
     chain: IS_TESTNET ? sepolia : zora,
+    type: "ERC1155",
   },
   {
     collectionAddress: SXSW_BTS,
     chain: IS_TESTNET ? sepolia : zora,
+    type: "ERC1155",
   },
   {
     collectionAddress: ARBITRUM_DROP_ADDRESS,
     chain: IS_TESTNET ? arbitrumSepolia : arbitrum,
+    type: "ERC1155",
+  },
+  {
+    collectionAddress: NEYBORS_DROP_ADDRESS,
+    chain: IS_TESTNET ? sepolia : mainnet,
+    type: "ERC721",
   },
 ]

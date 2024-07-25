@@ -32,6 +32,9 @@ const DropSection = ({ isPopup }) => {
         />
       ))}
       <CollectAllButton />
+      <span className="uppercase">
+        {data[1].title} By {data[1].artist}
+      </span>
     </div>
   )
 }

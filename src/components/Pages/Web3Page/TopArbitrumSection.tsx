@@ -2,6 +2,7 @@ import CollectArbitrum from "@/components/CollectArbitrum"
 import { useWeb3Drops } from "@/providers/Web3Provider"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
+import data from "@/lib/zora-drops"
 
 const TopArbitrumSection = ({ isPopup }) => {
   const { setZoraDropActive, setSelectedDrop } = useWeb3Drops() as any
@@ -28,6 +29,9 @@ const TopArbitrumSection = ({ isPopup }) => {
         className={`${isPopup ? "h-[200px]" : "h-[300px]"}`}
       />
       <CollectArbitrum />
+      <span className={`uppercase text-[12px] ${isPopup ? "md:text-[14px]" : "md:text-[16px]"}`}>
+        {data[0].title} By {data[0].artist}
+      </span>
     </div>
   )
 }

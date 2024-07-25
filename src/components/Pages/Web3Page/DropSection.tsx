@@ -33,7 +33,7 @@ const DropSection = ({ isPopup }) => {
       ))}
       <CollectAllButton />
       <span className="uppercase">
-        {data[1].title} By {data[1].artist}
+        {data[selectedDrop].title} By {data[selectedDrop].artist}
       </span>
     </div>
   )

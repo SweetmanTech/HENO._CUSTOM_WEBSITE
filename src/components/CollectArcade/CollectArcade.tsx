@@ -1,14 +1,14 @@
 import use721Collect from "@/hooks/useCollect721"
-import { IS_TESTNET, NEYBORS_DROP_ADDRESS } from "@/lib/consts"
+import { ARCADE_DROP_ADDRESS, IS_TESTNET } from "@/lib/consts"
 import { toast } from "react-toastify"
-import { mainnet, sepolia } from "viem/chains"
+import { sepolia, zora } from "viem/chains"
 
-const CollectNeybors = ({ className = "" }) => {
+const CollectArcade = ({ className = "" }) => {
   const { collect721, loading } = use721Collect()
 
   const handleClick = async () => {
-    const chainId = IS_TESTNET ? sepolia.id : mainnet.id
-    const response = await collect721(NEYBORS_DROP_ADDRESS, chainId)
+    const chainId = IS_TESTNET ? sepolia.id : zora.id
+    const response = await collect721(ARCADE_DROP_ADDRESS, chainId)
     if (!response) return
     toast.success("Collected!")
   }
@@ -16,7 +16,7 @@ const CollectNeybors = ({ className = "" }) => {
   return (
     <button
       type="button"
-      className={`${className} bg-darkgray py-[3px]`}
+      className={`${className} bg-darkgray py-[3px] w-full`}
       onClick={handleClick}
       onTouchStart={handleClick}
       disabled={loading}
@@ -26,4 +26,4 @@ const CollectNeybors = ({ className = "" }) => {
   )
 }
 
-export default CollectNeybors
+export default CollectArcade

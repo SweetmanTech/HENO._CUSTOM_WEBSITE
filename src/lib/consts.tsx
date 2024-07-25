@@ -11,6 +11,9 @@ export const ZORA_DROP_ADDRESS = IS_TESTNET
   : "0x4b130ef4051a35883e3b399b67d13b9bd4224798"
 export const NEYBORS_DROP_ADDRESS = IS_TESTNET
   ? "0x9b1E3507e9D52319314E4303d8F4Df0157839b9b"
+  : "0x71fc87edd0a98a847c9bb838bc05577ef907f299"
+export const ARCADE_DROP_ADDRESS = IS_TESTNET
+  ? "0xBB63749b8fe434cF4Fc2f310f123574E70E67391"
   : "0x250fd27b0b6f2438414a98fc9bfa5641b3717f03"
 export const SYSTEM_PREVIEW = IS_TESTNET
   ? "0x55A3c55c769637e9166968d9696ED9db7AF2B5a7"
@@ -72,6 +75,11 @@ export const COLLECTIONS = [
   {
     collectionAddress: NEYBORS_DROP_ADDRESS,
     chain: IS_TESTNET ? sepolia : mainnet,
+    type: "ERC721",
+  },
+  {
+    collectionAddress: ARCADE_DROP_ADDRESS,
+    chain: IS_TESTNET ? sepolia : zora,
     type: "ERC721",
   },
 ]

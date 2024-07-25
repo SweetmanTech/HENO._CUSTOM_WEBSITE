@@ -1,5 +1,4 @@
 import abi from "@/lib/abi/abi-ERC721Drop.json"
-import { mainnet, sepolia } from "viem/chains"
 import handleTxError from "@/lib/handleTxError"
 import get721SaleStatus from "@/lib/get721SaleStatus"
 import { BigNumber } from "ethers"
@@ -7,16 +6,15 @@ import { useState } from "react"
 import usePrivySendTransaction from "./usePrivySendTransaction"
 import usePreparePrivyWallet from "./usePreparePrivyWallet"
 import useConnectedWallet from "./useConnectedWallet"
-import { CHAIN_ID, IS_TESTNET, ZORA_FEE } from "../lib/consts"
+import { CHAIN_ID, ZORA_FEE } from "../lib/consts"
 
 const use721Collect = () => {
   const { sendTransaction } = usePrivySendTransaction()
   const { connectedWallet } = useConnectedWallet()
   const { prepare } = usePreparePrivyWallet()
-  const chainId = IS_TESTNET ? sepolia.id : mainnet.id
   const [loading, setLoading] = useState(false)
 
-  const collect721 = async (dropAddress) => {
+  const collect721 = async (dropAddress, chainId) => {
     try {
       if (!(await prepare(chainId))) return false
       if (!connectedWallet) return false

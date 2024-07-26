@@ -13,6 +13,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "f005.backblazeb2.com",
+      },
+      {
+        protocol: "https",
+        hostname: "ipfs.decentralized-content.com"
       }
     ],
   },

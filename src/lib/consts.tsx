@@ -1,4 +1,4 @@
-import { sepolia, base, zora, arbitrumSepolia, arbitrum } from "viem/chains"
+import { sepolia, base, zora, arbitrumSepolia, arbitrum, mainnet, zoraSepolia } from "viem/chains"
 
 export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET === "true"
 export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? sepolia : base
@@ -9,6 +9,12 @@ export const SPOTIFY_REDIRECT_URI = process.env.NEXT_PUBLIC_REDIRECT_URI
 export const ZORA_DROP_ADDRESS = IS_TESTNET
   ? "0x7a9d13f9427220fd876af288e9359f8fc411febb"
   : "0x4b130ef4051a35883e3b399b67d13b9bd4224798"
+export const NEYBORS_DROP_ADDRESS = IS_TESTNET
+  ? "0x9b1E3507e9D52319314E4303d8F4Df0157839b9b"
+  : "0x250fd27b0b6f2438414a98fc9bfa5641b3717f03"
+export const ARCADE_DROP_ADDRESS = IS_TESTNET
+  ? "0xd09bc336125af900899a741e8d72073e47c376b4"
+  : "0x71fc87edd0a98a847c9bb838bc05577ef907f299"
 export const SYSTEM_PREVIEW = IS_TESTNET
   ? "0x55A3c55c769637e9166968d9696ED9db7AF2B5a7"
   : "0xd89f4379c2bb81405bbc3484abcd52f402bb393e"
@@ -44,21 +50,36 @@ export const COLLECTIONS = [
   {
     collectionAddress: ZORA_DROP_ADDRESS,
     chain: IS_TESTNET ? sepolia : base,
+    type: "ERC1155",
   },
   {
     collectionAddress: SYSTEM_PREVIEW,
     chain: IS_TESTNET ? sepolia : base,
+    type: "ERC1155",
   },
   {
     collectionAddress: HYPERSURVEILLED_ART,
     chain: IS_TESTNET ? sepolia : zora,
+    type: "ERC1155",
   },
   {
     collectionAddress: SXSW_BTS,
     chain: IS_TESTNET ? sepolia : zora,
+    type: "ERC1155",
   },
   {
     collectionAddress: ARBITRUM_DROP_ADDRESS,
     chain: IS_TESTNET ? arbitrumSepolia : arbitrum,
+    type: "ERC1155",
+  },
+  {
+    collectionAddress: NEYBORS_DROP_ADDRESS,
+    chain: IS_TESTNET ? sepolia : mainnet,
+    type: "ERC721",
+  },
+  {
+    collectionAddress: ARCADE_DROP_ADDRESS,
+    chain: IS_TESTNET ? zoraSepolia : zora,
+    type: "ERC721",
   },
 ]

@@ -1,18 +1,17 @@
-import Web3Socials from "@/components/Web3Socials"
+import ArcadeSection from "./ArcadeSection"
 import DropSection from "./DropSection"
+import NeyborsSection from "./NeyborsSection"
 import TopArbitrumSection from "./TopArbitrumSection"
 
 const Trailer = ({ isPopup = false }) => (
-  <div className="h-fit max-h-full overflow-y-auto w-full">
+  <div className="h-full overflow-y-auto w-full">
     <div className={`flex flex-col items-center gap-y-[10px] ${!isPopup && "md:gap-y-[20px]"}`}>
-      <div
-        className={`flex flex-col gap-y-[10px] ${isPopup ? "max-h-[235px]" : "max-h-[335px]"}
-      overflow-y-auto pr-2`}
-      >
+      <div className="flex flex-col gap-y-[10px] h-full overflow-y-auto pr-2">
         <TopArbitrumSection isPopup={isPopup} />
         <DropSection isPopup={isPopup} />
+        <ArcadeSection isPopup={isPopup} />
+        <NeyborsSection isPopup={isPopup} />
       </div>
-      <Web3Socials isPopup={isPopup} />
     </div>
   </div>
 )

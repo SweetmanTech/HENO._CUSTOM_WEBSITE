@@ -1,10 +1,10 @@
-import CollectArbitrum from "@/components/CollectArbitrum"
+import CollectNeybors from "@/components/CollectNeybors"
 import data from "@/lib/zora-drops"
 
-const TopArbitrumSection = ({ isPopup }) => (
+const NeyborsSection = ({ isPopup }) => (
   <div className="w-full flex flex-col gap-1.5">
     <video
-      src="https://ipfs.decentralized-content.com/ipfs/bafybeicmqcva4bw7psql7hhfa4ugxi743i2ytuhhpfugxzhrfpvrffhwku"
+      src="https://ipfs.decentralized-content.com/ipfs/bafybeieaq7nqlv5j2wndfkxwlodqddelahlmuwczbrzei7py5enzftuska"
       preload="auto"
       controls
       playsInline
@@ -13,11 +13,11 @@ const TopArbitrumSection = ({ isPopup }) => (
       muted
       className={`${isPopup ? "h-[200px]" : "h-[300px]"}`}
     />
-    <CollectArbitrum />
+    <CollectNeybors />
     <span className={`uppercase text-[12px] ${isPopup ? "md:text-[14px]" : "md:text-[16px]"}`}>
-      {data[0].title} By {data[0].artist}
+      {data[10].title} By {data[10].artist}
     </span>
   </div>
 )
 
-export default TopArbitrumSection
+export default NeyborsSection

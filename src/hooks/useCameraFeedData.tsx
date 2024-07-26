@@ -3,7 +3,7 @@ import feedsData from "@/providers/feeds.json"
 import useVerifyMints from "./useVerifyMints"
 
 const useCameraFeedData = () => {
-  const { verifyMints } = useVerifyMints()
+  const { verifyMints, verifyingMint } = useVerifyMints()
 
   const wrapTreeViewItems = (items) =>
     items.map((item) => ({ ...item, items: item.items && wrapTreeViewItems(item.items) }))
@@ -16,7 +16,7 @@ const useCameraFeedData = () => {
 
   const onItemClick = (event: any) => {
     const { id } = event.item
-    if (id === "verify-mints") verifyMints()
+    if (id === "verify-mints" && !verifyingMint) verifyMints()
   }
 
   const onExpandChange = (event: any) => {

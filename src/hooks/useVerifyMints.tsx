@@ -18,6 +18,7 @@ const useVerifyMints = () => {
       setVerifyingMint(true)
       if (!isAuthenticated) {
         login()
+        setVerifyingMint(false)
         return true
       }
       await updateMintPoints(connectedWallet as Address)
@@ -25,6 +26,7 @@ const useVerifyMints = () => {
       setVerifyingMint(false)
       return true
     } catch (error) {
+      setVerifyingMint(false)
       handleTxError({ message: "Verify mints failed." })
       // eslint-disable-next-line consistent-return
       return false

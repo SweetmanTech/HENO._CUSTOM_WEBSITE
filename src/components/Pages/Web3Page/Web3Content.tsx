@@ -11,7 +11,7 @@ const Web3Content = ({ isPopup = false }) => (
       text-[12px] md:text-[16px]`}
     >
       <div
-        className={`relative z-[1] h-[80%] overflow-y-auto text-[12px] md:text-[16px]
+        className={`relative z-[1] w-full h-[80%] overflow-y-auto text-[12px] md:text-[16px]
         px-[15px] md:px-[20px] flex flex-col gap-y-[5px] ${
           isPopup ? "md:gap-y-[10px]" : "md:gap-y-[20px]"
         }`}

@@ -6,7 +6,7 @@ import { useState } from "react"
 import usePrivySendTransaction from "./usePrivySendTransaction"
 import usePreparePrivyWallet from "./usePreparePrivyWallet"
 import useConnectedWallet from "./useConnectedWallet"
-import { CHAIN_ID, ZORA_FEE } from "../lib/consts"
+import { ZORA_FEE } from "../lib/consts"
 
 const use721Collect = () => {
   const { sendTransaction } = usePrivySendTransaction()
@@ -20,12 +20,12 @@ const use721Collect = () => {
       if (!connectedWallet) return false
       setLoading(true)
 
-      const saleStatus = await get721SaleStatus(dropAddress)
+      const saleStatus = await get721SaleStatus(dropAddress, chainId)
       const totalFee = BigNumber.from(saleStatus?.publicSalePrice).add(ZORA_FEE).toHexString()
 
       const response = await sendTransaction(
         dropAddress,
-        CHAIN_ID,
+        chainId,
         abi,
         "mintWithRewards",
         [connectedWallet, 1, "!!!", connectedWallet],

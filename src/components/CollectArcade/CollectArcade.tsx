@@ -1,13 +1,13 @@
 import use721Collect from "@/hooks/useCollect721"
 import { ARCADE_DROP_ADDRESS, IS_TESTNET } from "@/lib/consts"
 import { toast } from "react-toastify"
-import { sepolia, zora } from "viem/chains"
+import { zora, zoraSepolia } from "viem/chains"
 
 const CollectArcade = ({ className = "" }) => {
   const { collect721, loading } = use721Collect()
 
   const handleClick = async () => {
-    const chainId = IS_TESTNET ? sepolia.id : zora.id
+    const chainId = IS_TESTNET ? zoraSepolia.id : zora.id
     const response = await collect721(ARCADE_DROP_ADDRESS, chainId)
     if (!response) return
     toast.success("Collected!")

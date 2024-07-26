@@ -15,7 +15,7 @@ const NeyborsSection = ({ isPopup }) => (
     />
     <CollectNeybors />
     <span className={`uppercase text-[12px] ${isPopup ? "md:text-[14px]" : "md:text-[16px]"}`}>
-      {data[9].title} By {data[9].artist}
+      {data[10].title} By {data[10].artist}
     </span>
   </div>
 )

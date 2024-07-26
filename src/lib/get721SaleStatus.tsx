@@ -1,11 +1,10 @@
 import { Contract } from "ethers"
 import abi from "./abi/abi-ERC721Drop.json"
 import getDefaultProvider from "./getDefaultProvider"
-import { CHAIN_ID } from "./consts"
 
-const get721SaleStatus = async (dropAddress) => {
+const get721SaleStatus = async (dropAddress, chainId) => {
   try {
-    const drop = new Contract(dropAddress, abi, getDefaultProvider(CHAIN_ID))
+    const drop = new Contract(dropAddress, abi, getDefaultProvider(chainId))
     const details = await drop.saleDetails()
 
     return {

@@ -54,10 +54,16 @@ const data = [
     startedAt: "January 17, 2024",
   },
   {
+    ipfs: "https://ipfs.decentralized-content.com/ipfs/bafkreigwvgvi5hkuhuuv3g7n2hq5yxyp6qxjagop2zze4bnhtlixmrstim",
+    artist: "heno",
+    title: "Arcade Tickets",
+    startedAt: "September 13, 2023",
+  },
+  {
     ipfs: "https://ipfs.decentralized-content.com/ipfs/bafybeieaq7nqlv5j2wndfkxwlodqddelahlmuwczbrzei7py5enzftuska",
     artist: "heno",
     title: "NEYBORS Music Video - Heno. featuring Elujay & J.Robb",
-    startedAt: "JMarch 29, 2023",
+    startedAt: "March 29, 2023",
   },
 ]
 

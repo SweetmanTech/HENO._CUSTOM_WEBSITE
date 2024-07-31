@@ -65,7 +65,16 @@ const LandingPage = () => {
           handleClose={() => setIsOpenYoutubeModal(!isOpenYoutubeModal)}
           isVisible={isOpenYoutubeModal}
         >
-          <YoutubeContent />
+          <div className="iframely-embed flex flex-col h-full justify-center">
+            <div className="iframely-responsive" style={{ height: "140px", paddingBottom: 0 }}>
+              {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+              <a
+                href="https://unitedmasters.com/m/hydroplaning"
+                data-iframely-url="//iframely.net/9KqnAuQ"
+              />
+            </div>
+          </div>
+          <script async src="//iframely.net/embed.js" />
         </DraggableModal>
       )}
     </Layout>

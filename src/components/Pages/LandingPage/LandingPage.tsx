@@ -1,14 +1,13 @@
 "use client"
 
 import { usePageLoad } from "@/providers/PageLoadProvider"
-import DraggableModal from "@/components/Core/DraggableModal"
 import { useState } from "react"
 import useIsMobile from "@/hooks/useIsMobile"
 import { SCREENS } from "@/lib/screens"
 import { usePopupWidget } from "@/providers/PopupWidgetProvider"
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
-import YoutubeContent from "../YoutubeContent"
+import LandingPagePopup from "./LandingPagePopup"
 
 const LandingPage = () => {
   const { openPopUp } = usePopupWidget() as any
@@ -59,26 +58,7 @@ const LandingPage = () => {
           Play Relief
         </a>
       )}
-      {isOpenYoutubeModal && (
-        <DraggableModal
-          href="/"
-          handleClose={() => setIsOpenYoutubeModal(!isOpenYoutubeModal)}
-          isVisible={isOpenYoutubeModal}
-        >
-          <div className="iframely-embed flex flex-col h-full justify-center">
-            <div className="iframely-responsive" style={{ height: "140px", paddingBottom: 0 }}>
-              <a
-                href="https://unitedmasters.com/m/hydroplaning"
-                data-iframely-url="//iframely.net/9KqnAuQ"
-                aria-label="Hydroplaning"
-              >
-                Hydroplaning
-              </a>
-            </div>
-          </div>
-          <script async src="//iframely.net/embed.js" />
-        </DraggableModal>
-      )}
+      {isOpenYoutubeModal && <LandingPagePopup setIsOpenYoutubeModal={setIsOpenYoutubeModal} />}
     </Layout>
   )
 }

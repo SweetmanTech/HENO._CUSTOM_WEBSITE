@@ -1,14 +1,13 @@
 "use client"
 
 import { usePageLoad } from "@/providers/PageLoadProvider"
-import DraggableModal from "@/components/Core/DraggableModal"
 import { useState } from "react"
 import useIsMobile from "@/hooks/useIsMobile"
 import { SCREENS } from "@/lib/screens"
 import { usePopupWidget } from "@/providers/PopupWidgetProvider"
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
-import YoutubeContent from "../YoutubeContent"
+import LandingPagePopup from "./LandingPagePopup"
 
 const LandingPage = () => {
   const { openPopUp } = usePopupWidget() as any
@@ -59,15 +58,7 @@ const LandingPage = () => {
           Play Relief
         </a>
       )}
-      {isOpenYoutubeModal && (
-        <DraggableModal
-          href="/"
-          handleClose={() => setIsOpenYoutubeModal(!isOpenYoutubeModal)}
-          isVisible={isOpenYoutubeModal}
-        >
-          <YoutubeContent />
-        </DraggableModal>
-      )}
+      {isOpenYoutubeModal && <LandingPagePopup setIsOpenYoutubeModal={setIsOpenYoutubeModal} />}
     </Layout>
   )
 }

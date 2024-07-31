@@ -67,11 +67,13 @@ const LandingPage = () => {
         >
           <div className="iframely-embed flex flex-col h-full justify-center">
             <div className="iframely-responsive" style={{ height: "140px", paddingBottom: 0 }}>
-              {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
               <a
                 href="https://unitedmasters.com/m/hydroplaning"
                 data-iframely-url="//iframely.net/9KqnAuQ"
-              />
+                aria-label="Hydroplaning"
+              >
+                Hydroplaning
+              </a>
             </div>
           </div>
           <script async src="//iframely.net/embed.js" />

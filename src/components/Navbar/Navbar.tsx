@@ -1,12 +1,12 @@
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { usePopupWidget } from "../../providers/PopupWidgetProvider"
 import PopUpWindows from "../PopUpWindows/PopUpWindows"
 import { SCREENS } from "../../lib/screens"
 
 const Navbar = () => {
   const pathname = usePathname()
-  const { push } = useRouter()
+  // const { push } = useRouter()
 
   const { openPopUp } = usePopupWidget() as any
 
@@ -20,7 +20,7 @@ const Navbar = () => {
   const isWeb3Page = pathname.includes("/web3")
   const isPressPage = pathname.includes("/press")
   const isContactPage = pathname.includes("/contact")
-  const isEmployeePage = pathname.includes("/employee")
+  // const isEmployeePage = pathname.includes("/employee")
 
   return (
     <>
@@ -73,14 +73,14 @@ const Navbar = () => {
         >
           Contact
         </button>
-        <button
+        {/* <button
           type="button"
           onClick={() => push("/employee")}
           className={`${navClasses}
         ${isEmployeePage ? "border-b-[2px] border-b-[#347fdb] md:!bg-[#347fdb]" : ""}`}
         >
           Employee
-        </button>
+        </button> */}
       </div>
       <PopUpWindows />
     </>

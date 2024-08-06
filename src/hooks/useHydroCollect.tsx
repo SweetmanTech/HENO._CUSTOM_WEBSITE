@@ -1,4 +1,9 @@
-import { HYDROPLANING_DROP_ADDRESS, IS_TESTNET, ZORA_FEE, REWRARDS_RECEIPIENT } from "@/lib/consts"
+import {
+  HYDROPLANING_DROP_ADDRESS,
+  IS_TESTNET,
+  ZORA_FEE,
+  HYDROPLANING_REWRARDS_RECEIPIENT,
+} from "@/lib/consts"
 import handleTxError from "@/lib/handleTxError"
 import { useState } from "react"
 import { BigNumber } from "ethers"
@@ -40,7 +45,7 @@ const useHydroCollect = () => {
           zoraCreatorFixedPriceSaleStrategyAddress[chainId],
           1,
           1,
-          [REWRARDS_RECEIPIENT],
+          [HYDROPLANING_REWRARDS_RECEIPIENT],
           minterArguments,
         ],
         totalFee,

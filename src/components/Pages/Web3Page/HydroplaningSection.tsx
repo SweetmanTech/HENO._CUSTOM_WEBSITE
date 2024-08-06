@@ -1,7 +1,7 @@
 import CollectHydro from "@/components/CollectHydro"
 import data from "@/lib/zora-drops"
 
-const HydroplanningSection = ({ isPopup }) => (
+const HydroplaningSection = ({ isPopup }) => (
   <div className="w-full flex flex-col gap-1.5">
     <video
       src="https://ipfs.decentralized-content.com/ipfs/bafybeibifnzka6oqs77ascf5fuhtxtv4mc56jc47rb4fqbjz644byzu72q"
@@ -20,4 +20,4 @@ const HydroplanningSection = ({ isPopup }) => (
   </div>
 )
 
-export default HydroplanningSection
+export default HydroplaningSection

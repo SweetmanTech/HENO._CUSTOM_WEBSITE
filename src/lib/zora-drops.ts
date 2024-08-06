@@ -65,6 +65,12 @@ const data = [
     title: "NEYBORS Music Video - Heno. featuring Elujay & J.Robb",
     startedAt: "March 29, 2023",
   },
+  {
+    ipfs: "https://ipfs.decentralized-content.com/ipfs/bafybeieaq7nqlv5j2wndfkxwlodqddelahlmuwczbrzei7py5enzftuska",
+    artist: "heno",
+    title: "Hydroplaning Music Video (Heno. x Mick Jenkins)",
+    startedAt: "August 06, 2024",
+  },
 ]
 
 export default data

@@ -1,5 +1,6 @@
 import ArcadeSection from "./ArcadeSection"
 import DropSection from "./DropSection"
+import HydroplanningSection from "./HydroplanningSection"
 import NeyborsSection from "./NeyborsSection"
 import TopArbitrumSection from "./TopArbitrumSection"
 
@@ -11,6 +12,7 @@ const Trailer = ({ isPopup = false }) => (
         <DropSection isPopup={isPopup} />
         <ArcadeSection isPopup={isPopup} />
         <NeyborsSection isPopup={isPopup} />
+        <HydroplanningSection isPopup={isPopup} />
       </div>
     </div>
   </div>

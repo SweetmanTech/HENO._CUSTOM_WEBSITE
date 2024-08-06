@@ -4,7 +4,7 @@ import useIsMobile from "../../../hooks/useIsMobile"
 
 const YoutubeContent = () => {
   const isMobile = useIsMobile()
-  const videoId = "fOmSYA2Y42s"
+  const videoId = "mU0QfduwlIk"
 
   return (
     <div className="p-[5px] md:p-[10px] border-[2px] border-gray_1 h-full">

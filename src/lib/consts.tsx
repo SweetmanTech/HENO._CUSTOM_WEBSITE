@@ -1,4 +1,13 @@
-import { sepolia, base, zora, arbitrumSepolia, arbitrum, mainnet, zoraSepolia } from "viem/chains"
+import {
+  sepolia,
+  base,
+  zora,
+  arbitrumSepolia,
+  arbitrum,
+  mainnet,
+  zoraSepolia,
+  baseSepolia,
+} from "viem/chains"
 
 export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET === "true"
 export const CHAIN = process.env.NEXT_PUBLIC_TESTNET ? sepolia : base
@@ -24,6 +33,12 @@ export const HYPERSURVEILLED_ART = IS_TESTNET
 export const SXSW_BTS = IS_TESTNET
   ? "0x6a080D831CDEe15263CC6Db32E0F888d9ec11392"
   : "0x0837ced4a124a0f766c2974bc0bdeb4232abb9a1"
+export const HYDROPLANING_DROP_ADDRESS = IS_TESTNET
+  ? "0x9700ea060d43ff3c7ed14b859ea6108a7ef7c2f7"
+  : "0x5c0fd2ceb2fb1799116514d29b9956097eaa8c87"
+export const HYDROPLANING_REWARDS_RECIPIENT = IS_TESTNET
+  ? "0x52d91e960e52641ee7142e2942378dda357b8685"
+  : "0x61edd3496d5FF1b84F36be0922a9197f8AAC486e"
 export const SPOTIFY_STATE_KEY = "spotify_auth_state"
 export const RELIEF_TRACK_ID = "5aDNHHNXc16VktqV1gSq23"
 export const HENO_ARTIST_ID = "3mr6jeVpPIXBp8IMMb60aD"
@@ -81,5 +96,10 @@ export const COLLECTIONS = [
     collectionAddress: ARCADE_DROP_ADDRESS,
     chain: IS_TESTNET ? zoraSepolia : zora,
     type: "ERC721",
+  },
+  {
+    collectionAddress: HYDROPLANING_DROP_ADDRESS,
+    chain: IS_TESTNET ? baseSepolia : base,
+    type: "ERC1155",
   },
 ]

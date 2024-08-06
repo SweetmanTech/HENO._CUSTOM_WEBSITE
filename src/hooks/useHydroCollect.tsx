@@ -2,7 +2,7 @@ import {
   HYDROPLANING_DROP_ADDRESS,
   IS_TESTNET,
   ZORA_FEE,
-  HYDROPLANING_REWRARDS_RECEIPIENT,
+  HYDROPLANING_REWARDS_RECIPIENT,
 } from "@/lib/consts"
 import handleTxError from "@/lib/handleTxError"
 import { useState } from "react"
@@ -45,7 +45,7 @@ const useHydroCollect = () => {
           zoraCreatorFixedPriceSaleStrategyAddress[chainId],
           1,
           1,
-          [HYDROPLANING_REWRARDS_RECEIPIENT],
+          [HYDROPLANING_REWARDS_RECIPIENT],
           minterArguments,
         ],
         totalFee,

@@ -15,33 +15,7 @@ const AboutContent = ({ isPopup = false }) => (
         px-[15px] flex flex-col gap-y-[5px] md:gap-y-[20px]`}
       >
         <p>
-          {` Heno. is a true trailblazer of the music industry, boasting a plethora of talents as an
-              artist, producer, engineer, community organizer, and Web3 builder. Notably, Heno. has been
-              recognized as an "early innovator" in Web3 by Fortune Mag, while COLORS have praised his
-              "hard-hitting and powerful aesthetic." Heno. has carved a unique and hybrid role in the
-              music industry, simultaneously disrupting both the Web3 space and traditional music world.`}
-        </p>
-        <p>
-          {`Hailing from Takoma Park, Maryland, as a first-generation Ethiopian-Eritrean artist, Heno.
-              uses his art and music to tell intentional and impactful stories, finding comfort within
-              uncomfortable conversations. With an impressive roster of collaborators including Mick
-              Jenkins, JPEGMAFIA, Chaz Bear (Toro Y Moi) just to name a few, Heno. has proven his
-              versatility as an artist. Heno.'s recently released the anticipated video for his track
-              "Neybors" that has gained popularity, hitting over 3 million streams & continuing to grow.
-              The track has been well-received by audiences in 2023 & had earned Heno. top ten spots on
-              Spotify's Mellow Bars & Alternative Hip Hop playlists - not to mention performing the
-              record at Coachella this year & being the first music artist to ever mint Coachella
-              footage onchain.`}
-        </p>
-        <p>
-          {`"Neybors" is the first single from Heno.'s forthcoming concept album "I'm Tired of Being
-              Hypersurveilled" set to release in January 2024. Heno. speaks to his exhaustion with the
-              oppressive & all encompassing nature of surveillance by using personal experience & world
-              building to have universal conversations. This record is a part of a multi-hyphenate media
-              experience that includes a pixel arcade game, a VR world built in Unreal Engine, a short
-              film, + full length music album with features like Mick Jenkins, Elujay, Felix! & more.
-              "Neybors" is on the lighter side of surveillance however the music further explores how
-              surveillance affects all of us in a myriad of ways & why Heno. is tired of it.`}
+          {`Heno. is an artist and producer who experiments across different mediums, hailed by Fortune as an "early innovator" & praised by COLORS for his "hard-hitting and powerful aesthetic." A first-generation Ethiopian-Eritrean based in Los Angeles, CA by way of Takoma Park, Maryland, Heno. uses his music and love for art to explore impactful stories & build worlds bridging the traditional music industry & the Web3 space. Sonically, Heno.'s versatility knows no bounds with collaborations from Mick Jenkins, JPEGMAFIA, Chaz Bear (Toro Y Moi), Elujay, J.Robb & many more that have amassed millions of plays. Heno. has a lot in the queue this year with new music on the horizon, stay tuned for more.`}
         </p>
       </div>
       <RecBar cctvNumber={1} />

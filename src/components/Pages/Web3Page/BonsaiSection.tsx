@@ -2,7 +2,7 @@ import CollectDropButton from "@/components/CollectDropButton"
 import DropCollect from "@/components/DropCollect"
 import data from "@/lib/zora-drops"
 
-const BonasiSection = ({ isPopup }) => (
+const BonsaiSection = ({ isPopup }) => (
   <DropCollect
     title={data[12].title}
     artist={data[12].artist}
@@ -13,4 +13,4 @@ const BonasiSection = ({ isPopup }) => (
   </DropCollect>
 )
 
-export default BonasiSection
+export default BonsaiSection

@@ -25,8 +25,6 @@
     "@vercel/analytics": "^1.0.1",
     "@zoralabs/protocol-deployments": "^0.2.2",
     "@zoralabs/protocol-sdk": "^0.9.0",
-    "@zoralabs/zorb": "^0.1.0",
-    "@zoralabs/zord": "^2.1.0",
     "axios": "^1.2.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",

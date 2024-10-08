@@ -16,8 +16,6 @@ const useCollectDrop = () => {
   const collect = async (dropAddress: Address, tokenId: number, chainId: number) => {
     try {
       if (!(await prepare(chainId))) return false
-      if (!connectedWallet) return false
-
       setLoading(true)
 
       const { token }: any = await getToken(dropAddress, "1155", tokenId, chainId)

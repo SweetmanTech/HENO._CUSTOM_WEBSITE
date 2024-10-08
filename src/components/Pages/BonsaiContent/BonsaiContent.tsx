@@ -1,9 +1,9 @@
 import getIpfsLink from "@/lib/getIpfsLink"
-import { BONASI } from "@/lib/consts"
+import { BONSAI } from "@/lib/consts"
 import RecBar from "../../RecBar"
 import useIsMobile from "../../../hooks/useIsMobile"
 
-const BonasiContent = () => {
+const BonsaiContent = () => {
   const isMobile = useIsMobile()
 
   return (
@@ -20,7 +20,7 @@ const BonasiContent = () => {
         >
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <video
-            src={getIpfsLink(BONASI)}
+            src={getIpfsLink(BONSAI)}
             width={isMobile ? 180 : 200}
             height={isMobile ? 125 : 230}
             controls
@@ -33,4 +33,4 @@ const BonasiContent = () => {
   )
 }
 
-export default BonasiContent
+export default BonsaiContent

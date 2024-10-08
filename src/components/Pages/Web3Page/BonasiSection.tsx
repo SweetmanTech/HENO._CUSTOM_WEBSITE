@@ -14,6 +14,7 @@ const BonasiSection = ({ isPopup }) => (
   >
     <CollectDropButton
       chainId={IS_TESTNET ? baseSepolia.id : base.id}
+      tokenId={3}
       address={BONSAI_DROP_ADDRESS as Address}
     />
   </DropCollect>

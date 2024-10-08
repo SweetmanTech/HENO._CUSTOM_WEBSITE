@@ -1,11 +1,11 @@
-import getCollectorClient from './getCollectorClient'
-import { Address } from 'viem'
+import { Address } from "viem"
+import getCollectorClient from "./getCollectorClient"
 
 const getToken = async (
   collectionAddress: Address,
   mintType: any,
   tokenId: any,
-  chainId: number
+  chainId: number,
 ) => {
   const collectorClient = getCollectorClient(chainId)
 
@@ -14,7 +14,7 @@ const getToken = async (
     mintType,
   }
 
-  if (mintType === '1155') tokenInfo.tokenId = tokenId
+  if (mintType === "1155") tokenInfo.tokenId = tokenId
 
   const { token, prepareMint } = await collectorClient.getToken(tokenInfo)
 

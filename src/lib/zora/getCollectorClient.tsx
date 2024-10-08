@@ -1,5 +1,5 @@
+import { createCollectorClient } from "@zoralabs/protocol-sdk"
 import { getPublicClient } from "../clients"
-import { createCollectorClient } from '@zoralabs/protocol-sdk'
 
 const getCollectorClient = (chainId: number) => {
   const publicClient = getPublicClient(chainId)

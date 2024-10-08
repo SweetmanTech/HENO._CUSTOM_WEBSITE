@@ -75,7 +75,7 @@ const data = [
     ipfs: "https://ipfs.decentralized-content.com/ipfs/QmeiQuQSv8HWsAmZxzX666V26KbknVi82qQMq5sibGhSHr",
     artist: "heno",
     title: "Heno., Mad Keys - Lemons Made Better (Snippet)",
-    startedAt: "",
+    startedAt: "11am ET, 9 October, 2024",
   },
 ]
 export default data

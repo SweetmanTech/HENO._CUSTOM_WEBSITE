@@ -55,8 +55,8 @@ function TextArea({
         className={`text-gray_1 w-full border-[2px] !border-gray_1 bg-black
           focus:ring-0 focus:border-gray_1 
           ${className || ""} ${
-            hookToForm && fieldError && fieldError?.message ? clasNameError : ""
-          }`}
+          hookToForm && fieldError && fieldError?.message ? clasNameError : ""
+        }`}
         {...(!hookToForm && {
           value,
           onChange,

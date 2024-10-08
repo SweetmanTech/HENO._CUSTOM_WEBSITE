@@ -63,7 +63,7 @@ export const ONE_MILLISEOND = 1000
 
 export const SYSTEM_COMMERCIAL =
   "ipfs://Qmccf1fZeNZc9nWwvq3a5aiQr3bCr5VNCi3PaUbhrUnpRJ/SYSTEM%20COMMERCIAL.mp4"
-export const BONASI = "ipfs://QmeiQuQSv8HWsAmZxzX666V26KbknVi82qQMq5sibGhSHr"
+export const BONSAI = "ipfs://QmeiQuQSv8HWsAmZxzX666V26KbknVi82qQMq5sibGhSHr"
 export const COLLECTIONS = [
   {
     collectionAddress: ZORA_DROP_ADDRESS,

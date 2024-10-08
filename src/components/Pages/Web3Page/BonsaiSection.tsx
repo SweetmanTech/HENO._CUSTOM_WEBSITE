@@ -5,7 +5,7 @@ import data from "@/lib/zora-drops"
 import { Address } from "viem"
 import { base, baseSepolia } from "viem/chains"
 
-const BonasiSection = ({ isPopup }) => (
+const BonsaiSection = ({ isPopup }) => (
   <DropCollect
     title={data[12].title}
     artist={data[12].artist}
@@ -20,4 +20,4 @@ const BonasiSection = ({ isPopup }) => (
   </DropCollect>
 )
 
-export default BonasiSection
+export default BonsaiSection

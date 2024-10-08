@@ -8,13 +8,13 @@ import { SCREENS } from "@/lib/screens"
 import { usePopupWidget } from "@/providers/PopupWidgetProvider"
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
-import BonasiContent from "../BonasiContent/BonasiContent"
+import BonsaiContent from "../BonsaiContent"
 
 const LandingPage = () => {
   const { openPopUp } = usePopupWidget() as any
   const { entered } = usePageLoad()
   const isMobile = useIsMobile()
-  const [isBonasiOpen, setIsBonasiOpen] = useState<any>(true)
+  const [isBonsaiOpen, setIsBonsaiOpen] = useState<any>(true)
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
@@ -59,13 +59,13 @@ const LandingPage = () => {
           Play Relief
         </a>
       )}
-      {isBonasiOpen && (
+      {isBonsaiOpen && (
         <DraggableModal
           href="/"
-          handleClose={() => setIsBonasiOpen(!isBonasiOpen)}
-          isVisible={isBonasiOpen}
+          handleClose={() => setIsBonsaiOpen(!isBonsaiOpen)}
+          isVisible={isBonsaiOpen}
         >
-          <BonasiContent />
+          <BonsaiContent />
         </DraggableModal>
       )}
     </Layout>

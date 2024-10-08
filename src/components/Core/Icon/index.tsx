@@ -66,10 +66,10 @@ function Icon({
           size <= 20
             ? styles.sizes.mini
             : size < 25
-            ? styles.sizes.small
-            : size < 40
-            ? styles.sizes.medium
-            : styles.sizes.large
+              ? styles.sizes.small
+              : size < 40
+                ? styles.sizes.medium
+                : styles.sizes.large
         } 
         ${!noHighlights && styles?.variants?.[variant]?.highlight} 
         ${className}

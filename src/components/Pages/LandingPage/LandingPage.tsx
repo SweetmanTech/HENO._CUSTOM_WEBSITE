@@ -8,13 +8,13 @@ import { SCREENS } from "@/lib/screens"
 import { usePopupWidget } from "@/providers/PopupWidgetProvider"
 import LandingCard from "../../LandingCard"
 import Layout from "../../Layout"
-import YoutubeContent from "../YoutubeContent"
+import BonasiContent from "../BonasiContent/BonasiContent"
 
 const LandingPage = () => {
   const { openPopUp } = usePopupWidget() as any
   const { entered } = usePageLoad()
   const isMobile = useIsMobile()
-  const [isOpenYoutubeModal, setIsOpenYoutubeModal] = useState<any>(true)
+  const [isBonasiOpen, setIsBonasiOpen] = useState<any>(true)
 
   return (
     <Layout type={isMobile ? "mobile" : "base"}>
@@ -59,13 +59,13 @@ const LandingPage = () => {
           Play Relief
         </a>
       )}
-      {isOpenYoutubeModal && (
+      {isBonasiOpen && (
         <DraggableModal
           href="/"
-          handleClose={() => setIsOpenYoutubeModal(!isOpenYoutubeModal)}
-          isVisible={isOpenYoutubeModal}
+          handleClose={() => setIsBonasiOpen(!isBonasiOpen)}
+          isVisible={isBonasiOpen}
         >
-          <YoutubeContent />
+          <BonasiContent />
         </DraggableModal>
       )}
     </Layout>

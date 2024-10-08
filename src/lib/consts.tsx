@@ -39,6 +39,9 @@ export const HYDROPLANING_DROP_ADDRESS = IS_TESTNET
 export const HYDROPLANING_REWARDS_RECIPIENT = IS_TESTNET
   ? "0x52d91e960e52641ee7142e2942378dda357b8685"
   : "0x61edd3496d5FF1b84F36be0922a9197f8AAC486e"
+export const BONSAI_DROP_ADDRESS = IS_TESTNET
+  ? "0x32510dB16C1aebA2A3f96fcB2EC0089ac0BB41DF"
+  : "0x98e929350d82Db54c0Bdb9656F4d2F65ad4ED39f"
 export const SPOTIFY_STATE_KEY = "spotify_auth_state"
 export const RELIEF_TRACK_ID = "5aDNHHNXc16VktqV1gSq23"
 export const HENO_ARTIST_ID = "3mr6jeVpPIXBp8IMMb60aD"
@@ -60,7 +63,7 @@ export const ONE_MILLISEOND = 1000
 
 export const SYSTEM_COMMERCIAL =
   "ipfs://Qmccf1fZeNZc9nWwvq3a5aiQr3bCr5VNCi3PaUbhrUnpRJ/SYSTEM%20COMMERCIAL.mp4"
-
+export const BONASI = "ipfs://QmeiQuQSv8HWsAmZxzX666V26KbknVi82qQMq5sibGhSHr"
 export const COLLECTIONS = [
   {
     collectionAddress: ZORA_DROP_ADDRESS,

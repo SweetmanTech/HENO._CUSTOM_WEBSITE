@@ -18,7 +18,7 @@ const LeaderboardPage = () => {
         >
           <section className="border-[2px] rounded-xl overflow-hidden">
             <iframe
-              src={`https://www.stack.so/leaderboard/leaderboard-40a3-78225-4017/embed?excludeHeader=true`}
+              src="https://www.stack.so/leaderboard/leaderboard-40a3-78225-4017/embed?excludeHeader=true"
               className="mx-auto"
               width="704px"
               height="400px"
